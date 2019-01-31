@@ -13,7 +13,7 @@ export class ChangeLanguageComponent implements OnInit {
   ngOnInit() {
   }
 
-  useLang(lang: string){
+  useLang(lang: string) {
     this.translate.use(lang);
   }
 }

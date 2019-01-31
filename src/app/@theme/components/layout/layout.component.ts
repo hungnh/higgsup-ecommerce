@@ -3,7 +3,6 @@ import {delay, takeWhile, withLatestFrom} from 'rxjs/operators';
 import {
   NbMediaBreakpoint,
   NbMediaBreakpointsService,
-  NbMenuItem,
   NbMenuService,
   NbSidebarService,
   NbThemeService,
