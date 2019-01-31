@@ -5,10 +5,10 @@ import { MENU_ITEMS } from './pages-menu';
 @Component({
   selector: 'ngx-pages',
   template: `
-    <app-layout>
+    <ngx-layout>
       <nb-menu [items]="menu"></nb-menu>
       <router-outlet></router-outlet>
-    </app-layout>
+    </ngx-layout>
   `,
 })
 export class PagesComponent {

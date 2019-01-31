@@ -9,7 +9,7 @@ import {
 } from '@nebular/theme';
 
 @Component({
-  selector: 'app-layout',
+  selector: 'ngx-layout',
   styleUrls: ['./layout.component.scss'],
   templateUrl: './layout.component.html',
 })
