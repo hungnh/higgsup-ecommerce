@@ -9,11 +9,7 @@
 
   nb-sidebar.menu-sidebar {
 
-    margin-top: nb-theme(sidebar-header-gap);
-
-    @include nb-for-theme(corporate) {
-      margin-top: 0;
-    }
+    margin-top: 0;
 
     /deep/ .main-container {
       height:
@@ -29,12 +25,10 @@
     }
 
     /deep/ .scrollable {
-      @include nb-for-theme(corporate) {
-        padding-top: 0;
+      padding-top: 0;
 
-        .menu-item:first-child {
-          border-top: none;
-        }
+      .menu-item:first-child {
+        border-top: none;
       }
     }
 
@@ -66,28 +60,6 @@
 
       i, span {
         vertical-align: middle;
-      }
-    }
-
-    /deep/ nb-menu {
-      & > .menu-items {
-        & > .menu-item:first-child {
-          .menu-title {
-            &::after {
-              content: 'new';
-              color: nb-theme(color-white);
-              margin-left: 1rem;
-              background: nb-theme(color-danger);
-              padding: 0 0.5rem;
-              border-radius: nb-theme(radius);
-              font-size: nb-theme(font-size-sm);
-            }
-          }
-        }
-      }
-
-      .nb-e-commerce {
-        font-size: 2rem;
       }
     }
 
