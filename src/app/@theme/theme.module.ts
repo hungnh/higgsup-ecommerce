@@ -40,21 +40,17 @@ import { NbSecurityModule } from '@nebular/security';
 import {
   FooterComponent,
   HeaderComponent,
-  SearchInputComponent,
-  SwitcherComponent,
   ThemeSwitcherComponent,
   ThemeSwitcherListComponent,
 } from './components';
 import {
   CapitalizePipe,
-  PluralPipe,
   RoundPipe,
   TimingPipe,
   NumberWithCommasPipe,
-  EvaIconsPipe,
 } from './pipes';
 
-import {SampleLayoutComponent} from "./components/layout/layout.component";
+import {LayoutComponent} from './components/layout/layout.component';
 
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
@@ -96,13 +92,11 @@ const NB_MODULES = [
 ];
 
 const COMPONENTS = [
-  SwitcherComponent,
   ThemeSwitcherComponent,
   ThemeSwitcherListComponent,
   HeaderComponent,
   FooterComponent,
-  SearchInputComponent,
-  SampleLayoutComponent
+  LayoutComponent,
 ];
 
 const ENTRY_COMPONENTS = [
@@ -111,11 +105,9 @@ const ENTRY_COMPONENTS = [
 
 const PIPES = [
   CapitalizePipe,
-  PluralPipe,
   RoundPipe,
   TimingPipe,
   NumberWithCommasPipe,
-  EvaIconsPipe,
 ];
 
 const NB_THEME_PROVIDERS = [
