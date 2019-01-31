@@ -4,3 +4,4 @@ export * from './search-input/search-input.component';
 export * from './theme-switcher/theme-switcher.component';
 export * from './switcher/switcher.component';
 export * from './theme-switcher/themes-switcher-list/themes-switcher-list.component';
+export * from './change-language/change-language.component';

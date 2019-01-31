@@ -1,0 +1,16 @@
+{
+  "header": {
+    "themes": "Themes",
+    "vietnamese": "Vietnamese",
+    "english": "English"
+  },
+  "sidebar": {
+    "support-us": "support us",
+    "dashboard": "Dashboard",
+    "feature": "features",
+    "auth": "Auth"
+  },
+  "content": {
+    "song-lyric": "We don't talk anymore ~"
+  }
+}

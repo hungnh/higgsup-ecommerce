@@ -1,0 +1,16 @@
+{
+  "header": {
+    "themes": "Giao diện",
+    "vietnamese": "Tiếng Việt",
+    "english": "Tiếng Anh"
+  },
+  "sidebar": {
+    "support-us": "Quẩy lên",
+    "dashboard": "Bảng tin",
+    "feature": "Tính năng",
+    "auth": "Bảo mật"
+  },
+  "content": {
+    "song-lyric": "Chúng ta không thuộc về nhau ~"
+  }
+}

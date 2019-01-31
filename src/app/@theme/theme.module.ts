@@ -1,7 +1,7 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {ModuleWithProviders, NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {
   NbActionsModule,
@@ -35,7 +35,7 @@ import {
   NbTooltipModule,
 } from '@nebular/theme';
 
-import { NbSecurityModule } from '@nebular/security';
+import {NbSecurityModule} from '@nebular/security';
 
 import {
   FooterComponent,
@@ -56,11 +56,14 @@ import {
 
 import {SampleLayoutComponent} from "./components/layout/layout.component";
 
-import { DEFAULT_THEME } from './styles/theme.default';
-import { COSMIC_THEME } from './styles/theme.cosmic';
-import { CORPORATE_THEME } from './styles/theme.corporate';
+import {DEFAULT_THEME} from './styles/theme.default';
+import {COSMIC_THEME} from './styles/theme.cosmic';
+import {CORPORATE_THEME} from './styles/theme.corporate';
+import {TranslateModule} from "@ngx-translate/core";
+import { ChangeLanguageComponent } from './components/change-language/change-language.component';
 
-const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
+const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule,
+  TranslateModule];
 
 const NB_MODULES = [
   NbCardModule,
@@ -102,7 +105,8 @@ const COMPONENTS = [
   HeaderComponent,
   FooterComponent,
   SearchInputComponent,
-  SampleLayoutComponent
+  SampleLayoutComponent,
+  ChangeLanguageComponent
 ];
 
 const ENTRY_COMPONENTS = [
@@ -123,7 +127,7 @@ const NB_THEME_PROVIDERS = [
     {
       name: 'default',
     },
-    [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME ],
+    [DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME],
   ).providers,
   ...NbSidebarModule.forRoot().providers,
   ...NbMenuModule.forRoot().providers,
@@ -137,6 +141,7 @@ const NB_THEME_PROVIDERS = [
   exports: [...BASE_MODULES, ...NB_MODULES, ...COMPONENTS, ...PIPES],
   declarations: [...COMPONENTS, ...PIPES],
   entryComponents: [...ENTRY_COMPONENTS],
+  providers: [TranslateModule]
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders {
