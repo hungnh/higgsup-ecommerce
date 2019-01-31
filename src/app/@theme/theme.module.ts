@@ -24,6 +24,7 @@ import {
   NbButtonModule,
   NbInputModule,
   NbAccordionModule,
+  NbDatepickerModule,
   NbDialogModule,
   NbWindowModule,
   NbListModule,
@@ -32,7 +33,9 @@ import {
   NbSpinnerModule,
   NbRadioModule,
   NbSelectModule,
+  NbChatModule,
   NbTooltipModule,
+  NbCalendarKitModule,
 } from '@nebular/theme';
 
 import { NbSecurityModule } from '@nebular/security';
@@ -41,9 +44,13 @@ import {
   FooterComponent,
   HeaderComponent,
   SearchInputComponent,
+  ThemeSettingsComponent,
   SwitcherComponent,
+  LayoutDirectionSwitcherComponent,
   ThemeSwitcherComponent,
+  TinyMCEComponent,
   ThemeSwitcherListComponent,
+  ToggleSettingsButtonComponent,
 } from './components';
 import {
   CapitalizePipe,
@@ -53,9 +60,12 @@ import {
   NumberWithCommasPipe,
   EvaIconsPipe,
 } from './pipes';
-
-import {SampleLayoutComponent} from "./components/layout/layout.component";
-
+import {
+  OneColumnLayoutComponent,
+  SampleLayoutComponent,
+  ThreeColumnsLayoutComponent,
+  TwoColumnsLayoutComponent,
+} from './layouts';
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
@@ -86,23 +96,33 @@ const NB_MODULES = [
   NbToastrModule,
   NbInputModule,
   NbAccordionModule,
+  NbDatepickerModule,
   NbDialogModule,
   NbWindowModule,
   NbAlertModule,
   NbSpinnerModule,
   NbRadioModule,
   NbSelectModule,
+  NbChatModule,
   NbTooltipModule,
+  NbCalendarKitModule,
 ];
 
 const COMPONENTS = [
   SwitcherComponent,
+  LayoutDirectionSwitcherComponent,
   ThemeSwitcherComponent,
   ThemeSwitcherListComponent,
   HeaderComponent,
   FooterComponent,
   SearchInputComponent,
-  SampleLayoutComponent
+  ThemeSettingsComponent,
+  TinyMCEComponent,
+  OneColumnLayoutComponent,
+  SampleLayoutComponent,
+  ThreeColumnsLayoutComponent,
+  TwoColumnsLayoutComponent,
+  ToggleSettingsButtonComponent,
 ];
 
 const ENTRY_COMPONENTS = [
@@ -121,15 +141,19 @@ const PIPES = [
 const NB_THEME_PROVIDERS = [
   ...NbThemeModule.forRoot(
     {
-      name: 'default',
+      name: 'cosmic',
     },
     [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME ],
   ).providers,
   ...NbSidebarModule.forRoot().providers,
   ...NbMenuModule.forRoot().providers,
+  ...NbDatepickerModule.forRoot().providers,
   ...NbDialogModule.forRoot().providers,
   ...NbWindowModule.forRoot().providers,
   ...NbToastrModule.forRoot().providers,
+  ...NbChatModule.forRoot({
+    messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
+  }).providers,
 ];
 
 @NgModule({

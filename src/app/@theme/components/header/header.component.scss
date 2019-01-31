@@ -78,13 +78,23 @@
     }
   }
 
+  ngx-layout-direction-switcher {
+    margin: 0 1.5rem;
+  }
+
   ngx-theme-switcher {
     margin: nb-theme(layout-padding);
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  .toggle-layout /deep/ a {
+  @include media-breakpoint-down(xl) {
+    ngx-layout-direction-switcher {
+      display: none;
+    }
+  }
+
+  .toggle-settings /deep/ a {
     display: block;
     text-decoration: none;
     line-height: 1;
@@ -145,7 +155,7 @@
 
   @include media-breakpoint-down(md) {
 
-    nb-action:not(.toggle-layout) {
+    nb-action:not(.toggle-settings) {
       border: none;
     }
 
@@ -153,8 +163,12 @@
       display: none;
     }
 
-    .toggle-layout {
+    .toggle-settings {
       padding: 0;
+    }
+
+    ngx-layout-direction-switcher {
+      display: none;
     }
 
     ngx-theme-switcher {
@@ -177,7 +191,7 @@
       }
     }
 
-    .toggle-layout {
+    .toggle-settings {
       display: none;
     }
 
@@ -185,7 +199,7 @@
       display: none;
     }
 
-    nb-action:not(.toggle-layout) {
+    nb-action:not(.toggle-settings) {
       padding: 0;
     }
   }
