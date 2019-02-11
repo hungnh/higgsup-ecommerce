@@ -40,17 +40,17 @@ import { NbSecurityModule } from '@nebular/security';
 import {
   FooterComponent,
   HeaderComponent,
+  LayoutComponent,
   ThemeSwitcherComponent,
   ThemeSwitcherListComponent,
 } from './components';
+
 import {
   CapitalizePipe,
   RoundPipe,
   TimingPipe,
   NumberWithCommasPipe,
 } from './pipes';
-
-import {LayoutComponent} from './components/layout/layout.component';
 
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
