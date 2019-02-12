@@ -14,6 +14,10 @@ const routes: Routes = [{
       component: DashboardComponent,
     },
     {
+      path: 'feature-01',
+      loadChildren: 'app/pages//feature01/feature01.module#Feature01Module',
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
