@@ -52,7 +52,7 @@ export const NB_CORE_PROVIDERS = [
         logout: {
           endpoint: 'auth/token/invalidate',
           method: 'POST',
-        }
+        },
       }),
     ],
     forms: {},
