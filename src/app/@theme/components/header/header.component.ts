@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { NbMenuService, NbSidebarService } from '@nebular/theme';
 import { UserService } from '../../../@core/data/users.service';
-import { AnalyticsService } from '../../../@core/utils/analytics.service';
+import { AnalyticsService } from '../../../@core/utils';
+import {NbAuthJWTToken, NbAuthService} from '@nebular/auth';
 
 @Component({
   selector: 'ngx-header',
@@ -20,12 +21,17 @@ export class HeaderComponent implements OnInit {
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private userService: UserService,
+              private authService: NbAuthService,
               private analyticsService: AnalyticsService) {
+    this.authService.onTokenChange()
+      .subscribe((token: NbAuthJWTToken) => {
+        if (token.isValid()) {
+          this.user = token.getPayload(); // here we receive a payload from the token and assigne it to our `user` variable
+        }
+      });
   }
 
   ngOnInit() {
-    this.userService.getUsers()
-      .subscribe((users: any) => this.user = users.nick);
   }
 
   toggleSidebar(): boolean {
