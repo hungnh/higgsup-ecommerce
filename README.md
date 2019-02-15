@@ -109,8 +109,8 @@ This document will guide developer step by step, follow strictly the project str
     Routes to child components of `Feature02Component` will be configured in the children array.
 
 6. **Finish.**
-### localization Datepicker
-1. ** Add `DatePicker` **
+### Localization For Datepicker
+1. **Add `DatePicker`**
     `HTML files`
     ```
       <input [nbDatepicker]="datepicker">
@@ -126,7 +126,7 @@ This document will guide developer step by step, follow strictly the project str
         ],
     ```
     import `NbDatepickerModule`
-2. ** Localization It **
+2. **Localization for `DatePicker`**
     `App.module.ts`
     ```
       import vi from '@angular/common/locales/vi';
@@ -140,4 +140,4 @@ This document will guide developer step by step, follow strictly the project str
           { provide: LOCALE_ID, useValue: 'vi' },
         ],
     ```
-3. ** `Finish.`**
+3. **Finish.**
