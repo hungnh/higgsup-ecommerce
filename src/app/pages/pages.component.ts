@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 import {NbAccessChecker} from '@nebular/security';
 import {NbMenuItem} from '@nebular/theme';
@@ -35,8 +35,9 @@ export class PagesComponent {
       },
     ];
 
-    accessChecker.isGranted('view', 'feature01').subscribe(granted => {
-      this.menu.find(item => item.title === 'Feature 01').hidden = !granted;
-    });
+    accessChecker.isGranted('view', 'feature-01')
+      .subscribe(granted => {
+        this.menu.find(item => item.title === 'Feature 01').hidden = !granted;
+      });
   }
 }

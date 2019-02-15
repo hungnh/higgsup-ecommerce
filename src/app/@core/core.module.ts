@@ -18,6 +18,7 @@ import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {HTTP_INTERCEPTORS, HttpRequest} from '@angular/common/http';
 import {AuthGuard} from './auth/auth-guard.service';
+import {SecurityGuard} from './auth/security-guard.service';
 
 @Injectable()
 export class NbSimpleRoleProvider implements NbRoleProvider {
@@ -80,7 +81,7 @@ export const NB_CORE_PROVIDERS = [
         },
         ROLE_ADMIN: {
           parent: 'ROLE_MEMBER',
-          view: ['feature01', 'dashboard-admin-text'],
+          view: ['feature-01', 'dashboard-admin-text'],
         },
       },
     },
@@ -89,6 +90,9 @@ export const NB_CORE_PROVIDERS = [
   {
     provide: NbRoleProvider, useClass: NbSimpleRoleProvider,
   },
+
+  SecurityGuard,
+
   AnalyticsService,
 ];
 
