@@ -137,7 +137,7 @@ This document will guide developer step by step, follow strictly the project str
       
       ---
       providers: [
-          { provide: LOCALE_ID, useValue: 'fr' },
+          { provide: LOCALE_ID, useValue: 'vi' },
         ],
     ```
 3. ** `Finish.`**

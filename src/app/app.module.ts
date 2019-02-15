@@ -32,7 +32,7 @@ registerLocaleData(fr);
   bootstrap: [AppComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
-    { provide: LOCALE_ID, useValue: 'fr' },
+    { provide: LOCALE_ID, useValue: 'vi' },
   ],
 })
 export class AppModule {
