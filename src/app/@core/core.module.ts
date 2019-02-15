@@ -1,14 +1,23 @@
 import {Injectable, ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {NbAuthJWTToken, NbAuthModule, NbAuthService, NbPasswordAuthStrategy} from '@nebular/auth';
-import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
+import {CommonModule} from '@angular/common';
+import {
+  NB_AUTH_TOKEN_INTERCEPTOR_FILTER,
+  NbAuthJWTInterceptor,
+  NbAuthJWTToken,
+  NbAuthModule,
+  NbAuthService,
+  NbPasswordAuthStrategy,
+} from '@nebular/auth';
+import {NbRoleProvider, NbSecurityModule} from '@nebular/security';
 
-import { throwIfAlreadyLoaded } from './module-import-guard';
-import { DataModule } from './data/data.module';
-import { AnalyticsService } from './utils';
+import {throwIfAlreadyLoaded} from './module-import-guard';
+import {DataModule} from './data/data.module';
+import {AnalyticsService} from './utils';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
+import {HTTP_INTERCEPTORS, HttpRequest} from '@angular/common/http';
+import {AuthGuard} from './auth/auth-guard.service';
 
 @Injectable()
 export class NbSimpleRoleProvider implements NbRoleProvider {
@@ -42,13 +51,27 @@ export const NB_CORE_PROVIDERS = [
           method: 'POST',
         },
         logout: {
-          endpoint: 'auth/token/invalidate',
+          endpoint: 'logout',
           method: 'POST',
         },
       }),
     ],
     forms: {},
   }).providers,
+
+  {
+    provide: NB_AUTH_TOKEN_INTERCEPTOR_FILTER,
+    useValue: function (req: HttpRequest<any>) {
+      return req.url === '/api/auth/token';
+    },
+  },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: NbAuthJWTInterceptor,
+    multi: true,
+  },
+
+  AuthGuard,
 
   NbSecurityModule.forRoot({
       accessControl: {

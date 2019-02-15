@@ -8,7 +8,7 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
-import {AuthGuard} from './auth-guard.service';
+import {AuthGuard} from './@core/auth/auth-guard.service';
 
 const routes: Routes = [
   {
