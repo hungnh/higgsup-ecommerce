@@ -10,4 +10,5 @@
 
 export const environment = {
   production: false,
+  apiEndpoint: 'http://192.168.1.63:8080/api/',
 };
