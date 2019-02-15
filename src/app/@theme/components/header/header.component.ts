@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
-import {NbMenuItem, NbMenuService, NbSidebarService} from '@nebular/theme';
-import { AnalyticsService } from '../../../@core/utils';
+import {NbMenuService, NbSidebarService} from '@nebular/theme';
+import {AnalyticsService} from '../../../@core/utils';
 import {NbAuthJWTToken, NbAuthService} from '@nebular/auth';
 import {filter, map} from 'rxjs/operators';
 import {Router} from '@angular/router';
