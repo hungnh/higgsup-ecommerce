@@ -1,7 +1,7 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {
   NbActionsModule,
@@ -35,14 +35,16 @@ import {
   NbTooltipModule,
 } from '@nebular/theme';
 
-import {NbSecurityModule} from '@nebular/security';
+import { NbSecurityModule } from '@nebular/security';
 
 import {
   FooterComponent,
   HeaderComponent,
+  LayoutComponent,
   ThemeSwitcherComponent,
   ThemeSwitcherListComponent,
 } from './components';
+
 import {
   CapitalizePipe,
   RoundPipe,
@@ -50,11 +52,10 @@ import {
   NumberWithCommasPipe,
 } from './pipes';
 
+import { DEFAULT_THEME } from './styles/theme.default';
+import { COSMIC_THEME } from './styles/theme.cosmic';
+import { CORPORATE_THEME } from './styles/theme.corporate';
 import {LayoutComponent} from './components/layout/layout.component';
-
-import {DEFAULT_THEME} from './styles/theme.default';
-import {COSMIC_THEME} from './styles/theme.cosmic';
-import {CORPORATE_THEME} from './styles/theme.corporate';
 import {TranslateModule} from "@ngx-translate/core";
 import { ChangeLanguageComponent } from './components/change-language/change-language.component';
 

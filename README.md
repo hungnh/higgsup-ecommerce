@@ -1,92 +1,111 @@
-[![Build Status](https://travis-ci.org/akveo/ngx-admin.svg?branch=master)](https://travis-ci.org/akveo/ngx-admin)
-[![Join the chat at https://gitter.im/ng2-admin/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ng2-admin/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Dependency Status](https://david-dm.org/akveo/ngx-admin/status.svg)](https://david-dm.org/akveo/ng2-admin)
+## Coding guide & conventions
+ 
+### Background
+Firstly, please read "Angular Application Architecture Documentation.docx" file to understand the architecture overview of this application.
 
-[Who uses ngx-admin?](https://github.com/akveo/ngx-admin/issues/1645)
+### Coding guide
+This document will guide developer step by step, follow strictly the project structure we have defined in the Architecture Documentation to develop a new feature of their application:
+1. **Create new feature module inside `PagesModule`**
+    
+    Let name it `feature02` for example
+    ```
+    cd src/app/pages
+    ng generate module feature02
+    ```
+    A new folder `feature02` will be created along with `feature02.module.ts` file inside which declares `Feature02Module`.
 
-# Admin template based on Angular 7+, Bootstrap 4 and <a href="https://github.com/akveo/nebular">Nebular</a>
+2. **Add new route to `Feature02Module` in `PagesRoutingModule`**
+    
+    ```angular2
+    const routes: Routes = [{
+      path: '',
+      component: PagesComponent,
+      children: [
+        {
+          path: 'dashboard',
+          component: DashboardComponent,
+        },
+        {
+          path: 'feature-01',
+          loadChildren: 'app/pages/feature01/feature01.module#Feature01Module',
+        },
+        {
+          path: 'feature-02',
+          loadChildren: 'app/pages/feature02/feature02.module#Feature02Module',
+        },
+        {
+          path: '',
+          redirectTo: 'dashboard',
+          pathMatch: 'full',
+        },
+        {
+          path: '**',
+          component: NotFoundComponent,
+        },
+      ],
+    }];
+    ```
 
-### Three themes available:
+3. **Add a new item for this feature in `pages-menu.ts` file**
+    
+    ```angular2
+    export const MENU_ITEMS: NbMenuItem[] = [
+      {
+        title: 'Dashboard',
+        icon: 'nb-home',
+        link: '/pages/dashboard',
+        home: true,
+      },
+      {
+        title: 'FEATURES',
+        group: true,
+      },
+      {
+        title: 'Feature 01',
+        icon: 'nb-gear',
+        link: '/pages/feature-01',
+      },
+      {
+        title: 'Feature 02',
+        icon: 'nb-gear',
+        link: '/pages/feature-02',
+      },
+    ];
+    ```
+    This will append a new menu item to the sidebar with the defined **title** and **icon**. If users click on this menu item, then it will route to `Feature02Module`, as specified by **link** property.
 
-| Corporate Theme |
-|:---------------:|
-|<a target="_blank" href="http://akveo.com/ngx-admin/#/pages/dashboard?theme=corporate&utm_source=github&utm_medium=ngx_admin_readme&utm_campaign=themes"><img src="https://i.imgur.com/axbJYdN.png"/></a>|
+4. **Create a new component inside `Feature02Module`**
+    Let name it `feature02` for example.
+    ```
+    cd src/app/pages
+    ng generate component feature02
+    ```
+    A new component `Feature02Component` will be created inside the `feature02` folder.
 
-| Cosmic Theme | Light Theme |
-|:------------:|:--------------:|
-|<a target="_blank" href="http://akveo.com/ngx-admin/#/pages/dashboard?theme=cosmic&utm_source=github&utm_medium=ngx_admin_readme&utm_campaign=themes"><img src="https://i.imgur.com/FgRZcqL.png"/></a>|<a target="_blank" href="http://akveo.com/ngx-admin/#/pages/dashboard?theme=default&utm_source=github&utm_medium=ngx_admin_readme&utm_campaign=themes"><img src="https://i.imgur.com/fozHlRJ.png"/></a>|
+5. **Create a new routing module and config routes to components of feature module**
+    ```
+    cd src/app/pages
+    ng generate module feature02/feature02-routing --flat
+    ``` 
+    `Feature02RoutingModule` will be created. We need to add the routes config to components inside `Feature02Module`. For example:
+    ```angular2
+    const routes: Routes = [{
+      path: '',
+      component: Feature02Component,
+      children: [
+        {
+          path: 'sub-feature02',
+          component: SubFeature02Component,
+        },
+      ],
+    }];
+    
+    @NgModule({
+      imports: [RouterModule.forChild(routes)],
+      exports: [RouterModule],
+    })
+    export class Feature02RoutingModule { }
+    ```
+    Routes to child components of `Feature02Component` will be configured in the children array.
 
-### Ecommerce dashboard
-
-| Ecommerce Template |
-|:---------------:|
-|<a target="_blank" href="http://akveo.com/ngx-admin/#/pages/dashboard?utm_source=github&utm_medium=ngx_admin_readme&utm_campaign=themes&utm_content=ecommerce"><img src="https://i.imgur.com/UW7ZmcP.png"/></a>|
-
-### What's included:
-
-- Angular 7+ & Typescript
-- Bootstrap 4+ & SCSS
-- Responsive layout
-- RTL support
-- High resolution
-- Flexibly configurable themes with **hot-reload** (2 themes included)
-- Authentication module with multiple providers
-- Lots of awesome features:
-  - Buttons
-  - Modals
-  - Popovers
-  - Icons
-  - Typography
-  - Animated searches
-  - Forms
-  - Tabs
-  - Notifications
-  - Tables
-  - Maps
-  - Charts
-  - Editors
-  
-And many more!
-
-### Hot Themes Reload
-
-<a target="_blank" href="http://akveo.com/ngx-admin/#/pages/dashboard?utm_source=github&utm_medium=ngx_admin_readme&utm_campaign=demo"><img src="https://i.imgur.com/XoJtfvK.gif"/></a>
-
-### Demo
-
-<a target="_blank" href="http://akveo.com/ngx-admin/">Live Demo</a>
-
-## Documentation
-This template is using [Nebular](https://github.com/akveo/nebular) modules set, [here you can find documentation and other useful articles](https://akveo.github.io/nebular/docs/guides/install-based-on-starter-kit).
-
-### ng2-admin
-We will continue supporting [ng2-admin](https://github.com/akveo/ngx-admin/tree/ng2-admin) version, but if you are starting from scratch we recommend using `ngx-admin`. Unfortunately, there is no way to automatically update from ng2-admin to ngx-admin, but some parts (Nebular components) could be manually included.
-
-### Empty starter kit
-Don't need all the pages and modules and just looking for an empty starter kit for your next project? Check out our [starter-kit branch](https://github.com/akveo/ngx-admin/tree/starter-kit).
-
-### AngularJS 1.x version
-Here you can find AngularJS 1.x based version: [Blur Admin](http://akveo.github.io/blur-admin/)
-
-## BrowserStack
-This project runs its tests on multiple desktop and mobile browsers using [BrowserStack](http://www.browserstack.com).
-
-<img src="https://cloud.githubusercontent.com/assets/131406/22254249/534d889e-e254-11e6-8427-a759fb23b7bd.png" height="40" />
-
-## More from Akveo
-
-- [Eva Icons](https://github.com/akveo/eva-icons) - 480+ beautiful Open Source icons
-- [Nebular](https://github.com/akveo/nebular) - Angular Components, Auth and Security
-
-### How can I support developers?
-- Star our GitHub repo :star:
-- Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
-- Follow us on [Twitter](https://twitter.com/akveo_inc) :feet:
-- Like our page on [Facebook](https://www.facebook.com/akveo/) :thumbsup:
-
-### Looking for engineering services? 
-Visit [our homepage](http://akveo.com/) or simply leave us a message to [contact@akveo.com](mailto:contact@akveo.com). We will be happy to work with you!
-
-### From Developers
-Made with :heart: by [Akveo team](http://akveo.com/). Follow us on [Twitter](https://twitter.com/akveo_inc) to get the latest news first!
-We're always happy to receive your feedback!
+6. **Finish.**
