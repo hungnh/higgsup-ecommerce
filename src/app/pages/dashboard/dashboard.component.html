@@ -1,5 +1,11 @@
 <div class="row">
   <nb-card>
-    <nb-card-body>Hello from ngx-admin sandbox project.</nb-card-body>
+    <nb-card-body>Hello Higgers.</nb-card-body>
   </nb-card>
 </div>
+<div class="row" *nbIsGranted="['view', 'dashboard-admin-text']">
+  <nb-card>
+    <nb-card-body>Only ADMIN can see this.</nb-card-body>
+  </nb-card>
+</div>
+

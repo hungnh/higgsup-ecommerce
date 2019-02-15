@@ -1,17 +1,26 @@
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import {Injectable, ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {NbAuthJWTToken, NbAuthModule, NbPasswordAuthStrategy} from '@nebular/auth';
+import {NbAuthJWTToken, NbAuthModule, NbAuthService, NbPasswordAuthStrategy} from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
-import { of as observableOf } from 'rxjs';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { DataModule } from './data/data.module';
 import { AnalyticsService } from './utils';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
-export class NbSimpleRoleProvider extends NbRoleProvider {
-  getRole() {
-    // here you could provide any role based on any auth flow
-    return observableOf('guest');
+@Injectable()
+export class NbSimpleRoleProvider implements NbRoleProvider {
+  constructor(private authService: NbAuthService) {
+  }
+
+  getRole(): Observable<string> {
+    return this.authService.onTokenChange()
+      .pipe(
+        map((token: NbAuthJWTToken) => {
+          return token.isValid() ? token.getPayload()['scopes'][0] : 'ROLE_MEMBER';
+        }),
+      );
   }
 }
 
@@ -41,18 +50,17 @@ export const NB_CORE_PROVIDERS = [
   }).providers,
 
   NbSecurityModule.forRoot({
-    accessControl: {
-      guest: {
-        view: '*',
-      },
-      user: {
-        parent: 'guest',
-        create: '*',
-        edit: '*',
-        remove: '*',
+      accessControl: {
+        ROLE_MEMBER: {
+          view: [],
+        },
+        ROLE_ADMIN: {
+          parent: 'ROLE_MEMBER',
+          view: ['feature01', 'dashboard-admin-text'],
+        },
       },
     },
-  }).providers,
+  ).providers,
 
   {
     provide: NbRoleProvider, useClass: NbSimpleRoleProvider,
