@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Currency} from "../../@theme/glossary/currency.constant";
+import {NbMenuService} from "@nebular/theme";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {WarningComponent} from "../../@theme/components/warning/warning.component";
 
 @Component({
   selector: 'cart',
@@ -12,7 +15,8 @@ export class CartComponent implements OnInit {
   subTotal: number = null;
   currency: string = '';
 
-  constructor() {
+  constructor(private menuService: NbMenuService,
+              private modalService: NgbModal) {
   }
 
   ngOnInit() {
@@ -21,6 +25,10 @@ export class CartComponent implements OnInit {
     this.productList.forEach(product => {
       return this.subTotal += product.price * product.quantity;
     });
+  }
+
+  goToHome() {
+    this.menuService.navigateHome();
   }
 
   fakeCart() {
@@ -45,6 +53,7 @@ export class CartComponent implements OnInit {
       },
     ]
   }
+
   setMaxValue(product) {
     if (product.quantity > 5) {
       return product.quantity = 5;
@@ -68,6 +77,11 @@ export class CartComponent implements OnInit {
   }
 
   doDeleteProduct() {
+    const activeModal = this.modalService.open(WarningComponent,
+      {backdrop: 'static', centered: true});
+    activeModal.componentInstance.warningHeader = 'Delete from cart';
+    activeModal.componentInstance.warningMessage
+      = 'Do ya wanna remove this item out of cart ?';
   }
 
 }
