@@ -1,18 +1,14 @@
 // themes - our custom or/and out of the box themes
 @import 'themes';
-
 // framework component themes (styles tied to theme variables)
 @import '~@nebular/theme/styles/globals';
 @import '~@nebular/auth/styles/all';
 @import '~@nebular/bootstrap/styles/globals';
 // ...
-
 // global app font size
 @import './font-size';
-
 // loading progress bar theme
 @import './pace.theme';
-
 @import './bootstrap-rtl';
 
 // install the framework and custom global styles
@@ -30,5 +26,47 @@
   .custom-control .custom-control-indicator {
     border-radius: 50%; // TODO: quickfix for https://github.com/akveo/nebular/issues/275
   }
+  // set none decoration for all link
+  a {
+    text-decoration: none;
+  }
+
+  // custom button encrease and decrease quantity
+  .button-quantity {
+    background-color: #d6d6d6;
+    padding: 2px 5px;
+    width: 24px;
+    border-radius: 0;
+  }
+  .button-quantity:hover {
+    background-color: #a4a4a4;
+  }
+
+  //custom input quantity
+  .input-quantity {
+    margin-left: 1px;
+    display: inline;
+    width: 40px;
+    height: 25px;
+    text-align: center;
+    border: none;
+  }
+  input[type="text"].input-quantity:focus {
+    outline: none;
+    border: 1px solid #5AB0DB;
+  }
+
+  input[type="text"].input-quantity:hover {
+    border: 1px solid #999;
+  }
+
+  input[type="text"].input-quantity:focus:hover {
+    outline: none;
+    border: 1px solid #5AB0DB;
+
+  }
+
   @include bootstrap-rtl();
-};
+}
+
+;
