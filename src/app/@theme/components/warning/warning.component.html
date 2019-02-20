@@ -1,0 +1,23 @@
+<div class="modal-body modal-lg">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true" name="cross-icon-close">&times;</span>
+        </button>
+        <p name="title-warning">{{warningHeader}}</p>
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-12">
+        {{warningMessage}}
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12 text-right">
+        <button class="btn button-cancel" (click)="closeModal()">CANCEL</button>
+        <button class="btn ml-2 button-accept">ACCEPT</button>
+      </div>
+    </div>
+  </div>
+</div>

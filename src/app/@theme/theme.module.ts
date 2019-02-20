@@ -45,6 +45,9 @@ import {
   ThemeSwitcherListComponent,
 } from './components';
 
+import {WarningComponent} from "./components/warning/warning.component";
+
+
 import {
   CapitalizePipe,
   RoundPipe,
@@ -97,10 +100,12 @@ const COMPONENTS = [
   HeaderComponent,
   FooterComponent,
   LayoutComponent,
+  WarningComponent
 ];
 
 const ENTRY_COMPONENTS = [
   ThemeSwitcherListComponent,
+  WarningComponent
 ];
 
 const PIPES = [
