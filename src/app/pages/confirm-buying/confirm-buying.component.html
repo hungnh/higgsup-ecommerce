@@ -1,0 +1,132 @@
+<div class="container">
+  <div class="row">
+    <h5>Delivery Address</h5>
+  </div>
+</div>
+<nb-card class="mt-4">
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-3 offset-1">
+        <p class="title-address-info mandatory-field">
+          Full name
+        </p>
+      </div>
+      <div class="col-6">
+        <input type="text" class="form-control"
+               placeholder="Input full name"
+               [(ngModel)]="deliveryInfo.fullName">
+      </div>
+    </div>
+
+    <div class="row mt-2">
+
+      <div class="col-3 offset-1">
+        <p class="title-address-info mandatory-field">
+          Phone number
+        </p>
+      </div>
+      <div class="col-6">
+        <input type="text" class="form-control "
+               placeholder="Input phone number"
+               [(ngModel)]="deliveryInfo.phoneNumber">
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-3 offset-1">
+        <p class="title-address-info mandatory-field">
+          Province/City
+        </p>
+      </div>
+      <div class="col-6">
+        <input type="text" class="form-control"
+               placeholder="Choose Provice/City"
+               [(ngModel)]="deliveryInfo.province">
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-3 offset-1">
+        <p class="title-address-info mandatory-field">
+          District
+        </p>
+      </div>
+      <div class="col-6">
+        <input type="text" class="form-control"
+               placeholder="Choose District"
+               [(ngModel)]="deliveryInfo.district">
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-3 offset-1">
+        <p class="title-address-info mandatory-field">
+          Ward
+        </p>
+      </div>
+      <div class="col-6">
+        <input type="text" class="form-control"
+               placeholder="Choose Ward"
+               [(ngModel)]="deliveryInfo.ward">
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-3 offset-1">
+        <p class="title-address-info mandatory-field">
+          Address
+        </p>
+      </div>
+      <div class="col-6">
+        <input type="text" class="form-control"
+               placeholder="Example: 52, Tran Hung Dao street"
+               [(ngModel)]="deliveryInfo.address">
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-6 offset-4">
+        <p><i>To receive package more conveniently, please let us know which
+          type of address is.</i></p>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-3 offset-1">
+        <p class="title-address-info mandatory-field">
+          Address type
+        </p>
+      </div>
+      <div class="col-3">
+        <label class="custom-control custom-radio">
+          <input type="radio" class="custom-control-input" name="address-type"
+                 id="home">
+          <span class="custom-control-indicator"></span>
+          <span class="custom-control-description">Home / Flat</span>
+        </label>
+      </div>
+      <div class="col-3">
+        <label class="custom-control custom-radio">
+          <input type="radio" class="custom-control-input" name="address-type"
+                 id="office">
+          <span class="custom-control-indicator"></span>
+          <span class="custom-control-description">Office / Company</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="row mt-2 mb-2">
+      <div class="col-6 offset-4">
+        <nb-checkbox>Use this address as default</nb-checkbox>
+      </div>
+    </div>
+
+    <div class="row mt-2 mb-2">
+      <div class="col-4 offset-4">
+        <button class="btn ml-5 button-accept">Deliver to this address</button>
+      </div>
+    </div>
+
+  </div>
+
+</nb-card>
