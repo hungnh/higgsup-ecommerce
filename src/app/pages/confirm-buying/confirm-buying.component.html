@@ -39,9 +39,9 @@
         </p>
       </div>
       <div class="col-6">
-        <input type="text" class="form-control"
-               placeholder="Choose Provice/City"
-               [(ngModel)]="deliveryInfo.province">
+        <select class="form-control" (click)="getAddress()">
+          <option value="0">Choose Province/City</option>
+        </select>
       </div>
     </div>
 
@@ -52,9 +52,9 @@
         </p>
       </div>
       <div class="col-6">
-        <input type="text" class="form-control"
-               placeholder="Choose District"
-               [(ngModel)]="deliveryInfo.district">
+        <select class="form-control">
+          <option value="0">Choose District</option>
+        </select>
       </div>
     </div>
 
@@ -65,9 +65,9 @@
         </p>
       </div>
       <div class="col-6">
-        <input type="text" class="form-control"
-               placeholder="Choose Ward"
-               [(ngModel)]="deliveryInfo.ward">
+        <select class="form-control">
+          <option value="0">Choose Ward</option>
+        </select>
       </div>
     </div>
 
@@ -101,7 +101,7 @@
         <label class="custom-control custom-radio">
           <input type="radio" class="custom-control-input" name="address-type"
                  id="home">
-          <span class="custom-control-indicator"></span>
+          <span class="custom-control-indicator radio-address"></span>
           <span class="custom-control-description">Home / Flat</span>
         </label>
       </div>
@@ -109,7 +109,7 @@
         <label class="custom-control custom-radio">
           <input type="radio" class="custom-control-input" name="address-type"
                  id="office">
-          <span class="custom-control-indicator"></span>
+          <span class="custom-control-indicator radio-address"></span>
           <span class="custom-control-description">Office / Company</span>
         </label>
       </div>
@@ -117,14 +117,16 @@
 
     <div class="row mt-2 mb-2">
       <div class="col-6 offset-4">
-        <nb-checkbox>Use this address as default</nb-checkbox>
+        <nb-checkbox class="custom-checkbox-xshop">Use this address as default</nb-checkbox>
       </div>
     </div>
 
     <div class="row mt-2 mb-2">
-      <div class="col-6 offset-4">
-        <button class="btn mr-2 button-cancel" name="cancel-buying">Cancel</button>
-        <button class="btn button-accept">Deliver to this address</button>
+      <div class="col-8 offset-4">
+        <button class="btn mr-2 button-cancel" name="cancel-buying"
+        (click)="cancelBuying()">Cancel</button>
+        <button class="btn button-accept"
+        (click)="gotoPayment()">Deliver to this address</button>
       </div>
     </div>
 
