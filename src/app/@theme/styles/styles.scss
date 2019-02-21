@@ -42,6 +42,23 @@
     background-color: #a4a4a4;
   }
 
+  .button-accept {
+    background-color: #1a9cb7;
+  }
+  .button-accept:hover {
+    background: #16849b;
+  }
+  .button-cancel {
+    background-color: #eff0f5;
+    color: #757575;
+    border-color: #dadada;
+  }
+  .button-cancel:hover {
+    color: #757575;
+    background-color: #dadada;
+    border-color: transparent;
+  }
+
   //custom input quantity
   .input-quantity {
     margin-left: 1px;
@@ -64,6 +81,19 @@
     outline: none;
     border: 1px solid #5AB0DB;
 
+  }
+
+  .mandatory-field:after {
+    content:"*";
+    color: red;
+  }
+
+  .field-error {
+    border:1px solid red;
+  }
+
+  .field-success {
+    border:1px solid green;
   }
 
   @include bootstrap-rtl();
