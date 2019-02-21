@@ -20,6 +20,11 @@ const routes: Routes = [{
       canActivate: [SecurityGuard],
     },
     {
+      path: 'payment',
+      loadChildren: 'app/pages/payment/payment.module#PaymentModule',
+      // canActivate: [SecurityGuard],
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
