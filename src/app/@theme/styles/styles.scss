@@ -83,6 +83,19 @@
 
   }
 
+  .mandatory-field:after {
+    content:"*";
+    color: red;
+  }
+
+  .field-error {
+    border:1px solid red;
+  }
+
+  .field-success {
+    border:1px solid green;
+  }
+
   @include bootstrap-rtl();
 }
 
