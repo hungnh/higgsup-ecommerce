@@ -59,6 +59,17 @@
     border-color: transparent;
   }
 
+  .button-edit {
+    border: 1px solid #ccc;
+    background: linear-gradient(#fff,#f7f7f7);
+    color: black;
+  }
+  .button-edit:hover {
+    border: 1px solid #ccc;
+    background: white;
+    color: black;
+  }
+
   //custom input quantity
   .input-quantity {
     margin-left: 1px;
