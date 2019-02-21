@@ -3,6 +3,7 @@ import {Currency} from "../../@theme/glossary/currency.constant";
 import {NbMenuService} from "@nebular/theme";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {WarningComponent} from "../../@theme/components/warning/warning.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'cart',
@@ -16,7 +17,8 @@ export class CartComponent implements OnInit {
   currency: string = '';
 
   constructor(private menuService: NbMenuService,
-              private modalService: NgbModal) {
+              private modalService: NgbModal,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -73,7 +75,7 @@ export class CartComponent implements OnInit {
   }
 
   doProceedPayment() {
-    console.log(this.productList)
+    this.router.navigate(['/pages/confirm-buying']);
   }
 
   doDeleteProduct() {
