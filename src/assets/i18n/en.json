@@ -44,5 +44,20 @@
     "description":"X-Shop receives online orders and delivery, does not support buying and receiving goods directly at the office or the order processing center",
     "warranty_address":"Shipping / return / warranty shipping address: Order processing center X-Shop - 72 Trần Đăng Ninh, Dịch Vọng, Cầu Giấy, Hà Nội",
     "refer":"(Refer to the change, return, warranty or contact instructions for 024 6656 6602 for further instructions)"
+  },
+  "cart": {
+    "order_summary": "Order Summary",
+    "sub_total": "Sub-total",
+    "shipping_fee": "Shipping Fee",
+    "total": "Total",
+    "proceed_to_payment": "Proceed to payment",
+    "products_count": "{{number}} Products",
+    "delete": "Delete",
+    "provided_by": "Provided by ",
+    "continue_shopping": "Continue Shopping",
+    "remove_item": "Remove item",
+    "question_removing": "Do you want to remove this item from cart ?",
+    "cancel": "cancel",
+    "accept": "accept"
   }
 }

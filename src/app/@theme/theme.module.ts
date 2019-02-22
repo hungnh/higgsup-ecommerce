@@ -59,6 +59,7 @@ import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
 import {TranslateModule} from "@ngx-translate/core";
+import {WarningComponent} from "./components/warning/warning.component";
 
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule];
 
@@ -103,12 +104,14 @@ const COMPONENTS = [
   FooterComponent,
   LayoutComponent,
   ChangeLanguageComponent,
-  ChangeLanguageListComponent
+  ChangeLanguageListComponent,
+  WarningComponent
 ];
 
 const ENTRY_COMPONENTS = [
   ThemeSwitcherListComponent,
-  ChangeLanguageListComponent
+  ChangeLanguageListComponent,
+  WarningComponent
 ];
 
 const PIPES = [
