@@ -33,6 +33,7 @@ import {
   NbRadioModule,
   NbSelectModule,
   NbTooltipModule,
+  NbBadgeModule,
 } from '@nebular/theme';
 
 import { NbSecurityModule } from '@nebular/security';
@@ -43,10 +44,9 @@ import {
   LayoutComponent,
   ThemeSwitcherComponent,
   ThemeSwitcherListComponent,
+  ChangeLanguageComponent,
+  ChangeLanguageListComponent
 } from './components';
-
-import {WarningComponent} from "./components/warning/warning.component";
-
 
 import {
   CapitalizePipe,
@@ -58,8 +58,10 @@ import {
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
+import {TranslateModule} from "@ngx-translate/core";
+import {WarningComponent} from "./components/warning/warning.component";
 
-const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
+const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule];
 
 const NB_MODULES = [
   NbCardModule,
@@ -92,6 +94,7 @@ const NB_MODULES = [
   NbRadioModule,
   NbSelectModule,
   NbTooltipModule,
+  NbBadgeModule,
 ];
 
 const COMPONENTS = [
@@ -100,11 +103,14 @@ const COMPONENTS = [
   HeaderComponent,
   FooterComponent,
   LayoutComponent,
+  ChangeLanguageComponent,
+  ChangeLanguageListComponent,
   WarningComponent
 ];
 
 const ENTRY_COMPONENTS = [
   ThemeSwitcherListComponent,
+  ChangeLanguageListComponent,
   WarningComponent
 ];
 
@@ -132,8 +138,11 @@ const NB_THEME_PROVIDERS = [
 @NgModule({
   imports: [...BASE_MODULES, ...NB_MODULES],
   exports: [...BASE_MODULES, ...NB_MODULES, ...COMPONENTS, ...PIPES],
-  declarations: [...COMPONENTS, ...PIPES],
+  declarations: [...COMPONENTS, ...PIPES, ChangeLanguageListComponent],
   entryComponents: [...ENTRY_COMPONENTS],
+  providers: [
+    TranslateModule
+  ]
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders {

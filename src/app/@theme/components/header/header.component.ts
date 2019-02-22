@@ -3,8 +3,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {NbMenuService, NbSidebarService} from '@nebular/theme';
 import {AnalyticsService} from '../../../@core/utils';
 import {NbAuthJWTToken, NbAuthService} from '@nebular/auth';
-import {filter, map} from 'rxjs/operators';
+import {filter, map, tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'ngx-header',
@@ -16,14 +17,17 @@ export class HeaderComponent implements OnInit {
   @Input() position = 'normal';
 
   user: any;
-
+  loginFlg: boolean;
+  inputSearch : any;
   userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private authService: NbAuthService,
               private router: Router,
-              private analyticsService: AnalyticsService) {
+              private analyticsService: AnalyticsService,
+              private translate: TranslateService) {
+
     this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
@@ -31,20 +35,18 @@ export class HeaderComponent implements OnInit {
         }
       });
 
-    this.menuService.onItemClick().pipe(
-      filter(({ tag }) => tag === 'userContextMenu'),
-      map(({ item: { title } }) => title),
-      )
-      .subscribe(title => {
-        if (title === 'Log out') {
-          this.authService.logout('email').subscribe(result => {
-            this.router.navigate(['auth/login']);
-          });
-        }
-      });
   }
 
   ngOnInit() {
+    this.loginFlg = false;
+    this.authService.isAuthenticated()
+      .pipe(
+        tap(authenticated => {
+          if (authenticated) {
+            this.loginFlg = true;
+          }
+        }),
+      );
   }
 
   toggleSidebar(): boolean {
@@ -59,5 +61,20 @@ export class HeaderComponent implements OnInit {
 
   startSearch() {
     this.analyticsService.trackEvent('startSearch');
+  }
+  goToCart() {
+    this.router.navigate(['./pages/cart']);
+  }
+
+  goToLogin() {
+    this.router.navigate(['./pages/login']);
+  }
+
+  goToRegister() {
+    this.router.navigate(['./pages/register']);
+  }
+
+  goToSearch() {
+    this.router.navigate(['./pages/search',this.inputSearch]);
   }
 }

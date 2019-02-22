@@ -20,6 +20,11 @@ const routes: Routes = [{
       // canActivate: [SecurityGuard],
     },
     {
+      path: 'cart',
+      loadChildren: 'app/pages/cart/cart.module#CartModule',
+      // canActivate: [SecurityGuard],
+    },
+    {
       path: 'confirm-buying',
       loadChildren: 'app/pages/confirm-buying/confirm-buying.module#ConfirmBuyingModule',
       // canActivate: [SecurityGuard],
