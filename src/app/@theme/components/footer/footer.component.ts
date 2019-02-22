@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'ngx-footer',
   styleUrls: ['./footer.component.scss'],
-  template: `
-    <span class="created-by">Created with ♥ by <b><a href="https://akveo.com" target="_blank">Akveo</a></b> 2017</span>
-    <div class="socials">
-      <a href="#" target="_blank" class="ion ion-social-github"></a>
-      <a href="#" target="_blank" class="ion ion-social-facebook"></a>
-      <a href="#" target="_blank" class="ion ion-social-twitter"></a>
-      <a href="#" target="_blank" class="ion ion-social-linkedin"></a>
-    </div>
-  `,
+  templateUrl: `./footer.component.html`,
+
 })
 export class FooterComponent {
+
+  constructor(private translate: TranslateService) {
+    translate.get('footer.customer_support').subscribe((res: string) => {
+      console.log(res);
+      //=> 'hello world'
+    });
+  }
+
 }

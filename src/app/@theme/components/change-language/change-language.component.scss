@@ -1,0 +1,9 @@
+.theme-change-language {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    color : white;
+  }
+}
