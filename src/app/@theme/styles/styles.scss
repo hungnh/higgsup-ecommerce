@@ -70,6 +70,22 @@
     color: black;
   }
 
+  .button-edit:focus {
+    border: 1px solid #ccc;
+    background: linear-gradient(#fff, #f7f7f7);
+    color: black;
+  }
+
+  .button-payment {
+    border-style: solid;
+    background-color: #f57224;
+  }
+
+  .button-payment:hover {
+    color: #fff;
+    background-color: #d0611e;
+  }
+
   //custom input quantity
   .input-quantity {
     margin-left: 1px;
