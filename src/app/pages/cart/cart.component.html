@@ -1,9 +1,13 @@
 <div class="container">
   <div class="row ml-2" *ngIf="productList.length >= 1">
-    <h5 *ngIf="productList.length == 1">Total: {{productList.length}}
-      product</h5>
-    <h5 *ngIf="productList.length > 1">Total: {{productList.length}}
-      products</h5>
+    <h5 *ngIf="productList.length == 1">
+      <span translate>cart.total</span>:
+      <span translate [translateParams]="{number: productList.length}">cart.products_count</span>
+    </h5>
+    <h5 *ngIf="productList.length > 1" translate>
+      <span translate>cart.total</span>:
+      <span translate [translateParams]="{number: productList.length}">cart.products_count</span>
+    </h5>
   </div>
   <div class="row mt-3" *ngIf="productList.length >= 1">
     <div class="col-md-8">
@@ -19,10 +23,11 @@
               <a href="#" name="product-name">{{product.name}}</a>
             </div>
             <div class="mt-2">
-              Provided by <a href="#">{{product.provider}}</a>
+              <span translate>cart.provided_by</span>
+              <a href="#">{{product.provider}}</a>
             </div>
             <div class="mt-2">
-              <a href="javascript:" (click)="doDeleteProduct()">Delete</a>
+              <a href="javascript:" (click)="doDeleteProduct()" translate>cart.delete</a>
             </div>
           </div>
           <div class="col-md-2">
@@ -37,10 +42,10 @@
             </button>
             <input type="text" class="input-quantity"
                    [(ngModel)]="product.quantity" (keyup)="setMaxValue(product)"
-                   min="1" max="5" (keypress)="checkPressKey(this)">
+                   min="1" max="5" (keypress)="checkPressKey(this)"
+                   onpaste="return false;">
             <button class="btn button-quantity"
-                    (click)="doEncreaseQuantity(product)"
-                    [disabled]="product.quantity == 5">+
+                    (click)="doEncreaseQuantity(product)">+
             </button>
           </div>
         </div>
@@ -50,12 +55,12 @@
       <nb-card class="p-3">
         <div class="row p-2">
           <div class="col-md-12">
-            <h5>Order Summary</h5>
+            <h5 translate>cart.order_summary</h5>
           </div>
         </div>
         <div class="row p-2">
           <div class="col-md-6">
-            <p>Sub-total:</p>
+            <p translate>cart.sub_total</p>
           </div>
           <div class="col-md-6">
             <p align="right">{{subTotal}} {{currency}}</p>
@@ -63,7 +68,7 @@
         </div>
         <div class="row p-2">
           <div class="col-md-6">
-            <p>Shipping Fee</p>
+            <p translate>cart.shipping_fee</p>
           </div>
           <div class="col-md-6">
             <p align="right">2 {{currency}}</p>
@@ -71,7 +76,7 @@
         </div>
         <div class="row p-2">
           <div class="col-md-6">
-            <p>Total</p>
+            <p translate>cart.total</p>
           </div>
           <div class="col-md-6">
             <p align="right" class="product-price">{{subTotal + 2}}
@@ -80,12 +85,13 @@
         </div>
       </nb-card>
       <button class="btn w-100" name="button-payment"
-              (click)="doProceedPayment()">PROCEED TO PAYMENT
+              (click)="doProceedPayment()">
+        <p translate name="proceed-payment">cart.proceed_to_payment</p>
       </button>
     </div>
   </div>
   <div class="row mt-3" *ngIf="productList.length < 1">
-    <div class="col-12"  name="cart-empty-scope">
+    <div class="col-12" name="cart-empty-scope">
       <div align="center" name="cart-empty-text">There's no items in this
         cart!
       </div>
@@ -93,7 +99,8 @@
     <div class="col-12 mt-4">
       <div align="center">
         <button class="btn" name="button-continue-shopping"
-                (click)="goToHome()">CONTINUE SHOPPING
+                (click)="goToHome()">
+          <p translate class="mt-3">cart.continue_shopping</p>
         </button>
       </div>
     </div>

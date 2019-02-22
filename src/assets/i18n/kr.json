@@ -44,5 +44,20 @@
     "description":"X-Shop receives online orders and delivery, does not support buying and receiving goods directly at the office or the order processing center",
     "warranty_address":"Shipping / return / warranty shipping address: ",
     "refer":"(Refer to the change, return, warranty or contact instructions for 024 6656 6602 for further instructions)"
+  },
+  "cart": {
+    "order_summary": "주문 요약",
+    "sub_total": "소계",
+    "shipping_fee": "배송비",
+    "total": "합계",
+    "proceed_to_payment": "지불을 진행하다",
+    "products_count": "{{number}} 제작품",
+    "delete": "지우다",
+    "provided_by": "에 의해 제공 ",
+    "continue_shopping": "쇼핑을 계속",
+    "remove_item": "항목 삭제",
+    "question_removing": "장바구니에서이 항목을 제거 하시겠습니까?",
+    "cancel": "취소",
+    "accept": "받아 들인다"
   }
 }

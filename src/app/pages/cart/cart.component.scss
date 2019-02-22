@@ -50,5 +50,8 @@ a:hover {
   color: #f57224;
 }
 
+p[name$='proceed-payment'] {
+  display: inline;
+}
 
 

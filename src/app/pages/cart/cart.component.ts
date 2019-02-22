@@ -4,6 +4,7 @@ import {NbMenuService} from "@nebular/theme";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {WarningComponent} from "../../@theme/components/warning/warning.component";
 import {Router} from "@angular/router";
+import {_} from "@biesbjerg/ngx-translate-extract/dist/utils/utils";
 
 @Component({
   selector: 'cart',
@@ -81,9 +82,9 @@ export class CartComponent implements OnInit {
   doDeleteProduct() {
     const activeModal = this.modalService.open(WarningComponent,
       {backdrop: 'static', centered: true});
-    activeModal.componentInstance.warningHeader = 'Delete from cart';
-    activeModal.componentInstance.warningMessage
-      = 'Do ya wanna remove this item out of cart ?';
+    activeModal.componentInstance.message = 'Delete';
+    activeModal.componentInstance.warningHeader = _('cart.remove_item');
+    activeModal.componentInstance.warningMessage = _('cart.question_removing');
   }
 
 }
