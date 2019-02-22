@@ -1,0 +1,17 @@
+.theme-change-language-list {
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+
+  list-style-type:none;
+  img {
+    width: 24px;
+    height: 24px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+  }
+  div:hover {
+    color: #00c7c7;
+    cursor: pointer;
+  }
+}

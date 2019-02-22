@@ -1,0 +1,7 @@
+<ul class='theme-change-language-list'>
+  <li *ngFor="let language of languageList"
+      (click)="onToggleLanguage(language.key)">
+    <div><img src="../assets/images/{{language.image}}">
+      <span>{{ language.title }}</span></div>
+  </li>
+</ul>
