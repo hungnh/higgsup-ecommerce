@@ -19,6 +19,7 @@
   }
 
   .logo-containter {
+    cursor: pointer;
     display: flex;
     align-items: center;
     width: calc(#{nb-theme(sidebar-width)} - #{nb-theme(header-padding)});
@@ -46,17 +47,67 @@
     }
 
     .logo {
-      padding: 0 nb-theme(padding);
-      font-size: 1.75rem;
-      font-weight: nb-theme(font-weight-bolder);
-      @include nb-ltr(border-left, 1px solid nb-theme(separator));
-      @include nb-rtl(border-right, 1px solid nb-theme(separator));
-      white-space: nowrap;
-
-      span {
-        font-weight: nb-theme(font-weight-normal);
-      }
+      width: 150px;
+      height: 60px;
     }
+  }
+  .header-top {
+    width: 100%;
+    color: #cdd0d4;
+    text-align: center;
+  }
+  .search-header {
+    position: relative;
+  }
+  .button-search {
+    cursor: pointer;
+    position: absolute;
+    float: left;
+    right: 0;
+    top: 0;
+    z-index: 2;
+  }
+  .text-search {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+  .header-button-search {
+    background-color: #E67E22;
+    height: 45px;
+  }
+  .header-search-text {
+    height: 45px;
+    width: 650px;
+  }
+  .header-cart {
+    margin-left: 25px;
+  }
+  .badge-number {
+    position: relative;
+    top: -10px;
+    right: -10px;
+    z-index: 2;
+  }
+  .icon-cart {
+    height: 32px;
+    width: 32px;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+  .icon-search {
+    height: 32px;
+    width: 24px;
+    padding-bottom: 10px;
+  }
+  .header-top-menu {
+    cursor: pointer;
+    &:hover {
+      color: white;
+    }
+
   }
 
   @include nb-for-theme(corporate) {

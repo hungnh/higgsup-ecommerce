@@ -1,28 +1,42 @@
-<div class="header-container"
-     [class.left]="position === 'normal'"
-     [class.right]="position === 'inverse'">
-  <div class="logo-containter">
-    <a (click)="toggleSidebar()" href="#" class="navigation"><i class="nb-menu"></i></a>
-    <div class="logo" (click)="goToHome()">Higgsup-<span>base</span></div>
+<div class="container">
+  <div class="row header-top">
+    <div class="col-md-2 header-top-menu"><p translate>header.save</p></div>
+    <div class="col-md-2 header-top-menu"><p translate>header.sales</p></div>
+    <div class="col-md-2 header-top-menu"><p translate>header.customer</p></div>
+    <div class="col-md-2 header-top-menu"><p translate>header.check</p></div>
+    <div class="col-md-1 header-top-menu" *ngIf="!loginFlg"><p (click)="goToLogin()" translate>header.login</p></div>
+    <div class="col-md-1 header-top-menu" *ngIf="!loginFlg"><p (click)="goToRegister()" translate>header.register</p>
+    </div>
+    <div class="col-md-2 header-top-menu" *ngIf="loginFlg"><p translate>header.account</p></div>
+    <div class="col-md-2 header-top-menu">
+      <change-language></change-language>
+    </div>
   </div>
-  <ngx-theme-switcher></ngx-theme-switcher>
-</div>
-
-<div class="header-container">
-  <nb-actions
-    size="medium"
-    [class.right]="position === 'normal'"
-    [class.left]="position === 'inverse'">
-    <nb-action>
-      <nb-user [nbContextMenu]="userMenu"
-               nbContextMenuTag="userContextMenu"
-               [name]="user?.sub"
-               [picture]="user?.picture"></nb-user>
-    </nb-action>
-    <nb-action class="control-item" disabled icon="nb-notifications"></nb-action>
-    <nb-action class="control-item" icon="nb-email"></nb-action>
-    <nb-action class="control-item">
-      <nb-search type="rotate-layout" (click)="startSearch()"></nb-search>
-    </nb-action>
-  </nb-actions>
+  <div class="row">
+    <div class="col-12">
+      <div class="header-container"
+           [class.left]="position === 'normal'"
+           [class.right]="position === 'inverse'">
+        <div class="logo-containter">
+          <a (click)="goToHome()"><img src="../assets/images/logo.png" class="logo"></a>
+        </div>
+        <div class="search-header">
+          <div class="search-text">
+            <input type="text" placeholder="{{'header.placeHolder'|translate}}"
+                   class="header-search-text form-control" [(ngModel)]="inputSearch" />
+          </div>
+          <div class="button-search">
+            <button (click)="goToSearch()" class="btn header-button-search"><span><img
+              src="../assets/images/icon-search.png" class="icon-search"></span></button>
+          </div>
+        </div>
+        <div class="header-cart">
+            <div class="badge-number" *ngIf="loginFlg">
+              <nb-badge text="1" status="danger"></nb-badge>
+            </div>
+            <div class="icon-cart"><span><img src="../assets/images/icon-cart.png" (click)="goToCart()"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
