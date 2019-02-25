@@ -39,13 +39,11 @@ ul[name$='list-bank-logo'] {
 img[name$='bank-logo'] {
   width: 90px;
   height: 60px;
-}
-
-img {
   border: 1px dashed #ccc;
   margin: 5px;
 }
 
-img:hover {
+img[name$='bank-logo'] :hover {
   border: 1px dashed #1a9cb7;
 }
+

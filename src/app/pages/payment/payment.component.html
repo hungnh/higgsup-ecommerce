@@ -15,7 +15,7 @@
                            [(ngModel)]="paymentWay">
                     <span class="custom-control-indicator"></span>
                     <span
-                      class="custom-control-description">Pay with cash</span>
+                      class="custom-control-description" translate>payment.pay_cash</span>
                   </label>
 
                 </div>
@@ -28,7 +28,7 @@
                            value="payVisa" id="payment-by-card"
                            [(ngModel)]="paymentWay">
                     <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description">Pay with Visa, Master, JCB</span>
+                    <span class="custom-control-description" translate>payment.pay_visa</span>
                   </label>
 
                   <div class="row mr-3 mt-2" *ngIf="paymentWay == 'payVisa'">
@@ -44,7 +44,7 @@
                                        name="payment-block"
                                        id="new-card-number">
                                 <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Input new card number</span>
+                                <span class="custom-control-description" translate>payment.input_card_number</span>
                               </label>
                             </div>
                           </div>
@@ -53,50 +53,50 @@
                             <div class="col-8">
                               <div class="row">
                                 <div class="col-12">
-                                  <label>Card number:</label>
+                                  <label translate>payment.card_number</label>
                                 </div>
                               </div>
                               <div class="row">
                                 <div class="col-10">
                                   <input type="text" class="form-control"
-                                         placeholder="Ex: 4123 456 8901 2345">
+                                         [attr.placeholder]="'payment.ex_card_number' | translate">
                                 </div>
                               </div>
 
                               <div class="row mt-3">
                                 <div class="col-12">
-                                  <label>Name on card:</label>
+                                  <label translate>payment.name_on_card</label>
                                 </div>
                               </div>
                               <div class="row">
                                 <div class="col-10">
                                   <input type="text" class="form-control"
-                                         placeholder="Ex: NGUYEN VAN A"
+                                         [attr.placeholder]="'payment.ex_name_on_card' | translate"
                                          name="card-user-input">
                                 </div>
                               </div>
 
                               <div class="row mt-3">
                                 <div class="col-12">
-                                  <label>Date expired:</label>
+                                  <label translate>payment.date_expired</label>
                                 </div>
                               </div>
                               <div class="row">
                                 <div class="col-5">
                                   <input type="text" class="form-control"
-                                         placeholder="MM/YY">
+                                         [attr.placeholder]="'payment.ex_date_expired' | translate">
                                 </div>
                               </div>
 
                               <div class="row mt-3">
                                 <div class="col-12">
-                                  <label>Security Code:</label>
+                                  <label translate>payment.security_code</label>
                                 </div>
                               </div>
                               <div class="row">
                                 <div class="col-5">
                                   <input type="text" class="form-control"
-                                         placeholder="Ex: 123">
+                                         [attr.placeholder]="'payment.ex_security_code' | translate">
                                 </div>
                               </div>
 
@@ -113,23 +113,19 @@
                               </div>
                               <div class="row mt-2">
                                 <div class="col-12">
-                                  <p>Please check the message if it's
-                                    required.</p>
+                                  <p translate>payment.check_card_recommend</p>
                                 </div>
                               </div>
                             </div>
 
                             <div class="col-12 mt-2">
-                              <nb-checkbox [value]="true">Lorem ipsum dolor sit amet,
-                                consectetur.
+                              <nb-checkbox [value]="true">
+                                <span translate>payment.save_for_next_time</span>
                               </nb-checkbox>
                             </div>
 
                             <div class="col-12 mb-3">
-                              Lorem ipsum dolor sit amet, consectetur adipisicing
-                              elit.
-                              Consectetur dolore earum est pariatur praesentium quasi
-                              qui quidem rem ullam voluptatum?
+                              <span translate>payment.warning_saving</span>
                             </div>
                           </div>
 
@@ -149,7 +145,7 @@
                            value="payEBanking" id="payment-by-ebank"
                            [(ngModel)]="paymentWay">
                     <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description">ATM inland card/Internet Banking (free payment)</span>
+                    <span class="custom-control-description" translate>payment.pay_ebank</span>
                   </label>
 
                   <div class="row mr-3 mt-2" *ngIf="paymentWay == 'payEBanking'">
@@ -182,16 +178,18 @@
 
             <div class="row mt-3 ml-3">
               <div class="col-12 mt-2">
-                <h5>Lorem ipsum dolor sit.</h5>
-                <nb-checkbox [value]="true">Lorem ipsum dolor sit amet,
-                  consectetur.
+                <h5 translate>payment.customer_info</h5>
+                <nb-checkbox [value]="true">
+                  <span translate>payment.using_info_delivery</span>
                 </nb-checkbox>
               </div>
               <div class="col-12 mt-2">
-                <button class="btn button-payment">ORDER NOW</button>
+                <button class="btn button-payment">
+                  <span translate>payment.order_now</span>
+                </button>
               </div>
               <div class="col-12 mt-2">
-                <p>(Lorem ipsum dolor sit amet, consectetur.)</p>
+                <p translate>payment.check_recommend</p>
               </div>
             </div>
           </div>
@@ -201,20 +199,21 @@
                 <div class="m-4 payment-block">
                   <div class="row m-2 header-form-block">
                     <div class="col-6">
-                      <p>Address Delivery</p>
+                      <p translate>payment.address_delivery</p>
                     </div>
                     <div class="col-6 text-right">
-                      <button class="btn button-edit">Edit</button>
+                      <button class="btn button-edit">
+                        <span translate>payment.edit</span>
+                      </button>
                     </div>
                   </div>
                   <div class="row m-2">
                     <div class="col-12 mt-2">
-                      <h6>Ali33</h6>
+                      <h6>Binding full name</h6>
                     </div>
                     <div class="col-12 mt-2">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Iure, vel?</p>
-                      <p>Lorem ipsum dolor sit.</p>
+                      <p>Binding Address</p>
+                      <p>Binding phone number</p>
                     </div>
                   </div>
                 </div>
@@ -224,7 +223,12 @@
                 <div class="m-4 payment-block">
                   <div class="row m-2 header-form-block">
                     <div class="col-6">
-                      <p>Order form (x products)</p>
+                      <p>
+                        <span translate>payment.order_form</span>
+                      </p>
+                      <p>
+                        <span translate [translateParams]="{number: 5}">payment.products_count</span>
+                      </p>
                     </div>
                     <div class="col-6 text-right">
                       <button class="btn button-edit">Edit</button>
@@ -233,12 +237,11 @@
                   <div class="row m-2 header-form-block">
                     <div class="col-8">
                       <p>
-                        <b>X x </b><a href="#">Lorem ipsum dolor sit amet,
-                        consectetur
-                        adipisicing elit. Consectetur, necessitatibus!</a>
+                        <b>Binding number x </b><a href="#">Binding product's name</a>
                       </p>
-                      <p>
-                        Lorem ipsum dolor sit amet.
+                      <p translate>
+                        <span translate>payment.provided_by</span>
+                        <span>Binding provider's name</span>
                       </p>
                     </div>
                     <div class="col-4">
@@ -247,18 +250,18 @@
                   </div>
                   <div class="row m-2 header-form-block">
                     <div class="col-8">
-                      Lorem ipsum.
+                      <span translate>payment.sub_total</span>
                     </div>
                     <div class="col-4">
-                      xxx.000
+                      <span>binding sub-total</span>
                     </div>
                   </div>
                   <div class="row m-2">
                     <div class="col-6">
-                      <b>Lorem ipsum.</b>
+                      <b translate>payment.total</b>
                     </div>
                     <div class="col-6">
-                      <h5>xxx.000</h5>
+                      <h5>binding total</h5>
                     </div>
                   </div>
                 </div>
@@ -266,7 +269,6 @@
             </div>
           </div>
         </div>
-
 
       </nb-card>
     </div>
