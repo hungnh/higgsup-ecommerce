@@ -1,0 +1,49 @@
+.payment-block {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.image-mastercard img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  display: block;
+}
+
+.header-form-block {
+  border-bottom: 1px solid #c9c9c9;
+  padding-bottom: 10px;
+}
+
+a {
+  color: #1a9cb7;
+}
+
+a:hover {
+  color: #16849b;
+}
+
+input[name$='card-user-input'] {
+  text-transform: uppercase;
+}
+
+ul[name$='list-bank-logo'] {
+  list-style: none !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+
+img[name$='bank-logo'] {
+  width: 90px;
+  height: 60px;
+  border: 1px dashed #ccc;
+  margin: 5px;
+}
+
+img[name$='bank-logo'] :hover {
+  border: 1px dashed #1a9cb7;
+}
+
