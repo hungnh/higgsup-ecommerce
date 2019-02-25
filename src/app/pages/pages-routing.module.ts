@@ -25,6 +25,11 @@ const routes: Routes = [{
       // canActivate: [SecurityGuard],
     },
     {
+      path: 'confirm-buying',
+      loadChildren: 'app/pages/confirm-buying/confirm-buying.module#ConfirmBuyingModule',
+      // canActivate: [SecurityGuard],
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',

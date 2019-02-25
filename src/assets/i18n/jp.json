@@ -59,5 +59,27 @@
     "question_removing": "このアイテムをカートから削除しますか？",
     "cancel": "キャンセル",
     "accept": "受け入れる"
+  },
+  "confirm-buying": {
+    "delivery_address": "配達先",
+    "full_name": "フルネーム",
+    "phone_number": "電話番号",
+    "province_or_city": "県/市",
+    "district": "地区",
+    "ward": "区",
+    "address": "住所",
+    "address_type": "住所タイプ",
+    "cancel": "キャンセル",
+    "deliver": "この住所に配達する",
+    "home_flat": "ホーム/フラット",
+    "office_company": "事務所/会社",
+    "use_address_default": "このアドレスをデフォルトとして使用",
+    "input_name": "氏名を入力",
+    "input_phone_number": "電話番号を入力",
+    "choose_province": "都道府県を選択してください",
+    "choose_district": "地区を選択",
+    "choose_ward": "区を選択してください",
+    "example_address": "例: 52 Tran Hung Dao 通り",
+    "type_address_recommend": "荷物をより便利に受け取るには、どのタイプの住所かをお知らせください。"
   }
 }
