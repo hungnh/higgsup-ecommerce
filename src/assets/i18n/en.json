@@ -59,5 +59,27 @@
     "question_removing": "Do you want to remove this item from cart ?",
     "cancel": "cancel",
     "accept": "accept"
+  },
+  "confirm-buying": {
+    "delivery_address": "Delivery Address",
+    "full_name": "Full name",
+    "phone_number": "Phone number",
+    "province_or_city": "Province/City",
+    "district": "District",
+    "ward": "Ward",
+    "address": "Address",
+    "address_type": "Address type",
+    "cancel": "Cancel",
+    "deliver": "Deliver to this address",
+    "home_flat": "Home / Flat",
+    "office_company": "Office / Company",
+    "use_address_default": "Use this address as default",
+    "input_name": "Input full name",
+    "input_phone_number": "Input phone number",
+    "choose_province": "Choose Province/City",
+    "choose_district": "Choose District",
+    "choose_ward": "Choose Ward",
+    "example_address": "Example: 52, Tran Hung Dao street",
+    "type_address_recommend": "To receive package more conveniently, please let us know which type of address is."
   }
 }

@@ -1,19 +1,17 @@
 <div class="container">
   <div class="row">
-    <h5>Delivery Address</h5>
+    <h5 translate>confirm-buying.delivery_address</h5>
   </div>
 </div>
 <nb-card class="mt-4">
   <div class="container">
     <div class="row mt-5">
       <div class="col-3 offset-1">
-        <p class="title-address-info mandatory-field">
-          Full name
-        </p>
+        <p class="title-address-info mandatory-field" translate>confirm-buying.full_name</p>
       </div>
       <div class="col-6">
         <input type="text" class="form-control"
-               placeholder="Input full name"
+               [attr.placeholder]="'confirm-buying.input_name' | translate"
                [(ngModel)]="deliveryInfo.fullName">
       </div>
     </div>
@@ -21,88 +19,75 @@
     <div class="row mt-2">
 
       <div class="col-3 offset-1">
-        <p class="title-address-info mandatory-field">
-          Phone number
-        </p>
+        <p class="title-address-info mandatory-field" translate>confirm-buying.phone_number</p>
       </div>
       <div class="col-6">
         <input type="text" class="form-control "
-               placeholder="Input phone number"
+               [attr.placeholder]="'confirm-buying.input_phone_number' | translate"
                [(ngModel)]="deliveryInfo.phoneNumber">
       </div>
     </div>
 
     <div class="row mt-2">
       <div class="col-3 offset-1">
-        <p class="title-address-info mandatory-field">
-          Province/City
-        </p>
+        <p class="title-address-info mandatory-field" translate>confirm-buying.province_or_city</p>
       </div>
       <div class="col-6">
         <select class="form-control" (click)="getAddress()">
-          <option value="0">Choose Province/City</option>
+          <option value="0" translate>confirm-buying.choose_province</option>
         </select>
       </div>
     </div>
 
     <div class="row mt-2">
       <div class="col-3 offset-1">
-        <p class="title-address-info mandatory-field">
-          District
-        </p>
+        <p class="title-address-info mandatory-field" translate>confirm-buying.district</p>
       </div>
       <div class="col-6">
         <select class="form-control">
-          <option value="0">Choose District</option>
+          <option value="0" translate>confirm-buying.choose_district</option>
         </select>
       </div>
     </div>
 
     <div class="row mt-2">
       <div class="col-3 offset-1">
-        <p class="title-address-info mandatory-field">
-          Ward
-        </p>
+        <p class="title-address-info mandatory-field" translate>confirm-buying.ward</p>
       </div>
       <div class="col-6">
         <select class="form-control">
-          <option value="0">Choose Ward</option>
+          <option value="0" translate>confirm-buying.choose_ward</option>
         </select>
       </div>
     </div>
 
     <div class="row mt-2">
       <div class="col-3 offset-1">
-        <p class="title-address-info mandatory-field">
-          Address
-        </p>
+        <p class="title-address-info mandatory-field" translate>confirm-buying.address</p>
       </div>
       <div class="col-6">
         <input type="text" class="form-control"
-               placeholder="Example: 52, Tran Hung Dao street"
+               [attr.placeholder]="'confirm-buying.example_address' | translate"
                [(ngModel)]="deliveryInfo.address">
       </div>
     </div>
 
     <div class="row mt-2">
       <div class="col-6 offset-4">
-        <p><i>To receive package more conveniently, please let us know which
-          type of address is.</i></p>
+        <p><i translate>confirm-buying.type_address_recommend</i></p>
       </div>
     </div>
 
     <div class="row mt-2">
       <div class="col-3 offset-1">
-        <p class="title-address-info mandatory-field">
-          Address type
-        </p>
+        <p class="title-address-info mandatory-field" translate>confirm-buying.address_type</p>
       </div>
       <div class="col-3">
         <label class="custom-control custom-radio">
           <input type="radio" class="custom-control-input" name="address-type"
                  id="home">
           <span class="custom-control-indicator radio-address"></span>
-          <span class="custom-control-description">Home / Flat</span>
+          <span class="custom-control-description" translate>confirm-buying.home_flat</span>
         </label>
       </div>
       <div class="col-3">
@@ -110,23 +95,29 @@
           <input type="radio" class="custom-control-input" name="address-type"
                  id="office">
           <span class="custom-control-indicator radio-address"></span>
-          <span class="custom-control-description">Office / Company</span>
+          <span class="custom-control-description" translate>confirm-buying.office_company</span>
         </label>
       </div>
     </div>
 
     <div class="row mt-2 mb-2">
       <div class="col-6 offset-4">
-        <nb-checkbox class="custom-checkbox-xshop">Use this address as default</nb-checkbox>
+        <nb-checkbox class="custom-checkbox-xshop">
+          <span translate>confirm-buying.use_address_default</span>
+        </nb-checkbox>
       </div>
     </div>
 
     <div class="row mt-2 mb-2">
       <div class="col-8 offset-4">
         <button class="btn mr-2 button-cancel" name="cancel-buying"
-        (click)="cancelBuying()">Cancel</button>
+        (click)="cancelBuying()">
+          <span translate>confirm-buying.cancel</span>
+        </button>
         <button class="btn button-accept"
-        (click)="gotoPayment()">Deliver to this address</button>
+        (click)="gotoPayment()">
+          <span translate>confirm-buying.deliver</span>
+        </button>
       </div>
     </div>
 
