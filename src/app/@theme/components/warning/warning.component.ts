@@ -8,7 +8,7 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
   templateUrl: './warning.component.html',
 })
 export class WarningComponent implements OnInit {
-
+  message: string = '';
   warningHeader: string;
   warningMessage: string;
 

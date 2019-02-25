@@ -17,7 +17,17 @@ const routes: Routes = [{
     {
       path: 'feature-01',
       loadChildren: 'app/pages//feature01/feature01.module#Feature01Module',
-      canActivate: [SecurityGuard],
+      // canActivate: [SecurityGuard],
+    },
+    {
+      path: 'cart',
+      loadChildren: 'app/pages/cart/cart.module#CartModule',
+      // canActivate: [SecurityGuard],
+    },
+    {
+      path: 'confirm-buying',
+      loadChildren: 'app/pages/confirm-buying/confirm-buying.module#ConfirmBuyingModule',
+      // canActivate: [SecurityGuard],
     },
     {
       path: 'payment',

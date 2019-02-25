@@ -1,0 +1,18 @@
+.title-address-info {
+  font-weight: bold;
+}
+
+.radio input[type="radio"]:checked + label::before {
+  border-color: blue !important;
+}
+
+[name$='cancel-buying'] {
+  width: 230px;
+}
+[name$='radio-address'] {
+  border-color: #1a9cb7 !important;
+}
+
+[name$='radio-address']:hover {
+  border-color: #16849b !important;
+}

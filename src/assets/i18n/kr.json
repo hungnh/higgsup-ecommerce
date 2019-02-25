@@ -44,5 +44,42 @@
     "description":"X-Shop receives online orders and delivery, does not support buying and receiving goods directly at the office or the order processing center",
     "warranty_address":"Shipping / return / warranty shipping address: ",
     "refer":"(Refer to the change, return, warranty or contact instructions for 024 6656 6602 for further instructions)"
+  },
+  "cart": {
+    "order_summary": "주문 요약",
+    "sub_total": "소계",
+    "shipping_fee": "배송비",
+    "total": "합계",
+    "proceed_to_payment": "지불을 진행하다",
+    "products_count": "{{number}} 제작품",
+    "delete": "지우다",
+    "provided_by": "에 의해 제공 ",
+    "continue_shopping": "쇼핑을 계속",
+    "remove_item": "항목 삭제",
+    "question_removing": "장바구니에서이 항목을 제거 하시겠습니까?",
+    "cancel": "취소",
+    "accept": "받아 들인다"
+  },
+  "confirm-buying": {
+    "delivery_address": "배달 주소",
+    "full_name": "성명",
+    "phone_number": "전화 번호",
+    "province_or_city": "도 / 시",
+    "district": "지구",
+    "ward": "구",
+    "address": "주소",
+    "address_type": "주소 유형",
+    "cancel": "취소",
+    "deliver": "이 주소로 배달",
+    "home_flat": "집 / 편평한",
+    "office_company": "사무실 / 회사",
+    "use_address_default": "이 주소를 기본값으로 사용하십시오",
+    "input_name": "전체 이름 입력",
+    "input_phone_number": "전화 번호 입력",
+    "choose_province": "도 / 도시 선택",
+    "choose_district": "지구 선택",
+    "choose_ward": "와드 선택",
+    "example_address": "예 : 52, Tran Hung Dao 거리",
+    "type_address_recommend": "패키지를보다 편리하게 받으려면 주소 유형을 알려주십시오."
   }
 }
