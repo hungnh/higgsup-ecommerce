@@ -67,11 +67,11 @@ export class HeaderComponent implements OnInit {
   }
 
   goToLogin() {
-    this.router.navigate(['./pages/login']);
+    this.router.navigate(['./auth/login']);
   }
 
   goToRegister() {
-    this.router.navigate(['./pages/register']);
+    this.router.navigate(['./auth/register']);
   }
 
   goToSearch() {

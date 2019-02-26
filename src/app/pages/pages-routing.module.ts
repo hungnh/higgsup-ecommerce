@@ -1,10 +1,9 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {NgModule} from '@angular/core';
 
-import { PagesComponent } from './pages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import {PagesComponent} from './pages.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 import {NotFoundComponent} from './not-found/not-found.component';
-import {SecurityGuard} from '../@core/auth/security-guard.service';
 
 const routes: Routes = [{
   path: '',
