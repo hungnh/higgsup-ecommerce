@@ -5,6 +5,6 @@ export class DeliveryInformation {
   district: string = '';
   ward: string = '';
   address: string = '';
-  addressType: boolean = null;
+  addressType: string = '';
   setDefaultAddress: boolean = null;
 }
