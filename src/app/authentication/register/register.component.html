@@ -1,17 +1,20 @@
 <nb-card class="mt-4">
   <div class="container">
-    <div class="row align-content-center">
+    <div class="row justify-content-center pt-3">
       <h5>Create your account</h5>
     </div>
   </div>
-  <form>
+  <form [formGroup]="registerForm">
     <div class="container">
       <div class="row mt-2">
         <div class="col-3 offset-1">
           <p class="title-address-info mandatory-field">First name</p>
         </div>
         <div class="col-6">
-          <input type="text" class="form-control">
+          <div *ngIf="submitted && registerFormControls.firstName.errors">
+            <div *ngIf="registerFormControls.firstName.errors.required">First name is required.</div>
+          </div>
+          <input type="text" class="form-control" formControlName="firstName">
         </div>
       </div>
 
@@ -21,7 +24,10 @@
           <p class="title-address-info mandatory-field">Last name</p>
         </div>
         <div class="col-6">
-          <input type="text" class="form-control">
+          <div *ngIf="submitted && registerFormControls.lastName.errors">
+            <div *ngIf="registerFormControls.lastName.errors.required">Last name is required.</div>
+          </div>
+          <input type="text" class="form-control" formControlName="lastName">
         </div>
       </div>
 
@@ -31,7 +37,11 @@
           <p class="title-address-info mandatory-field">Email address</p>
         </div>
         <div class="col-6">
-          <input type="text" class="form-control">
+          <div *ngIf="submitted && registerFormControls.email.errors">
+            <div *ngIf="registerFormControls.email.errors.required">Email Address is required.</div>
+            <div *ngIf="registerFormControls.email.errors.email">Please enter a valid email address.</div>
+          </div>
+          <input type="text" class="form-control" formControlName="email">
         </div>
       </div>
 
@@ -41,7 +51,12 @@
           <p class="title-address-info mandatory-field">Create a Password</p>
         </div>
         <div class="col-6">
-          <input type="text" class="form-control">
+          <div *ngIf="submitted && registerFormControls.password.errors">
+            <div *ngIf="registerFormControls.password.errors.required">Password is required.</div>
+            <div *ngIf="registerFormControls.password.errors.minlength">Must contain between 6 and 12 characters.</div>
+            <div *ngIf="registerFormControls.password.errors.maxlength">Must contain between 6 and 12 characters.</div>
+          </div>
+          <input type="text" class="form-control" formControlName="password">
         </div>
       </div>
 
@@ -51,9 +66,28 @@
           <p class="title-address-info mandatory-field">Confirm password</p>
         </div>
         <div class="col-6">
-          <input type="text" class="form-control">
+          <div *ngIf="submitted && registerFormControls.confirmPassword.errors">
+            <div *ngIf="registerFormControls.confirmPassword.errors.required">Confirm password is required.</div>
+            <div *ngIf="registerFormControls.confirmPassword.errors.minlength">Must contain between 6 and 12 characters.</div>
+            <div *ngIf="registerFormControls.confirmPassword.errors.maxlength">Must contain between 6 and 12 characters.</div>
+            <div *ngIf="registerFormControls.confirmPassword.errors.mustMatch">Password and confirm password do not match</div>
+          </div>
+          <input type="text" class="form-control" formControlName="confirmPassword">
         </div>
       </div>
+
+      <div class="p-3">
+        <div class="row justify-content-center">
+          <button type="button" class="btn" (click)="submitRegister()">Create Account</button>
+        </div>
+        <div class="row p-2 justify-content-center">
+          <span>Already have an account?</span>
+        </div>
+        <div class="row justify-content-center">
+          <button type="button" class="btn">Sign In</button>
+        </div>
+      </div>
+
     </div>
   </form>
 </nb-card>

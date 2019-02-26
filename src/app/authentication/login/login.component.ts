@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {LoginService} from "../../@core/services/login.service";
 import {AuthGuard} from "../../@core/auth/auth-guard.service";
 import {LoginResult} from "../../@core/model/login-result.model";
+import {HttpService} from "../../@core/auth/http.service";
 
 @Component({
   selector: 'login',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private loginService: LoginService,
+              private httpService: HttpService,
               private authenService: AuthGuard) { }
 
   ngOnInit() {
@@ -35,7 +37,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.loginInfo.controls.email.value, this.loginInfo.controls.password.value).subscribe(
       (res: LoginResult) => {
         localStorage.setItem('Authorization', res.token);
-        console.log(localStorage.getItem('Authorization'));
+        this.httpService.setHeaderToken();
       }
     );
   }
