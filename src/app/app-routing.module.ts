@@ -17,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: 'app/authentication/authentication.module#AuthenticationModule'
+    loadChildren: 'app/authentication/authentication.module#AuthenticationModule',
   },
   // {
   //   path: 'auth',

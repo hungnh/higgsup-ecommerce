@@ -5,7 +5,7 @@ import {AnalyticsService} from '../../../@core/utils';
 import {NbAuthJWTToken, NbAuthService} from '@nebular/auth';
 import {filter, map, tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
-import {TranslateService} from "@ngx-translate/core";
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'ngx-header',
@@ -18,8 +18,8 @@ export class HeaderComponent implements OnInit {
 
   user: any;
   loginFlg: boolean;
-  inputSearch : any;
-  userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
+  inputSearch: any;
+  userMenu = [{title: 'Profile'}, {title: 'Log out'}];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
@@ -62,6 +62,7 @@ export class HeaderComponent implements OnInit {
   startSearch() {
     this.analyticsService.trackEvent('startSearch');
   }
+
   goToCart() {
     this.router.navigate(['./pages/cart']);
   }
@@ -75,6 +76,6 @@ export class HeaderComponent implements OnInit {
   }
 
   goToSearch() {
-    this.router.navigate(['./pages/search',this.inputSearch]);
+    this.router.navigate(['./pages/search', this.inputSearch]);
   }
 }
