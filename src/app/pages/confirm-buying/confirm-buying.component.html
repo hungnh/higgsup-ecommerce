@@ -7,68 +7,95 @@
   <div class="container">
     <div class="row mt-5">
       <div class="col-3 offset-1">
-        <p class="title-address-info mandatory-field" translate>confirm-buying.full_name</p>
+        <p class="title-address-info mandatory-field" translate>
+          confirm-buying.full_name</p>
       </div>
       <div class="col-6">
         <input type="text" class="form-control"
                [attr.placeholder]="'confirm-buying.input_name' | translate"
-               [(ngModel)]="deliveryInfo.fullName">
+               [(ngModel)]="deliveryInfo.fullName"
+               [ngClass]="{'field-error': !deliveryInfo.fullName && isSubmit, 'field-success': deliveryInfo.fullName && isSubmit}">
       </div>
     </div>
 
     <div class="row mt-2">
 
       <div class="col-3 offset-1">
-        <p class="title-address-info mandatory-field" translate>confirm-buying.phone_number</p>
+        <p class="title-address-info mandatory-field" translate>
+          confirm-buying.phone_number</p>
       </div>
       <div class="col-6">
         <input type="text" class="form-control "
                [attr.placeholder]="'confirm-buying.input_phone_number' | translate"
-               [(ngModel)]="deliveryInfo.phoneNumber">
+               [(ngModel)]="deliveryInfo.phoneNumber"
+               (input)="inputValidator($event)"
+               onpaste="return false;"
+               [ngClass]="{'field-error': !deliveryInfo.phoneNumber && isSubmit, 'field-success': deliveryInfo.phoneNumber && isSubmit}">
       </div>
     </div>
 
     <div class="row mt-2">
       <div class="col-3 offset-1">
-        <p class="title-address-info mandatory-field" translate>confirm-buying.province_or_city</p>
+        <p class="title-address-info mandatory-field" translate>
+          confirm-buying.province_or_city</p>
       </div>
       <div class="col-6">
-        <select class="form-control" (click)="getAddress()">
+        <select class="form-control"
+                [ngClass]="{'field-error': !deliveryInfo.province && isSubmit, 'field-success': deliveryInfo.province && isSubmit}"
+                #provinceSelected
+                (change)="getDistricts(provinceSelected.value)">
           <option value="0" translate>confirm-buying.choose_province</option>
+          <option *ngFor="let province of provinces" [value]="province.code">
+            {{province.name_with_type}}
+          </option>
         </select>
       </div>
     </div>
 
     <div class="row mt-2">
       <div class="col-3 offset-1">
-        <p class="title-address-info mandatory-field" translate>confirm-buying.district</p>
+        <p class="title-address-info mandatory-field" translate>
+          confirm-buying.district</p>
       </div>
       <div class="col-6">
-        <select class="form-control">
+        <select class="form-control"
+                [ngClass]="{'field-error': !deliveryInfo.district && isSubmit, 'field-success': deliveryInfo.district && isSubmit}"
+                #districtSelected (change)="getWards(districtSelected.value)">
           <option value="0" translate>confirm-buying.choose_district</option>
+          <option *ngFor="let district of districts" [value]="district.code">
+            {{district.name_with_type}}
+          </option>
         </select>
       </div>
     </div>
 
     <div class="row mt-2">
       <div class="col-3 offset-1">
-        <p class="title-address-info mandatory-field" translate>confirm-buying.ward</p>
+        <p class="title-address-info mandatory-field" translate>
+          confirm-buying.ward</p>
       </div>
       <div class="col-6">
-        <select class="form-control">
+        <select class="form-control"
+                [ngClass]="{'field-error': !deliveryInfo.ward && isSubmit, 'field-success': deliveryInfo.ward && isSubmit}"
+                #wardSelected (change)="setWard(wardSelected.value)">
           <option value="0" translate>confirm-buying.choose_ward</option>
+          <option *ngFor="let ward of wards" [value]="ward.code">
+            {{ward.name_with_type}}
+          </option>
         </select>
       </div>
     </div>
 
     <div class="row mt-2">
       <div class="col-3 offset-1">
-        <p class="title-address-info mandatory-field" translate>confirm-buying.address</p>
+        <p class="title-address-info mandatory-field" translate>
+          confirm-buying.address</p>
       </div>
       <div class="col-6">
         <input type="text" class="form-control"
                [attr.placeholder]="'confirm-buying.example_address' | translate"
-               [(ngModel)]="deliveryInfo.address">
+               [(ngModel)]="deliveryInfo.address"
+               [ngClass]="{'field-error': !deliveryInfo.address && isSubmit, 'field-success': deliveryInfo.address && isSubmit}">
       </div>
     </div>
 
@@ -80,12 +107,14 @@
 
     <div class="row mt-2">
       <div class="col-3 offset-1">
-        <p class="title-address-info mandatory-field" translate>confirm-buying.address_type</p>
+        <p class="title-address-info mandatory-field" translate>
+          confirm-buying.address_type</p>
       </div>
       <div class="col-3">
         <label class="custom-control custom-radio">
           <input type="radio" class="custom-control-input" name="address-type"
-                 id="home">
+                 value="home"
+                 id="home" [(ngModel)]="deliveryInfo.addressType">
           <span class="custom-control-indicator radio-address"></span>
           <span class="custom-control-description" translate>confirm-buying.home_flat</span>
         </label>
@@ -93,7 +122,8 @@
       <div class="col-3">
         <label class="custom-control custom-radio">
           <input type="radio" class="custom-control-input" name="address-type"
-                 id="office">
+                 value="office"
+                 id="office" [(ngModel)]="deliveryInfo.addressType">
           <span class="custom-control-indicator radio-address"></span>
           <span class="custom-control-description" translate>confirm-buying.office_company</span>
         </label>
@@ -111,11 +141,11 @@
     <div class="row mt-2 mb-2">
       <div class="col-8 offset-4">
         <button class="btn mr-2 button-cancel" name="cancel-buying"
-        (click)="cancelBuying()">
+                (click)="cancelBuying()">
           <span translate>confirm-buying.cancel</span>
         </button>
         <button class="btn button-accept"
-        (click)="gotoPayment()">
+                (click)="gotoPayment()">
           <span translate>confirm-buying.deliver</span>
         </button>
       </div>

@@ -44,7 +44,8 @@
                                        name="payment-block"
                                        id="new-card-number">
                                 <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description" translate>payment.input_card_number</span>
+                                <span class="custom-control-description"
+                                      translate>payment.input_card_number</span>
                               </label>
                             </div>
                           </div>
@@ -120,7 +121,8 @@
 
                             <div class="col-12 mt-2">
                               <nb-checkbox [value]="true">
-                                <span translate>payment.save_for_next_time</span>
+                                <span
+                                  translate>payment.save_for_next_time</span>
                               </nb-checkbox>
                             </div>
 
@@ -148,7 +150,8 @@
                     <span class="custom-control-description" translate>payment.pay_ebank</span>
                   </label>
 
-                  <div class="row mr-3 mt-2" *ngIf="paymentWay == 'payEBanking'">
+                  <div class="row mr-3 mt-2"
+                       *ngIf="paymentWay == 'payEBanking'">
 
                     <div class="col-12">
                       <div class="m-4 payment-block">
@@ -158,8 +161,10 @@
                           <div class="row">
                             <div class="col-12">
                               <ul name="list-bank-logo">
-                                <li *ngFor="let bankLogo of bankLogos"><a href="javascript:">
-                                  <img name="bank-logo" src="../../../assets/images/bank-logos/{{bankLogo}}"></a>
+                                <li *ngFor="let bankLogo of bankLogos"><a
+                                  href="javascript:">
+                                  <img name="bank-logo"
+                                       src="../../../assets/images/bank-logos/{{bankLogo}}"></a>
                                 </li>
                               </ul>
                             </div>
@@ -203,17 +208,20 @@
                     </div>
                     <div class="col-6 text-right">
                       <button class="btn button-edit">
-                        <span translate>payment.edit</span>
+                        <span translate
+                              (click)="gotoEditAddress()">payment.edit</span>
                       </button>
                     </div>
                   </div>
                   <div class="row m-2">
                     <div class="col-12 mt-2">
-                      <h6>Binding full name</h6>
+                      <h6>{{deliveryInfo.fullName}}</h6>
                     </div>
                     <div class="col-12 mt-2">
-                      <p>Binding Address</p>
-                      <p>Binding phone number</p>
+                      <p>{{deliveryInfo.address}} - {{deliveryInfo.ward}} -
+                        {{deliveryInfo.district}} -
+                        {{deliveryInfo.province}}</p>
+                      <p>{{deliveryInfo.phoneNumber}}</p>
                     </div>
                   </div>
                 </div>
@@ -227,25 +235,31 @@
                         <span translate>payment.order_form</span>
                       </p>
                       <p>
-                        <span translate [translateParams]="{number: 5}">payment.products_count</span>
+                        <span translate
+                              [translateParams]="{number: productList.length}">payment.products_count</span>
                       </p>
                     </div>
                     <div class="col-6 text-right">
-                      <button class="btn button-edit">Edit</button>
+                      <button class="btn button-edit" (click)="gotoCart()"><span
+                        translate>payment.edit</span></button>
                     </div>
                   </div>
                   <div class="row m-2 header-form-block">
-                    <div class="col-8">
-                      <p>
-                        <b>Binding number x </b><a href="#">Binding product's name</a>
-                      </p>
-                      <p translate>
-                        <span translate>payment.provided_by</span>
-                        <span>Binding provider's name</span>
-                      </p>
-                    </div>
-                    <div class="col-4">
-                      xxx.000
+                    <div class="col-12" *ngFor="let product of productList">
+                      <div class="row">
+                        <div class="col-8">
+                          <p>
+                            <b>{{product.quantity}} x </b><a href="#">{{product.name}}</a>
+                          </p>
+                          <p translate>
+                            <span translate>payment.provided_by</span>
+                            <span>{{product.provider}}</span>
+                          </p>
+                        </div>
+                        <div class="col-4">
+                          <span>{{product.price * product.quantity}}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="row m-2 header-form-block">
@@ -253,7 +267,7 @@
                       <span translate>payment.sub_total</span>
                     </div>
                     <div class="col-4">
-                      <span>binding sub-total</span>
+                      <span>{{subTotal}} {{currency}}</span>
                     </div>
                   </div>
                   <div class="row m-2">
@@ -261,7 +275,7 @@
                       <b translate>payment.total</b>
                     </div>
                     <div class="col-6">
-                      <h5>binding total</h5>
+                      <h5>{{subTotal + 2}} {{currency}}</h5>
                     </div>
                   </div>
                 </div>

@@ -39,19 +39,19 @@ export class CartComponent implements OnInit {
       {
         name: "Product 1",
         provider: "Ali33",
-        price: "500",
+        price: 500,
         quantity: 3
       },
       {
         name: "Product 2",
         provider: "1vuonchuoi9",
-        price: "600",
+        price: 600,
         quantity: 2
       },
       {
         name: "Product 3",
         provider: "Anonymous",
-        price: "1000",
+        price: 1000,
         quantity: 1
       },
     ]
@@ -76,7 +76,12 @@ export class CartComponent implements OnInit {
   }
 
   doProceedPayment() {
-    this.router.navigate(['/pages/confirm-buying']);
+    this.router.navigate(['/pages/confirm-buying'], {
+      queryParams: {
+        'data': JSON.stringify(this.productList)
+      },
+      skipLocationChange: true
+    });
   }
 
   doDeleteProduct() {

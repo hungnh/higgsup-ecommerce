@@ -1,7 +1,12 @@
-import {Injectable, ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
+import {
+  Injectable,
+  ModuleWithProviders,
+  NgModule,
+  Optional,
+  SkipSelf
+} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {
-  NB_AUTH_TOKEN_INTERCEPTOR_FILTER,
   NbAuthJWTInterceptor,
   NbAuthJWTToken,
   NbAuthModule,
@@ -16,9 +21,10 @@ import {AnalyticsService} from './utils';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
-import {HTTP_INTERCEPTORS, HttpRequest} from '@angular/common/http';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthGuard} from './auth/auth-guard.service';
 import {SecurityGuard} from './auth/security-guard.service';
+import {Http, HttpModule} from "@angular/http";
 
 @Injectable()
 export class NbSimpleRoleProvider implements NbRoleProvider {
