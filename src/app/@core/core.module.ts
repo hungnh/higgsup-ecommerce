@@ -66,12 +66,12 @@ export const NB_CORE_PROVIDERS = [
     forms: {},
   }).providers,
 
-  {
-    provide: NB_AUTH_TOKEN_INTERCEPTOR_FILTER,
-    useValue: function (req: HttpRequest<any>) {
-      return req.url === '/api/auth/token';
-    },
-  },
+  // {
+  //   provide: NB_AUTH_TOKEN_INTERCEPTOR_FILTER,
+  //   useValue: function (req: HttpRequest<any>) {
+  //     return req.url === '/api/auth/token';
+  //   },
+  // },
   {
     provide: HTTP_INTERCEPTORS,
     useClass: NbAuthJWTInterceptor,
