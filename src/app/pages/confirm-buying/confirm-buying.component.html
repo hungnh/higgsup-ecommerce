@@ -30,7 +30,8 @@
                [(ngModel)]="deliveryInfo.phoneNumber"
                (input)="inputValidator($event)"
                onpaste="return false;"
-               [ngClass]="{'field-error': !deliveryInfo.phoneNumber && isSubmit, 'field-success': deliveryInfo.phoneNumber && isSubmit}">
+               [ngClass]="{'field-error': !deliveryInfo.phoneNumber && isSubmit, 'field-success': deliveryInfo.phoneNumber && isSubmit}"
+               maxlength="32">
       </div>
     </div>
 
