@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
     }
     this.loginService.login(this.loginInfo.controls.email.value, this.loginInfo.controls.password.value).subscribe(
       (res: LoginResult) => {
-        localStorage.setItem('Authentication', res.token);
-        console.log(localStorage.getItem('Authentication'));
+        localStorage.setItem('Authorization', res.token);
+        console.log(localStorage.getItem('Authorization'));
       }
     );
   }
