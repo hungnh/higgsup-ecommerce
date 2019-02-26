@@ -1,4 +1,7 @@
-import {Component, OnInit, ElementRef} from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {DeliveryInformation} from "../../@core/model/delivery-information";
+import {Currency} from "../../@theme/glossary/currency.constant";
 
 @Component({
   selector: 'payment',
@@ -8,8 +11,12 @@ import {Component, OnInit, ElementRef} from '@angular/core';
 export class PaymentComponent implements OnInit {
   paymentWay: string = 'payCash';
   bankLogos: Array<any> = [];
+  deliveryInfo: DeliveryInformation = new DeliveryInformation();
+  productList: Array<any> = [];
+  subTotal: number = null;
+  currency: string = '';
 
-  constructor(public element: ElementRef) {
+  constructor(public element: ElementRef, private activeRoute: ActivatedRoute, private router: Router) {
   }
 
   addImg() {
@@ -20,6 +27,19 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit() {
     this.addImg();
+    this.deliveryInfo = JSON.parse(this.activeRoute.snapshot.queryParams.deliveryInfo);
+    this.productList= JSON.parse(this.activeRoute.snapshot.queryParams.productList);
+    this.productList.forEach(product => {
+      return this.subTotal += product.price * product.quantity;
+    });
+    this.currency = Currency.USD;
   }
 
+  gotoCart() {
+    this.router.navigate(['pages/cart']);
+  }
+
+  gotoEditAddress() {
+    window.history.back();
+  }
 }
