@@ -12,7 +12,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   public login(email: string, password: string): Observable<LoginResult>{
-    return this.http.post<LoginResult>(PathConfig.DOMAIN + PathConfig.PORT + PathConfig.API_LOGIN, {
+    return this.http.post<LoginResult>(PathConfig.URL + PathConfig.LOG_IN, {
       email: email,
       password: password
     });
