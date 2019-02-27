@@ -4,6 +4,7 @@ import {LoginService} from "../../@core/services/login.service";
 import {LoginResult} from "../../@core/model/login-result.model";
 import {HttpService} from "../../@core/auth/http.service";
 import {Router} from "@angular/router";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'login',
@@ -34,14 +35,22 @@ export class LoginComponent implements OnInit {
 
   submitLogin() {
     this.submitted = true;
+    this.loginInfo.setErrors(null);
     if (this.loginInfo.invalid) {
       return;
     }
     this.loginService.login(this.loginInfo.controls.email.value, this.loginInfo.controls.password.value).subscribe(
       (res: LoginResult) => {
-        localStorage.setItem('Authorization', res.token);
-        this.httpService.setHeaderToken();
-        this.router.navigate(['/pages/cart']);
+        console.log(res);
+        if (res) {
+          localStorage.setItem('Authorization', res.token);
+          this.httpService.setHeaderToken();
+          this.router.navigate(['/pages/cart']);
+        }
+      }, (error: HttpErrorResponse) => {
+        if (error.status === 401) {
+          this.loginInfo.setErrors({authenFailed: true});
+        }
       }
     );
   }

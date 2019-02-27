@@ -6,6 +6,10 @@
   </div>
   <form [formGroup]="registerForm">
     <div class="container">
+      <div *ngIf="submitted && registerForm.errors">
+        <div *ngIf="registerForm.errors.invalidInput">Invalid input.</div>
+        <div *ngIf="registerForm.errors.mustMatch">Password and confirm password do not match.</div>
+      </div>
       <div class="row mt-2">
         <div class="col-3 offset-1">
           <p class="title-address-info mandatory-field">First name</p>
@@ -40,6 +44,7 @@
           <div *ngIf="submitted && registerFormControls.email.errors">
             <div *ngIf="registerFormControls.email.errors.required">Email Address is required.</div>
             <div *ngIf="registerFormControls.email.errors.email">Please enter a valid email address.</div>
+            <div *ngIf="registerFormControls.email.errors.emailExisted">An account with this email already exists.</div>
           </div>
           <input type="text" class="form-control" formControlName="email">
         </div>
@@ -70,7 +75,6 @@
             <div *ngIf="registerFormControls.confirmPassword.errors.required">Confirm password is required.</div>
             <div *ngIf="registerFormControls.confirmPassword.errors.minlength">Must contain between 6 and 12 characters.</div>
             <div *ngIf="registerFormControls.confirmPassword.errors.maxlength">Must contain between 6 and 12 characters.</div>
-            <div *ngIf="registerFormControls.confirmPassword.errors.mustMatch">Password and confirm password do not match</div>
           </div>
           <input type="text" class="form-control" formControlName="confirmPassword">
         </div>

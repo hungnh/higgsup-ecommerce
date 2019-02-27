@@ -1,6 +1,9 @@
 <nb-card>
   <div class="container">
     <form [formGroup]="loginInfo">
+      <div *ngIf="submitted && loginInfo.errors">
+        <div *ngIf="loginInfo.errors.authenFailed">Your password and email do not match. Please try again.</div>
+      </div>
       <div class="row mt-3">
         <div class="col-md-8">
           <div class="col-md-2">

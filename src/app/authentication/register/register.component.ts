@@ -36,6 +36,7 @@ export class RegisterComponent implements OnInit {
 
   submitRegister() {
     this.submitted = true;
+    this.registerForm.controls.email.setErrors(null);
     if (this.registerForm.invalid) {
       return;
     }
@@ -44,9 +45,13 @@ export class RegisterComponent implements OnInit {
       this.registerForm.controls.email.value,
       this.registerForm.controls.password.value).subscribe(
       (res: RegisterDTO) => {
-        if (res.responseMessage) {
+        if (res.responseMessage.messageCode === null) {
           this.httpService.setHeaderToken();
           this.router.navigate(['/pages/cart']);
+        } else if (res.responseMessage.messageCode == 14) {
+          this.registerForm.controls.email.setErrors({emailExisted: true});
+        } else if (res.responseMessage.messageCode == 1) {
+          this.registerForm.setErrors({invalidInput: true});
         }
       }
     );
@@ -62,9 +67,9 @@ export class RegisterComponent implements OnInit {
       }
 
       if (control.value !== matchingControl.value) {
-        matchingControl.setErrors({ mustMatch: true });
+        this.registerForm.setErrors({ mustMatch: true });
       } else {
-        matchingControl.setErrors(null);
+        this.registerForm.setErrors(null);
       }
     }
   }
