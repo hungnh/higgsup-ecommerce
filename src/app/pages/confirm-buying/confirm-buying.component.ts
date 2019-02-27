@@ -42,7 +42,7 @@ export class ConfirmBuyingComponent implements OnInit {
   }
 
 
-  gotoPayment(province, district, ward) {
+  gotoPayment() {
     this.isSubmit = true;
     if (!this.deliveryInfo.fullName
       || !this.deliveryInfo.phoneNumber

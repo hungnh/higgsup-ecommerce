@@ -14,7 +14,7 @@ export class HomePageComponent implements OnInit {
   subMenuSecondList = [];
   seeMore = true;
   showMenu = false;
-  slide: string;
+  slide: number;
   constructor(private homeService: HomePageService) { }
 
   ngOnInit() {
