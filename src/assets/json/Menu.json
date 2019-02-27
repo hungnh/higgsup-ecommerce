@@ -1,0 +1,616 @@
+{
+  "menu": [
+    {
+      "id": 0,
+      "name": "Electronic Devices",
+      "sub": [
+        {
+          "id": 13,
+          "name": "Mobiles"
+        },
+        {
+          "id": 14,
+          "name": "Tables"
+        },
+        {
+          "id": 15,
+          "name": "Laptops"
+        },
+        {
+          "id": 16,
+          "name": "Desktops"
+        },
+        {
+          "id": 17,
+          "name": "Audio"
+        },
+        {
+          "id": 18,
+          "name": "Gaming Consoles"
+        },
+        {
+          "id": 19,
+          "name": "Action/Video Cameras"
+        },
+        {
+          "id": 20,
+          "name": "Security Cameras"
+        },
+        {
+          "id": 21,
+          "name": "Digital Cameras"
+        },
+        {
+          "id": 22,
+          "name": "Gadgets & App-enabled"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Electronic Accessories",
+      "sub": [
+        {
+          "id": 23,
+          "name": "Mobile Accessories"
+        },
+        {
+          "id": 24,
+          "name": "Computer Accessories"
+        },
+        {
+          "id": 25,
+          "name": "Network Components"
+        },
+        {
+          "id": 26,
+          "name": "Computer Components"
+        },
+        {
+          "id": 27,
+          "name": "Camera Accessories"
+        },
+        {
+          "id": 28,
+          "name": "Wearable"
+        },
+        {
+          "id": 29,
+          "name": "Storage"
+        },
+        {
+          "id": 30,
+          "name": "Console Accessories"
+        },
+        {
+          "id": 31,
+          "name": "Printers & Scanners"
+        },
+        {
+          "id": 32,
+          "name": "Tablet Accessories"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "TV & Home Appliances",
+      "sub": [
+        {
+          "id": 33,
+          "name": "TV & Video Devices"
+        },
+        {
+          "id": 34,
+          "name": "TV Accessories"
+        },
+        {
+          "id": 35,
+          "name": "Home Audio"
+        },
+        {
+          "id": 36,
+          "name": "Large Appliances"
+        },
+        {
+          "id": 37,
+          "name": "Small Kitchen Appliances"
+        },
+        {
+          "id": 38,
+          "name": "Cooling & Air Treatment"
+        },
+        {
+          "id": 39,
+          "name": "Vacuums & Floor Care"
+        },
+        {
+          "id": 40,
+          "name": "Iron & Sewing Machines"
+        },
+        {
+          "id": 41,
+          "name": "Personal Care Appliances"
+        },
+        {
+          "id": 42,
+          "name": "Parts & Accessories"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Health & Beauty",
+      "sub": [
+        {
+          "id": 43,
+          "name": "Makeup"
+        },
+        {
+          "id": 44,
+          "name": "Skin Care"
+        },
+        {
+          "id": 435,
+          "name": "Hair Care",
+          "sub": [
+            {
+              "id": 425,
+              "name": "Hair Treatments"
+            },
+            {
+              "id": 426,
+              "name": "Shampoo"
+            },
+            {
+              "id": 427,
+              "name": "Conditioner"
+            },
+            {
+              "id": 428,
+              "name": "Hair Brushes & Combs"
+            },
+            {
+              "id": 429,
+              "name": "Hair Accessories"
+            },
+            {
+              "id": 430,
+              "name": "Gifts & Value Sets"
+            },
+            {
+              "id": 431,
+              "name": "Hair Styling"
+            },
+            {
+              "id": 432,
+              "name": "Hair Coloring"
+            },
+            {
+              "id": 433,
+              "name": "Wig & Hair Extensions & Pads"
+            }
+          ]
+        },
+        {
+          "id": 45,
+          "name": "Beauty Tools",
+          "sub": [
+            {
+              "id": 434,
+              "name": "Face Skin Care Tools"
+            },
+            {
+              "id": 436,
+              "name": "Body Skin Care Tools"
+            },
+            {
+              "id": 437,
+              "name": "Curling Irons & Wands"
+            },
+            {
+              "id": 438,
+              "name": "Foot Relief Accessories & Tools"
+            },
+            {
+              "id": 439,
+              "name": "Hair Removal Appliances"
+            },
+            {
+              "id": 440,
+              "name": "Hair Removal Accessories"
+            },
+            {
+              "id": 441,
+              "name": "Flat Irons"
+            },
+            {
+              "id": 442,
+              "name": "Multi-stylers"
+            },
+            {
+              "id": 443,
+              "name": "Body Slimming & Electric Massagers"
+            },
+            {
+              "id": 444,
+              "name": "Hair Dryers"
+            }
+          ]
+        },
+        {
+          "id": 46,
+          "name": "Fragrances"
+        },
+        {
+          "id": 47,
+          "name": "Men Care"
+        },
+        {
+          "id": 48,
+          "name": "Bath & Body"
+        },
+        {
+          "id": 49,
+          "name": "Food Supplements"
+        },
+        {
+          "id": 50,
+          "name": "Medical Supplies"
+        },
+        {
+          "id": 51,
+          "name": "Personal Care"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Babies & Toys",
+      "sub": [
+        {
+          "id": 52,
+          "name": "Nursery"
+        },
+        {
+          "id": 53,
+          "name": "Feeding"
+        },
+        {
+          "id": 54,
+          "name": "Clothing & Accessories"
+        },
+        {
+          "id": 55,
+          "name": "Diapering & Potty"
+        },
+        {
+          "id": 56,
+          "name": "Baby Personal Care"
+        },
+        {
+          "id": 57,
+          "name": "Baby Gear"
+        },
+        {
+          "id": 58,
+          "name": "Baby & Toddler Toys"
+        },
+        {
+          "id": 59,
+          "name": "Figures & Collectibles"
+        },
+        {
+          "id": 60,
+          "name": "Sports & Outdoor Play"
+        },
+        {
+          "id": 61,
+          "name": "Remote Control & Vehicles"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Groceries & Pets",
+      "sub": [
+        {
+          "id": 62,
+          "name": "Breakfast"
+        },
+        {
+          "id": 63,
+          "name": "Dry & Packaged Foods"
+        },
+        {
+          "id": 64,
+          "name": "Beverages"
+        },
+        {
+          "id": 65,
+          "name": "Wines, Beers & Spirits"
+        },
+        {
+          "id": 66,
+          "name": "Laundry & Household"
+        },
+        {
+          "id": 67,
+          "name": "Candy & Chocolate"
+        },
+        {
+          "id": 68,
+          "name": "Tobacco"
+        },
+        {
+          "id": 69,
+          "name": "Snacks"
+        },
+        {
+          "id": 70,
+          "name": "Pet Supplies"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Home & Lifestyle",
+      "sub": [
+        {
+          "id": 71,
+          "name": "Kitchen & Dining"
+        },
+        {
+          "id": 72,
+          "name": "Lighting"
+        },
+        {
+          "id": 73,
+          "name": "Bedding"
+        },
+        {
+          "id": 74,
+          "name": "Bath"
+        },
+        {
+          "id": 75,
+          "name": "Furniture"
+        },
+        {
+          "id": 76,
+          "name": "Decor"
+        },
+        {
+          "id": 77,
+          "name": "Tools, DIY & Outdoor"
+        },
+        {
+          "id": 78,
+          "name": "Stationery & Craft"
+        },
+        {
+          "id": 79,
+          "name": "Books"
+        },
+        {
+          "id": 80,
+          "name": "Music & Instruments"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Woman's Fashion",
+      "sub": [
+        {
+          "id": 81,
+          "name": "Clothing"
+        },
+        {
+          "id": 82,
+          "name": "Shoes"
+        },
+        {
+          "id": 83,
+          "name": "Bags"
+        },
+        {
+          "id": 84,
+          "name": "Accessories"
+        },
+        {
+          "id": 85,
+          "name": "Lingerie, Sleep & Lounge"
+        },
+        {
+          "id": 86,
+          "name": "Girls' Clothing"
+        },
+        {
+          "id": 87,
+          "name": "Girls' Shoes"
+        },
+        {
+          "id": 88,
+          "name": "Girls' Accessories"
+        },
+        {
+          "id": 89,
+          "name": "Kids' Bags"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Men''s Fashion",
+      "sub": [
+        {
+          "id": 90,
+          "name": "Clothing"
+        },
+        {
+          "id": 91,
+          "name": "Underwear"
+        },
+        {
+          "id": 92,
+          "name": "Shoes"
+        },
+        {
+          "id": 93,
+          "name": "Bags"
+        },
+        {
+          "id": 94,
+          "name": "Accessories"
+        },
+        {
+          "id": 95,
+          "name": "Boys' Clothing"
+        },
+        {
+          "id": 96,
+          "name": "Boys' Shoes"
+        },
+        {
+          "id": 97,
+          "name": "Boys' Accessories"
+        },
+        {
+          "id": 98,
+          "name": "Kids' Bags"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Fashion Accessorie",
+      "sub": [
+        {
+          "id": 99,
+          "name": "Women's Watches"
+        },
+        {
+          "id": 100,
+          "name": "Men's Watches"
+        },
+        {
+          "id": 101,
+          "name": "Kids' Watches"
+        },
+        {
+          "id": 102,
+          "name": "Sunglasses"
+        },
+        {
+          "id": 103,
+          "name": "Eyeglasses"
+        },
+        {
+          "id": 104,
+          "name": "Contact Lens"
+        },
+        {
+          "id": 105,
+          "name": "Women's Jewellery"
+        },
+        {
+          "id": 106,
+          "name": "Men's Jewellery"
+        },
+        {
+          "id": 107,
+          "name": "Eyewear Accessories"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Sports & Travel",
+      "sub": [
+        {
+          "id": 108,
+          "name": "Travel"
+        },
+        {
+          "id": 109,
+          "name": "Exercise & Fitness"
+        },
+        {
+          "id": 110,
+          "name": "Outdoor Recreation"
+        },
+        {
+          "id": 111,
+          "name": "Men's Clothing & Shoes"
+        },
+        {
+          "id": 112,
+          "name": "Women's Clothing & Shoes"
+        },
+        {
+          "id": 113,
+          "name": "Racket Sports"
+        },
+        {
+          "id": 114,
+          "name": "Team Sports"
+        },
+        {
+          "id": 115,
+          "name": "Boxing & Martial Arts"
+        },
+        {
+          "id": 116,
+          "name": "Water Sports"
+        },
+        {
+          "id": 117,
+          "name": "Sports Accessories"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Automotive & Motorcycles",
+      "sub": [
+        {
+          "id": 118,
+          "name": "Motorcycle"
+        },
+        {
+          "id": 119,
+          "name": "Automotive"
+        },
+        {
+          "id": 120,
+          "name": "Services & Installations"
+        },
+        {
+          "id": 121,
+          "name": "Moto Oils & Fluids"
+        },
+        {
+          "id": 122,
+          "name": "Moto Parts & Spares"
+        },
+        {
+          "id": 123,
+          "name": "Exterior Auto Care"
+        },
+        {
+          "id": 124,
+          "name": "Auto Oils & Fluids"
+        },
+        {
+          "id": 125,
+          "name": "Auto Accessories"
+        },
+        {
+          "id": 126,
+          "name": "Wheel & Tire Installation"
+        }
+      ]
+    }
+  ]
+}

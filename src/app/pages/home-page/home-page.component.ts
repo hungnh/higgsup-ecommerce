@@ -1,0 +1,57 @@
+import { Component, OnInit } from '@angular/core';
+import {HomePageService} from '../../@core/data/home-page.service';
+
+@Component({
+  selector: 'ngx-home-page',
+  templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.scss'],
+})
+export class HomePageComponent implements OnInit {
+  topSaleItems = [];
+  shopByCategoryItems = [];
+  menuList = [];
+  subMenuList = [];
+  subMenuSecondList = [];
+  seeMore = true;
+  showMenu = false;
+  slide: string;
+  constructor(private homeService: HomePageService) { }
+
+  ngOnInit() {
+    this.getTopSale();
+    this.getShopByCategory();
+    this.getMenu();
+  }
+  getTopSale() {
+    this.homeService.getTopSale().subscribe(data => {
+      this.topSaleItems = data['responseMessage'].data;
+    });
+  }
+  getShopByCategory() {
+    this.homeService.getShopByCategory().subscribe(data => {
+      this.shopByCategoryItems = data['data'];
+    });
+  }
+  getMenu() {
+    this.homeService.getMenu().subscribe(data => {
+      this.menuList = data['menu'];
+    });
+  }
+  getSubMenu(menu) {
+    this.subMenuList = this.menuList[menu].sub;
+  }
+  getSubMenuSecond(subMenu) {
+    this.subMenuSecondList = this.subMenuList[subMenu].sub;
+    if (this.subMenuSecondList) {
+      this.showMenu = true;
+    }else {
+      this.showMenu = false;
+    }
+  }
+  onSeeMore() {
+    this.seeMore = !this.seeMore;
+  }
+  changeBg(event) {
+    this.slide = event.current;
+  }
+}

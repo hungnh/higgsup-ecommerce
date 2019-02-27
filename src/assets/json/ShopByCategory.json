@@ -1,0 +1,54 @@
+{
+  "data":[
+    {
+      "id":1,
+      "name":"Electronic Devices",
+      "imgUrl":"https://www.kenresearch.com/blog/wp-content/uploads/2016/04/Online-Consumer-Electronics-Products.jpg"
+    },
+    {
+      "id":2,
+      "name":"Electronic Accessories",
+      "imgUrl":"https://www.naijaonlinebiz.com/wp-content/uploads/2015/04/mobile-phone-accessories.png"
+    },
+    {
+      "id":3,
+      "name":"TV & Home Appliances",
+      "imgUrl":"http://pluspng.com/img-png/tv-hd-png-km0255uhd-0-png-km0255uhd-1-png-1200.png"
+    },
+    {
+      "id":4,
+      "name":"Healthy & Beauty",
+      "imgUrl":"https://static1.squarespace.com/static/51638df0e4b05d2e22998d3c/t/5a26d5cbe2c4837111b35105/1512501340718/Gift+Guide_+Healthy+Beauty.png?format=1000w"
+    },
+    {
+      "id":5,
+      "name":"Babies & Toys",
+      "imgUrl":"http://www.madisonkidsmatter.com/assets/MKMneeds.png"
+    },
+    {
+      "id":6,
+      "name":"Groceries & Pets",
+      "imgUrl":"https://www.greatbarrierislandtourism.co.nz/wp-content/uploads/2013/05/grocery-supplies-Great-Barrier-Island.jpg"
+    },
+    {
+      "id":7,
+      "name":"Home & Lifestyle",
+      "imgUrl":"https://d3ucbhlqmnw645.cloudfront.net/contents/uploads/bfi_thumb/image.32f506aceba9f1636bdfdcbbd6828a6a-323i159fhrc01qr7rk47ezlbruhh9a4emso2fopjo9j4chjpc.png"
+    },
+    {
+      "id":8,
+      "name":"Woman's Fashion",
+      "imgUrl":"https://i.pinimg.com/736x/c7/31/26/c73126d25db08265580421796e010d58.jpg"
+    },
+    {
+      "id":9,
+      "name":"Men's Fashion",
+      "imgUrl":"https://i.pinimg.com/736x/6c/00/74/6c0074240c45beab0d529210106e27e8--gq-fashion-womens-fashion.jpg"
+    },
+    {
+      "id":10,
+      "name":"Fashion Accessorie",
+      "imgUrl":"https://harmonysrainbow.files.wordpress.com/2014/08/fall-and-winter-2014-2015-fashion-accessory-trends-crystal.jpg"
+    }
+  ]
+}
