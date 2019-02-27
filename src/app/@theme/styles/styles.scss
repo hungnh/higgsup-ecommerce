@@ -124,5 +124,13 @@
 
   @include bootstrap-rtl();
 }
-
-;
+.nb-theme-default nb-layout .layout .layout-container .content .columns nb-layout-column {
+  padding: 0;
+}
+.carousel-inner {
+  height: 100%;
+}
+/// HOVER ITEM
+.hover-item:hover {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
