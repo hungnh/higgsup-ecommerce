@@ -6,4 +6,5 @@ export class Product {
   productName: string;
   supplierName: string;
   unitPrice: number;
+  imgUrl: string;
 }

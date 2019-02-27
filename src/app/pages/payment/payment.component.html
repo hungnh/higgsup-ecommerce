@@ -264,7 +264,7 @@
                         </div>
                         <div class="col-4">
                           <div class="row justify-content-end">
-                            <span>{{product.unitPrice * product.amount}} {{currency}}</span>
+                            <span>{{product.unitPrice * product.amount | number}} {{currency}}</span>
                           </div>
                         </div>
                       </div>
@@ -276,7 +276,7 @@
                     </div>
                     <div class="col-4">
                       <div class="row justify-content-end">
-                        <span>{{subTotal}} {{currency}}</span>
+                        <span>{{subTotal | number}} {{currency}}</span>
                       </div>
                     </div>
                   </div>
@@ -286,7 +286,7 @@
                     </div>
                     <div class="col-6">
                       <div class="row justify-content-end">
-                        <h6>{{subTotal + 2}} {{currency}}</h6>
+                        <h6>{{subTotal + 2 | number}} {{currency}}</h6>
                       </div>
                     </div>
                   </div>
