@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  margin: auto;
+}
+.images-block {
+  .image-preview {
+    margin: auto;
+    height: 330px;
+    width: 330px;
+    img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+  .image-list {
+    display: flex;
+    border: 1px solid orangered;
+    .image-item {
+      width: 70px;
+      height: 70px;
+      margin: 0 10px;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        //margin: auto;
+      }
+    }
+  }
+}
