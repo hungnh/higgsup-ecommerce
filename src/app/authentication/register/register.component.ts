@@ -37,7 +37,6 @@ export class RegisterComponent implements OnInit {
   submitRegister() {
     this.submitted = true;
     if (this.registerForm.invalid) {
-      console.log(this.registerForm);
       return;
     }
     this.registerService.register(this.registerForm.controls.firstName.value,
@@ -47,9 +46,8 @@ export class RegisterComponent implements OnInit {
       (res: RegisterDTO) => {
         if (res.responseMessage) {
           this.httpService.setHeaderToken();
-          this.router.navigate(['./auth/login']);
+          this.router.navigate(['/pages/cart']);
         }
-        console.log(res);
       }
     );
   }
@@ -60,11 +58,9 @@ export class RegisterComponent implements OnInit {
       const matchingControl = formGroup.controls[matchingControlName];
 
       if (matchingControl.errors && !matchingControl.errors.mustMatch) {
-        // return if another validator has already found an error on the matchingControl
         return;
       }
 
-      // set error on matchingControl if validation fails
       if (control.value !== matchingControl.value) {
         matchingControl.setErrors({ mustMatch: true });
       } else {

@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {LoginService} from "../../@core/services/login.service";
-import {AuthGuard} from "../../@core/auth/auth-guard.service";
 import {LoginResult} from "../../@core/model/login-result.model";
 import {HttpService} from "../../@core/auth/http.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'login',
@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private loginService: LoginService,
               private httpService: HttpService,
-              private authenService: AuthGuard) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.loginInfo = this.formBuilder.group({
@@ -27,7 +28,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  get formControls() { return this.loginInfo.controls; }
+  get formControls() {
+    return this.loginInfo.controls;
+  }
 
   submitLogin() {
     this.submitted = true;
@@ -38,6 +41,7 @@ export class LoginComponent implements OnInit {
       (res: LoginResult) => {
         localStorage.setItem('Authorization', res.token);
         this.httpService.setHeaderToken();
+        this.router.navigate(['/pages/cart']);
       }
     );
   }
