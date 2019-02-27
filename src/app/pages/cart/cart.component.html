@@ -20,29 +20,43 @@
           </div>
           <div class="col-md-5">
             <div>
-              <a href="javascript:" name="product-name">{{product.name}}</a>
+              <a href="javascript:" name="product-name">{{product.productName}}</a>
             </div>
             <div class="mt-2">
               <span translate>cart.provided_by</span>
-              <a href="javascript:">{{product.provider}}</a>
+              <a href="javascript:">{{product.supplierName}}</a>
             </div>
             <div class="mt-2">
-              <a href="javascript:" (click)="doDeleteProduct()" translate>cart.delete</a>
+              <a href="javascript:" (click)="doDeleteProduct(product.id)" translate>cart.delete</a>
             </div>
           </div>
           <div class="col-md-2">
-            <p class="product-price">
-              {{product.price}} {{currency}}
-            </p>
+            <div class="row">
+              <p class="product-price">
+                {{product.unitPrice * (100 - product.discountPercent)/100}} {{currency}}
+              </p>
+            </div>
+            <div class="row">
+              <p>
+                <del>
+              {{product.unitPrice}} {{currency}}
+                </del>
+              </p>
+            </div>
+            <div class="row">
+              <p>
+                -{{product.discountPercent}}%
+              </p>
+            </div>
           </div>
           <div class="col-md-3" align="right">
             <button class="btn button-quantity"
                     (click)="doDecreaseQuantity(product)"
-                    [disabled]="product.quantity == 1"> -
+                    [disabled]="product.amount == 1"> -
             </button>
             <input type="text" class="input-quantity"
-                   [(ngModel)]="product.quantity" (keyup)="setMaxValue(product)"
-                   min="1" max="5" (keypress)="checkPressKey(this)"
+                   [(ngModel)]="product.amount"
+                   min="1" (keypress)="checkPressKey(this)"
                    onpaste="return false;">
             <button class="btn button-quantity"
                     (click)="doEncreaseQuantity(product)">+

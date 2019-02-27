@@ -1,6 +1,6 @@
 export class Currency {
 
-  static USD = "USD";
+  static USD = "$";
 
   constructor(){}
 }

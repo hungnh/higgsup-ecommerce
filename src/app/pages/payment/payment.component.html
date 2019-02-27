@@ -203,10 +203,10 @@
               <div class="col-12">
                 <div class="m-4 payment-block">
                   <div class="row m-2 header-form-block">
-                    <div class="col-6">
+                    <div class="col-7">
                       <p translate>payment.address_delivery</p>
                     </div>
-                    <div class="col-6 text-right">
+                    <div class="col-5 text-right">
                       <button class="btn button-edit">
                         <span translate
                               (click)="gotoEditAddress()">payment.edit</span>
@@ -232,17 +232,18 @@
               <div class="col-12">
                 <div class="m-4 payment-block">
                   <div class="row m-2 header-form-block">
-                    <div class="col-6">
-                      <p>
-                        <span translate>payment.order_form</span>
-                      </p>
-                      <p>
+                    <div class="col-7">
+                        <p>
+                          <span translate>payment.order_form</span>
+                        </p>
+                        <p>
                         <span translate
                               [translateParams]="{number: productList.length}">payment.products_count</span>
-                      </p>
+                        </p>
                     </div>
-                    <div class="col-6 text-right">
-                      <button class="btn button-edit" (click)="gotoCart()"><span
+                    <div class="col-5 text-right">
+                      <button class="btn button-edit"
+                              (click)="gotoCart()"><span
                         translate>payment.edit</span></button>
                     </div>
                   </div>
@@ -251,15 +252,20 @@
                       <div class="row">
                         <div class="col-8">
                           <p>
-                            <b>{{product.quantity}} x </b><a href="#">{{product.name}}</a>
+                            <b>{{product.amount}} x </b><a href="#">{{product.productName}}</a>
                           </p>
                           <p translate>
-                            <span translate>payment.provided_by</span>
-                            <span>{{product.provider}}</span>
+                            <span translate
+                                  name="provider">payment.provided_by</span>
+                          </p>
+                          <p>
+                            <span>{{product.supplierName}}</span>
                           </p>
                         </div>
                         <div class="col-4">
-                          <span>{{product.price * product.quantity}}</span>
+                          <div class="row justify-content-end">
+                            <span>{{product.unitPrice * product.amount}} {{currency}}</span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -269,7 +275,9 @@
                       <span translate>payment.sub_total</span>
                     </div>
                     <div class="col-4">
-                      <span>{{subTotal}} {{currency}}</span>
+                      <div class="row justify-content-end">
+                        <span>{{subTotal}} {{currency}}</span>
+                      </div>
                     </div>
                   </div>
                   <div class="row m-2">
@@ -277,7 +285,9 @@
                       <b translate>payment.total</b>
                     </div>
                     <div class="col-6">
-                      <h5>{{subTotal + 2}} {{currency}}</h5>
+                      <div class="row justify-content-end">
+                        <h6>{{subTotal + 2}} {{currency}}</h6>
+                      </div>
                     </div>
                   </div>
                 </div>

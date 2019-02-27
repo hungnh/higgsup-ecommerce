@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {DeliveryInformation} from "../../@core/model/delivery-information";
 import {Currency} from "../../@theme/glossary/currency.constant";
+import {Product} from "../../@core/model/product.model";
 
 @Component({
   selector: 'payment',
@@ -12,7 +13,7 @@ export class PaymentComponent implements OnInit {
   paymentWay: string = 'payCash';
   bankLogos: Array<any> = [];
   deliveryInfo: DeliveryInformation = new DeliveryInformation();
-  productList: Array<any> = [];
+  productList: Array<Product> = [];
   subTotal: number = null;
   currency: string = '';
 
@@ -30,7 +31,7 @@ export class PaymentComponent implements OnInit {
     this.deliveryInfo = JSON.parse(this.activeRoute.snapshot.queryParams.deliveryInfo);
     this.productList= JSON.parse(this.activeRoute.snapshot.queryParams.productList);
     this.productList.forEach(product => {
-      return this.subTotal += product.price * product.quantity;
+      return this.subTotal += product.unitPrice * product.amount;
     });
     this.currency = Currency.USD;
   }

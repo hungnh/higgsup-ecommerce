@@ -24,7 +24,9 @@ import {environment} from '../../environments/environment';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthGuard} from './auth/auth-guard.service';
 import {SecurityGuard} from './auth/security-guard.service';
-import {Http, HttpModule} from "@angular/http";
+import {CartService} from "./services/cart.service";
+import {HttpService} from "./services/http.service";
+import {DataTransferService} from "./services/data-transfer.service";
 
 @Injectable()
 export class NbSimpleRoleProvider implements NbRoleProvider {
@@ -102,6 +104,12 @@ export const NB_CORE_PROVIDERS = [
   AnalyticsService,
 ];
 
+export const API_SERVICES = [
+  HttpService,
+  CartService,
+  DataTransferService
+];
+
 @NgModule({
   imports: [
     CommonModule,
@@ -120,7 +128,7 @@ export class CoreModule {
     return <ModuleWithProviders>{
       ngModule: CoreModule,
       providers: [
-        ...NB_CORE_PROVIDERS,
+        ...NB_CORE_PROVIDERS, API_SERVICES
       ],
     };
   }
