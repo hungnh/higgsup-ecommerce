@@ -33,6 +33,11 @@ export class PagesComponent {
         icon: 'nb-gear',
         link: '/pages/feature-01',
       },
+      {
+        title: 'Home Page',
+        icon: 'nb-gear',
+        link: '/pages/home',
+      },
     ];
 
     accessChecker.isGranted('view', 'feature-01')

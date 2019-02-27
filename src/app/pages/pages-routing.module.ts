@@ -24,6 +24,20 @@ const routes: Routes = [{
       // canActivate: [SecurityGuard],
     },
     {
+      path: 'confirm-buying',
+      loadChildren: 'app/pages/confirm-buying/confirm-buying.module#ConfirmBuyingModule',
+      // canActivate: [SecurityGuard],
+    },
+    {
+      path: 'payment',
+      loadChildren: 'app/pages/payment/payment.module#PaymentModule',
+      // canActivate: [SecurityGuard],
+    },
+    {
+      path: 'home',
+      loadChildren: 'app/pages/home-page/home-page.module#HomePageModule',
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',

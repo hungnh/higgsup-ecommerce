@@ -61,13 +61,29 @@
 
   .button-edit {
     border: 1px solid #ccc;
-    background: linear-gradient(#fff,#f7f7f7);
+    background: linear-gradient(#fff, #f7f7f7);
     color: black;
   }
   .button-edit:hover {
     border: 1px solid #ccc;
     background: white;
     color: black;
+  }
+
+  .button-edit:focus {
+    border: 1px solid #ccc;
+    background: linear-gradient(#fff, #f7f7f7);
+    color: black;
+  }
+
+  .button-payment {
+    border-style: solid;
+    background-color: #f57224;
+  }
+
+  .button-payment:hover {
+    color: #fff;
+    background-color: #d0611e;
   }
 
   //custom input quantity
@@ -79,23 +95,23 @@
     text-align: center;
     border: none;
   }
-  input[type="text"].input-quantity:focus {
+  input[type='text'].input-quantity:focus {
     outline: none;
-    border: 1px solid #5AB0DB;
+    border: 1px solid #5ab0db;
   }
 
-  input[type="text"].input-quantity:hover {
+  input[type='text'].input-quantity:hover {
     border: 1px solid #999;
   }
 
-  input[type="text"].input-quantity:focus:hover {
+  input[type='text'].input-quantity:focus:hover {
     outline: none;
-    border: 1px solid #5AB0DB;
+    border: 1px solid #5ab0db;
 
   }
 
-  .mandatory-field:after {
-    content: "*";
+  .mandatory-field::after {
+    content: '*';
     color: red;
   }
 
@@ -112,17 +128,49 @@
   }
 
   nb-checkbox .customised-control-input:checked + .customised-control-indicator {
-    border-color: #1a9cb7 !important;
+    border-color: #f57224 !important;
   }
 
   input .customised-control-input:hover,
   nb-checkbox .customised-control-indicator:hover,
   label .customised-control:hover,
   span .custom-control-description:hover {
-    border-color: #1a9cb7 !important;
+    border-color: #d0611e !important;
+  }
+
+
+
+  nb-checkbox .customised-control-input:checked + .customised-control-indicator::before {
+    border-color: #d0611e;
+  }
+
+  .product-card:hover {
+    box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.25);
   }
 
   @include bootstrap-rtl();
-}
+  :host {
+    .customised-control {
+      position: relative;
+      display: inline-flex;
+      margin: 0;
+      min-height: inherit;
+      padding: 0.375rem 1.5rem 0.375rem 0;
+    }
 
-;
+    .customised-control-input:hover {
+      border-color: #d0611e !important;
+
+    }
+  }
+}
+.nb-theme-default nb-layout .layout .layout-container .content .columns nb-layout-column {
+  padding: 0;
+}
+.carousel-inner {
+  height: 100%;
+}
+/// HOVER ITEM
+.hover-item:hover {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+}

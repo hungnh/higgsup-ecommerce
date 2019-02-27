@@ -1,7 +1,12 @@
-import {Injectable, ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
+import {
+  Injectable,
+  ModuleWithProviders,
+  NgModule,
+  Optional,
+  SkipSelf
+} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {
-  NB_AUTH_TOKEN_INTERCEPTOR_FILTER,
   NbAuthJWTInterceptor,
   NbAuthJWTToken,
   NbAuthModule,
@@ -16,9 +21,12 @@ import {AnalyticsService} from './utils';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
-import {HTTP_INTERCEPTORS, HttpRequest} from '@angular/common/http';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthGuard} from './auth/auth-guard.service';
 import {SecurityGuard} from './auth/security-guard.service';
+import {CartService} from "./services/cart.service";
+import {HttpService} from "./services/http.service";
+import {DataTransferService} from "./services/data-transfer.service";
 
 @Injectable()
 export class NbSimpleRoleProvider implements NbRoleProvider {
@@ -60,12 +68,12 @@ export const NB_CORE_PROVIDERS = [
     forms: {},
   }).providers,
 
-  {
-    provide: NB_AUTH_TOKEN_INTERCEPTOR_FILTER,
-    useValue: function (req: HttpRequest<any>) {
-      return req.url === '/api/auth/token';
-    },
-  },
+  // {
+  //   provide: NB_AUTH_TOKEN_INTERCEPTOR_FILTER,
+  //   useValue: function (req: HttpRequest<any>) {
+  //     return req.url === '/api/auth/token';
+  //   },
+  // },
   {
     provide: HTTP_INTERCEPTORS,
     useClass: NbAuthJWTInterceptor,
@@ -96,6 +104,12 @@ export const NB_CORE_PROVIDERS = [
   AnalyticsService,
 ];
 
+export const API_SERVICES = [
+  HttpService,
+  CartService,
+  DataTransferService
+];
+
 @NgModule({
   imports: [
     CommonModule,
@@ -114,7 +128,7 @@ export class CoreModule {
     return <ModuleWithProviders>{
       ngModule: CoreModule,
       providers: [
-        ...NB_CORE_PROVIDERS,
+        ...NB_CORE_PROVIDERS, API_SERVICES
       ],
     };
   }
