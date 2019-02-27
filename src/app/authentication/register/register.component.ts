@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
       (res: RegisterDTO) => {
         if (res.responseMessage.messageCode === null) {
           this.httpService.setHeaderToken();
-          this.router.navigate(['/pages/cart']);
+          this.router.navigate(['/home']);
         } else if (res.responseMessage.messageCode == 14) {
           this.registerForm.controls.email.setErrors({emailExisted: true});
         } else if (res.responseMessage.messageCode == 1) {

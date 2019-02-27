@@ -12,7 +12,7 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
 
   public register(firstName: string, lastName: string, email: string, password: string): Observable<RegisterDTO>{
-    return this.http.post<RegisterDTO>(PathConfig.DOMAIN + PathConfig.PORT + PathConfig.API_REGISTER, {
+    return this.http.post<RegisterDTO>(PathConfig.URL + PathConfig.REGISTER, {
       firstName: firstName,
       lastName: lastName,
       email: email,
