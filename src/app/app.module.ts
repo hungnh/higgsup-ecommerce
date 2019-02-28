@@ -30,10 +30,10 @@ import {AuthenticationModule} from './authentication/authentication.module';
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
-    AuthenticationModule
+    AuthenticationModule,
   ],
   bootstrap: [AppComponent],
   providers: [
