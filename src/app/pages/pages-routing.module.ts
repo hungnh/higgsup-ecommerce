@@ -40,6 +40,10 @@ const routes: Routes = [{
       // canActivate: [SecurityGuard],
     },
     {
+      path: 'home',
+      loadChildren: 'app/pages/home-page/home-page.module#HomePageModule',
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
