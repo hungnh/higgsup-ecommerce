@@ -4,6 +4,8 @@ import {RegisterService} from "../../@core/services/register.service";
 import {RegisterDTO} from "../../@core/model/register-dto.model";
 import {Router} from "@angular/router";
 import {HttpService} from "../../@core/auth/http.service";
+import {LoginService} from "../../@core/services/login.service";
+import {LoginResult} from "../../@core/model/login-result.model";
 
 @Component({
   selector: 'register',
@@ -18,6 +20,7 @@ export class RegisterComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private registerService: RegisterService,
               private httpService: HttpService,
+              private loginService: LoginService,
               private router: Router) { }
 
   ngOnInit() {
@@ -36,7 +39,6 @@ export class RegisterComponent implements OnInit {
 
   submitRegister() {
     this.submitted = true;
-    this.registerForm.controls.email.setErrors(null);
     if (this.registerForm.invalid) {
       return;
     }
@@ -44,10 +46,17 @@ export class RegisterComponent implements OnInit {
       this.registerForm.controls.lastName.value,
       this.registerForm.controls.email.value,
       this.registerForm.controls.password.value).subscribe(
-      (res: RegisterDTO) => {
-        if (res.responseMessage.messageCode === null) {
+    (res: RegisterDTO) => {
+      console.log(res);
+      if (res.responseMessage.messageCode === null) {
           this.httpService.setHeaderToken();
-          this.router.navigate(['/home']);
+          this.loginService.login(this.registerForm.controls.email.value, this.registerForm.controls.password.value).subscribe((res: LoginResult) => {
+            if (res) {
+              localStorage.setItem('Authorization', 'Bearer ' +  res.token);
+              this.httpService.setHeaderToken();
+              this.router.navigate(['/home']);
+            }
+          });
         } else if (res.responseMessage.messageCode == 14) {
           this.registerForm.controls.email.setErrors({emailExisted: true});
         } else if (res.responseMessage.messageCode == 1) {

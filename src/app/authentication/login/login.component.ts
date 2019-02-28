@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
     }
     this.loginService.login(this.loginInfo.controls.email.value, this.loginInfo.controls.password.value).subscribe(
       (res: LoginResult) => {
-        console.log(res);
         if (res) {
           localStorage.setItem('Authorization', 'Bearer ' +  res.token);
           this.httpService.setHeaderToken();
