@@ -58,8 +58,9 @@ p[name$='proceed-payment'] {
   width: 100px;
 }
 
-img {
+img[name$='product-small-image'] {
   width: 100%;
+  padding-right: 10px;
 }
 
 
