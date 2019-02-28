@@ -110,5 +110,23 @@
     "temporary_calculation": "一時的な計算",
     "sub_total": "小計",
     "total": "合計"
+  },
+  "product-detail": {
+    "votes": "投票",
+    "shipping": "運送",
+    "discount": "ディスカウント",
+    "amount": "量",
+    "available_product": "{{amount}} 利用可能な製品",
+    "brand": "ブランド",
+    "status": "状態",
+    "weight": "重量 (kg)",
+    "provider": "プロバイダ",
+    "delivered_from": "から配信",
+    "detail_description": "詳細な説明",
+    "rating_feedback": "評価とフィードバック",
+    "related_product": "関連商品",
+    "add_to_cart": "カートに追加",
+    "buy_now": "今買う"
+
   }
 }
