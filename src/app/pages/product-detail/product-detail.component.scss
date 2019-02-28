@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  margin: auto;
+}
+.images-block {
+  img {
+    max-height: 95%;
+    max-width: 95%;
+    display: block;
+    margin: auto;
+  }
+  .image-preview {
+    margin: auto;
+    height: 330px;
+    width: 100%;
+    border-bottom: 1px solid #eff0f5;
+    padding: 0;
+  }
+  .image-list {
+    margin-top: 20px;
+    overflow: scroll;
+    white-space: nowrap;
+    .image-item {
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+      margin: 0 5px;
+      border: 1px solid #dadada;
+      padding: 3px;
+    }
+  }
+}
