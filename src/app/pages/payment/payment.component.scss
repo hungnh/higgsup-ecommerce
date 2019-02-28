@@ -50,3 +50,7 @@ img[name$='bank-logo'] :hover {
 p {
   word-break: break-all
 }
+
+p[name$='provider'] {
+  margin-bottom: 0;
+}

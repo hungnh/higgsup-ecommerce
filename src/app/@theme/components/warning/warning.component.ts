@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {DataTransferService} from "../../../@core/services/data-transfer.service";
 
 
 @Component({
@@ -11,8 +12,12 @@ export class WarningComponent implements OnInit {
   message: string = '';
   warningHeader: string;
   warningMessage: string;
+  data: {
+    order: boolean,
+    dataTransfer: number
+  };
 
-  constructor(private  modalService: NgbActiveModal) {
+  constructor(private  modalService: NgbActiveModal, private dataTransfer: DataTransferService) {
 
   }
 
@@ -21,6 +26,12 @@ export class WarningComponent implements OnInit {
 
   closeModal() {
     this.modalService.close();
+  }
+
+  doConfirm() {
+    this.data.order = true;
+    this.dataTransfer.addConfirmation(this.data);
+     this.modalService.close();
   }
 
 }

@@ -33,3 +33,90 @@
     }
   }
 }
+div[name$='product-name'] {
+  overflow: hidden;
+  max-width: 41.5625rem;
+  font-size: 1.25rem;
+  word-wrap: break-word;
+  font-weight: 500;
+}
+
+.rating-data {
+  font-size: 1.25rem;
+}
+
+.rating-data:first-child {
+  padding-right: 15px;
+  border-right: 1px solid rgba(0,0,0,.14);
+}
+.rating-data:last-child {
+  margin-left: 15px;
+}
+
+.rating-link {
+  color: #f57224;
+}
+
+.rating-link:hover {
+  color: #f57224;
+  cursor: pointer;
+}
+
+a[name$='rating-point'] {
+  border-bottom: 1px solid #f57224;
+}
+
+span[name$='rating-count'] {
+  border-bottom: 1px solid #000;
+}
+
+a[name$='vote-link'] {
+  color: #000;
+}
+
+div[name$='rating-block'] {
+  padding: 0 15px;
+}
+
+div[name$='price-block'] {
+  display: flex;
+  flex-direction: row;
+  padding: 15px 20px;
+  align-items: center;
+}
+
+div[name$='old-price'] {
+  text-decoration: line-through;
+  color: #929292;
+  margin-right: 10px;
+}
+
+div[name$='new-price'] {
+  font-size: 1.875rem;
+  font-weight: 500;
+  color: #ee4d2d;
+  margin-left: 10px;
+}
+
+span[name$='discount'] {
+  font-size: .75rem;
+  color: #fff;
+  text-transform: uppercase;
+  background: #ee4d2d;
+  border-radius: 2px;
+  padding: 2px 4px;
+  font-weight: 600;
+  line-height: 1;
+  margin-left: 10px;
+}
+button[name$='add-to-cart'] {
+  cursor: pointer;
+  background-color: #f2f2f2;
+  color: #f57224;
+  border-color: #f57224;
+}
+
+button[name$='add-to-cart']:hover {
+  color: #f57224;
+  background-color: #feeade;
+}

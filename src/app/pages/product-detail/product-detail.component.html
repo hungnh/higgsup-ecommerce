@@ -45,40 +45,92 @@
       <div class="col-8">
         <div class="row mt-2">
           <div class="col-12">
-            <h5>Product-name</h5>
+            <div name="product-name">
+              Product-name
+            </div>
           </div>
         </div>
         <div class="row mt-2">
           <div class="col-12">
-            <b>Rating here</b>
+            <div class="row" name="rating-block">
+              <div class="rating-data">
+                <a href="javascript:" class="rating-link" name="rating-point">
+                  <span>{{starRate}}&nbsp;</span>
+                </a>
+                <ngb-rating [(rate)]="starRate" max=5 [readonly]="true"
+                            class="rating-link">
+                  <ng-template let-fill="fill">
+                    <a href="javascript:" class="rating-link">
+              <span class="star fill" [class.filled]="fill === 100">
+                <i class="ion-android-star" *ngIf="fill === 100"></i>
+                <i class="ion-android-star-outline" *ngIf="fill !== 100"></i>
+              </span>
+                    </a>
+                  </ng-template>
+                </ngb-rating>
+              </div>
+              <div class="rating-data">
+                <a href="javascript:" name="vote-link">
+                  <span name="rating-count">{{ratingCount}} </span>
+                  <span translate>product-detail.votes</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row mt-2">
           <div class="col-12">
-            <h5>Price here</h5>
+            <div name="price-block">
+              <div name="old-price">
+                xxx {{currency}}
+              </div>
+              <div name="new-price">
+                YYY {{currency}}
+              </div>
+              <div><span name="discount">
+                AA%
+              </span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row mt-2">
           <div class="col-4">
-            Quantity
+            <span translate>product-detail.amount</span>
           </div>
           <div class="col-8">
-            Buttons quantity here
+            <button class="btn button-quantity"
+                    (click)="doDecreaseQuantity()"
+                    [disabled]="false"> -
+            </button>
+            <input type="text" class="input-quantity"
+                   [(ngModel)]="product.amount"
+                   min="1" (keypress)="checkPressKey(return)"
+                   onpaste="return false;">
+            <button class="btn button-quantity"
+                    (click)="doEncreaseQuantity()">+
+            </button>
+
+            <span class="ml-3" translate>product-detail.available_product</span>
           </div>
         </div>
         <div class="row mt-2">
-          <div class="col-6">
-            Button Add to Cart here
+          <div class="col-3">
+            <button class="btn" name="add-to-cart">
+              <span translate>product-detail.add_to_cart</span>
+            </button>
           </div>
-          <div class="col-6">
-            Button Buy Now here
+          <div class="col-3">
+            <button class="btn button-payment">
+              <span translate>product-detail.buy_now</span>
+            </button>
           </div>
         </div>
         <div class="row mt-2">
           <div class="col-6">
             <div class="row">
               <div class="col-6">
-                Brand name
+                <span translate>product-detail.brand</span>
               </div>
               <div class="col-6">
                 <a href="javascript:">
@@ -90,40 +142,48 @@
           <div class="col-6">
             <div class="row">
               <div class="col-6">
-                Status
+                <span translate>product-detail.status</span>
               </div>
               <div class="col-6">
-                Old or New
-              </div>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="row">
-              <div class="col-6">
-                Weight (kg)
-              </div>
-              <div class="col-6">
-                xxx
+                <span>
+                  Old/New
+                </span>
               </div>
             </div>
           </div>
           <div class="col-6">
             <div class="row">
               <div class="col-6">
-                Provider
+                <span translate>product-detail.weight</span>
               </div>
               <div class="col-6">
-                Provider's name
+                <span>
+                  xxx
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-6">
+                <span translate>product-detail.provider</span>
+              </div>
+              <div class="col-6">
+                <span>
+                  Provider's name
+                </span>
               </div>
             </div>
           </div>
           <div class="col-12">
             <div class="row">
               <div class="col-3">
-                Sent form
+                <span translate>product-detail.delivered_from</span>
               </div>
               <div class="col-9">
-                Address sending product
+                <span>
+                  Address sending product
+                </span>
               </div>
             </div>
           </div>
@@ -132,10 +192,17 @@
     </div>
     <div class="row p-2">
       <div class="col-12">
-        <b>Detail Description</b>
+        <b>
+          <span translate>product-detail.detail_description</span>
+        </b>
       </div>
       <div class="col-12">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto asperiores at autem, blanditiis consequatur, distinctio doloremque dolorum eligendi enim ex id illum impedit laboriosam, minus mollitia nemo nihil omnis saepe soluta totam ullam voluptates? Doloremque harum, ipsam pariatur quidem reprehenderit sed voluptas. Ab consectetur deserunt error esse quas. Dicta!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+        architecto asperiores at autem, blanditiis consequatur, distinctio
+        doloremque dolorum eligendi enim ex id illum impedit laboriosam, minus
+        mollitia nemo nihil omnis saepe soluta totam ullam voluptates?
+        Doloremque harum, ipsam pariatur quidem reprehenderit sed voluptas. Ab
+        consectetur deserunt error esse quas. Dicta!
       </div>
     </div>
     <div class="row p-2">
@@ -143,7 +210,7 @@
         Rating & Feedback
       </div>
       <div class="col-4">
-          <b>Rating here</b>
+        <b>Rating here</b>
       </div>
       <div class="col-8">
         <div class="row mt-2">
@@ -203,7 +270,13 @@
         </div>
         <div class="row mt-2">
           <div class="col-6">
-            Customer's comment (Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cumque deserunt dignissimos excepturi ipsum iusto neque optio qui quia quod. Consectetur cupiditate debitis doloribus dolorum ea id illum laboriosam libero, non obcaecati omnis porro quae quia quibusdam reiciendis sequi tempora ullam veritatis, vitae voluptates. Assumenda eaque officiis sunt veniam voluptate?)
+            Customer's comment (Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Consequuntur cumque deserunt dignissimos excepturi
+            ipsum iusto neque optio qui quia quod. Consectetur cupiditate
+            debitis doloribus dolorum ea id illum laboriosam libero, non
+            obcaecati omnis porro quae quia quibusdam reiciendis sequi tempora
+            ullam veritatis, vitae voluptates. Assumenda eaque officiis sunt
+            veniam voluptate?)
           </div>
         </div>
       </div>
