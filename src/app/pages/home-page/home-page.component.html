@@ -9,13 +9,13 @@
         </ul>
         <div class="submenu">
           <ul>
-            <li *ngFor="let subMenu of subMenuList; let j = index" (mouseover)="getSubMenuSecond(j)">
+            <li *ngFor="let subMenu of subMenuList; let j = index" (mouseover)="getSubMenuSecond(j)" (click)="routeToResultList(subMenu.id,'category')">
               <span>{{subMenu.name}}</span>
             </li>
           </ul>
             <div *ngIf="showMenu" class="submenu-second">
               <ul>
-                <li *ngFor="let subMenuSecond of subMenuSecondList">
+                <li *ngFor="let subMenuSecond of subMenuSecondList" (click)="routeToResultList(subMenuSecond.id,'category')">
                   <span>{{subMenuSecond.name}}</span>
                 </li>
               </ul>

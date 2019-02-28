@@ -18,7 +18,7 @@
            [class.left]="position === 'normal'"
            [class.right]="position === 'inverse'">
         <div class="logo-containter">
-          <a (click)="goToHome()"><img src="../assets/images/logo.png" class="logo"></a>
+          <a (click)="goToHome()"><img src="assets/images/logo.png" class="logo"></a>
         </div>
         <div class="search-header">
           <div class="search-text">
@@ -27,14 +27,14 @@
           </div>
           <div class="button-search">
             <button (click)="goToSearch()" class="btn header-button-search"><span><img
-              src="../assets/images/icon-search.png" class="icon-search"></span></button>
+              src="assets/images/icon-search.png" class="icon-search"></span></button>
           </div>
         </div>
         <div class="header-cart">
             <div class="badge-number" *ngIf="loginFlg">
               <nb-badge text="1" status="danger"></nb-badge>
             </div>
-            <div class="icon-cart"><span><img src="../assets/images/icon-cart.png" (click)="goToCart()"></span></div>
+            <div class="icon-cart"><span><img src="assets/images/icon-cart.png" (click)="goToCart()"></span></div>
         </div>
       </div>
     </div>
