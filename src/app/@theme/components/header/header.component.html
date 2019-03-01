@@ -1,16 +1,15 @@
 <div class="container">
-  <div class="row header-top">
-    <div class="col-md-2 header-top-menu"><p translate>header.save</p></div>
-    <div class="col-md-2 header-top-menu"><p translate>header.sales</p></div>
-    <div class="col-md-2 header-top-menu"><p translate>header.customer</p></div>
-    <div class="col-md-2 header-top-menu"><p translate>header.check</p></div>
-    <div class="col-md-1 header-top-menu" *ngIf="!loginFlg"><p (click)="goToLogin()" translate>header.login</p></div>
-    <div class="col-md-1 header-top-menu" *ngIf="!loginFlg"><p (click)="goToRegister()" translate>header.register</p>
-    </div>
-    <div class="col-md-2 header-top-menu" *ngIf="loginFlg"><p translate>header.account</p></div>
-    <div class="col-md-2 header-top-menu">
+  <div class="header-top-menu">
+    <div class="header-top-item">
       <change-language></change-language>
     </div>
+    <div class=" header-top-item" *ngIf="!loginFlg"><p (click)="goToRegister()" translate>header.register</p></div>
+    <div class="header-top-item" *ngIf="loginFlg"><p translate>header.account</p></div>
+    <div class=" header-top-item" *ngIf="!loginFlg"><p (click)="goToLogin()" translate>header.login</p></div>
+    <div class=" header-top-item"><p translate>header.check</p></div>
+    <div class=" header-top-item"><p translate>header.customer</p></div>
+    <div class=" header-top-item"><p translate>header.sales</p></div>
+    <div class=" header-top-item"><p translate>header.save</p></div>
   </div>
   <div class="row">
     <div class="col-12">
@@ -23,7 +22,7 @@
         <div class="search-header">
           <div class="search-text">
             <input type="text" placeholder="{{'header.placeHolder'|translate}}"
-                   class="header-search-text form-control" [(ngModel)]="inputSearch" />
+                   class="header-search-text form-control" [(ngModel)]="textSearch" (keydown)="checkKeyDown($event)"/>
           </div>
           <div class="button-search">
             <button (click)="goToSearch()" class="btn header-button-search"><span><img
@@ -32,7 +31,7 @@
         </div>
         <div class="header-cart">
             <div class="badge-number" *ngIf="loginFlg">
-              <nb-badge text="1" status="danger"></nb-badge>
+              <nb-badge text="2" status="warning"></nb-badge>
             </div>
             <div class="icon-cart"><span><img src="assets/images/icon-cart.png" (click)="goToCart()"></span></div>
         </div>

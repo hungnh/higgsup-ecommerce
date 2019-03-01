@@ -1,6 +1,20 @@
 import {RatingCount} from "./rating-count.model";
 
-export class Product {
+export class ProductModel {
+  id: number;
+  name: string;
+  unitPrice: number;
+  priceDiscount : number;
+  discountPercent: number;
+  mainImgUrl: string;
+  avgRating: number;
+  totalRating: number;
+  amount: number;
+  productId: number;
+  productName: string;
+  supplierName: string;
+  unitPrice: number;
+  imgUrl: string;
   availableItem: number;
   avgRating: number;
   brandName: string;
@@ -20,18 +34,4 @@ export class Product {
   unitPrice: number;
   weight: number;
   amount: number;
-}
-export  class Feedback {
-  id: number;
-  reviewer: string;
-  rating: number;
-  comment: string;
-  createdDate: number;
-  updatedDate: number;
-}
-export  class RelatedProduct {
-  id: number;
-  name: string;
-  mainImgUrl: number;
-  unitPrice: string;
 }

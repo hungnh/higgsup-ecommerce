@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {DeliveryInformation} from "../../@core/model/delivery-information";
 import {Currency} from "../../@theme/glossary/currency.constant";
-import {Product} from "../../@core/model/product.model";
+import {ProductModel} from "../../@core/model/product.model";
 
 @Component({
   selector: 'payment',
@@ -13,7 +13,7 @@ export class PaymentComponent implements OnInit {
   paymentWay: string = 'payCash';
   bankLogos: Array<any> = [];
   deliveryInfo: DeliveryInformation = new DeliveryInformation();
-  productList: Array<Product> = [];
+  productList: Array<ProductModel> = [];
   subTotal: number = null;
   currency: string = '';
 

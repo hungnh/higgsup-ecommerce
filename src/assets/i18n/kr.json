@@ -45,6 +45,15 @@
     "warranty_address":"Shipping / return / warranty shipping address: ",
     "refer":"(Refer to the change, return, warranty or contact instructions for 024 6656 6602 for further instructions)"
   },
+  "result-list": {
+    "supplier":"Supplier",
+    "price":"Price",
+    "rating":"Rating",
+    "status":"Status",
+    "new":"New",
+    "used":"Used",
+    "item_found":"items found for"
+  },
   "cart": {
     "order_summary": "주문 요약",
     "sub_total": "소계",
