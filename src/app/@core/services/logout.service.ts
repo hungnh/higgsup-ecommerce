@@ -9,7 +9,7 @@ export class LogoutService {
   constructor(private router: Router) { }
 
   public logout () {
-    localStorage.clear();
+    localStorage.removeItem('Authorization');
     this.router.navigate(['/home']);
   }
 }
