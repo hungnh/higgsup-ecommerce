@@ -45,6 +45,15 @@
     "warranty_address":"配送/返品/保証配送先住所：注文処理センターX-Shop  -  72TrầnĐăngNinh、DịchVọng、CầuGiấy、HàNội",
     "refer":"（詳細については、024 6656 6602の変更、返品、保証、または連絡先の指示を参照してください）。"
   },
+  "result-list": {
+    "supplier":"Supplier",
+    "price":"Price",
+    "rating":"Rating",
+    "status":"Status",
+    "new":"New",
+    "used":"Used",
+    "item_found":"items found for"
+  },
   "cart": {
     "order_summary": "注文の概要",
     "sub_total": "小計",

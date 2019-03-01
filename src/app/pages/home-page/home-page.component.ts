@@ -67,9 +67,8 @@ export class HomePageComponent implements OnInit {
 
   routeToResultList(id: number, searchFrom: string) {
     this.router.navigate(['./pages/result-list'], {
-      skipLocationChange: true,
       queryParams: {
-        'id': id,
+        'categoryId': id,
         'from': searchFrom
       }
     });
