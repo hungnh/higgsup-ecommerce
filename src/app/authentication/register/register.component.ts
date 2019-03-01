@@ -3,9 +3,9 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {RegisterService} from "../../@core/services/register.service";
 import {RegisterDTO} from "../../@core/model/register-dto.model";
 import {Router} from "@angular/router";
-import {HttpService} from "../../@core/auth/http.service";
 import {LoginService} from "../../@core/services/login.service";
 import {LoginResult} from "../../@core/model/login-result.model";
+import {HttpService} from "../../@core/services/http.service";
 
 @Component({
   selector: 'register',

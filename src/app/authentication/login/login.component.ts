@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {LoginService} from "../../@core/services/login.service";
 import {LoginResult} from "../../@core/model/login-result.model";
-import {HttpService} from "../../@core/auth/http.service";
 import {Router} from "@angular/router";
 import {HttpErrorResponse} from "@angular/common/http";
+import {HttpService} from "../../@core/services/http.service";
 
 @Component({
   selector: 'login',
@@ -23,6 +23,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.httpService.getToken()) {
+      this.router.navigate(['/home']);
+    }
     this.loginInfo = this.formBuilder.group({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
