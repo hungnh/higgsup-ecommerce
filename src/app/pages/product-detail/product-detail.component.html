@@ -66,7 +66,7 @@
             </div>
           </div>
         </div>
-        <div class="row mt-2">
+        <div class="row mt-3">
           <div class="col-12">
             <div class="row" name="rating-block">
               <div class="rating-data">
@@ -94,7 +94,7 @@
             </div>
           </div>
         </div>
-        <div class="row mt-2">
+        <div class="row mt-4">
           <div class="col-12">
             <div name="price-block">
               <div name="old-price">
@@ -110,7 +110,7 @@
             </div>
           </div>
         </div>
-        <div class="row mt-2">
+        <div class="row mt-4">
           <div class="col-4">
             <span translate>product-detail.amount</span>
           </div>
@@ -121,7 +121,7 @@
             </button>
             <input type="text" class="input-quantity"
                    [(ngModel)]="amount"
-                   min="1" max="{{product.availableItem}}" (keypress)="checkPressKey(return)"
+                   min="1" (keypress)="checkPressKey(return)"
                    onpaste="return false;">
             <button class="btn button-quantity"
                     (click)="doEncreaseQuantity()">+
@@ -130,26 +130,26 @@
                   [translateParams]="{amount: product.availableItem}">product-detail.available_product</span>
           </div>
         </div>
-        <div class="row mt-2">
+        <div class="row mt-4">
           <div class="col-3">
-            <button class="btn" name="add-to-cart">
+            <button class="btn" name="add-to-cart" (click)="addtoCart()">
               <span translate>product-detail.add_to_cart</span>
             </button>
           </div>
           <div class="col-3">
-            <button class="btn button-payment">
+            <button class="btn button-payment" (click)="buyNow()">
               <span translate>product-detail.buy_now</span>
             </button>
           </div>
         </div>
-        <div class="row mt-2">
+        <div class="row mt-4">
           <div class="col-6">
             <div class="row">
-              <div class="col-6">
+              <div class="col-4">
                 <span translate>product-detail.brand</span>
               </div>
-              <div class="col-6">
-                <a href="javascript:">
+              <div class="col-8">
+                <a href="javascript:" name="brand-name">
                   {{product.brandName}}
                 </a>
               </div>
@@ -157,10 +157,10 @@
           </div>
           <div class="col-6">
             <div class="row">
-              <div class="col-6">
+              <div class="col-4">
                 <span translate>product-detail.status</span>
               </div>
-              <div class="col-6">
+              <div class="col-8">
                 <span>
                   {{product.status}}
                 </span>
@@ -168,11 +168,11 @@
             </div>
           </div>
           <div class="col-6">
-            <div class="row">
-              <div class="col-6">
+            <div class="row mt-4">
+              <div class="col-4">
                 <span translate>product-detail.weight</span>
               </div>
-              <div class="col-6">
+              <div class="col-8">
                 <span>
                   {{product.weight}}
                 </span>
@@ -180,11 +180,11 @@
             </div>
           </div>
           <div class="col-6">
-            <div class="row">
-              <div class="col-6">
+            <div class="row mt-4">
+              <div class="col-4">
                 <span translate>product-detail.provider</span>
               </div>
-              <div class="col-6">
+              <div class="col-8">
                 <span>
                   {{product.supplierName}}
                 </span>
@@ -192,11 +192,11 @@
             </div>
           </div>
           <div class="col-12">
-            <div class="row">
-              <div class="col-3">
+            <div class="row mt-4">
+              <div class="col-2">
                 <span translate>product-detail.delivered_from</span>
               </div>
-              <div class="col-9">
+              <div class="col-10">
                 <span>
                   {{product.supplierAddress}}
                 </span>

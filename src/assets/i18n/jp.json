@@ -126,7 +126,9 @@
     "rating_feedback": "評価とフィードバック",
     "related_product": "関連商品",
     "add_to_cart": "カートに追加",
-    "buy_now": "今買う"
-
+    "buy_now": "今買う",
+    "add_success": "この商品をカートに追加しました！",
+    "go_to_cart": "カートに行く",
+    "continue_shopping": "ショッピングを続ける"
   }
 }

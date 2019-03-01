@@ -4,6 +4,9 @@ import {ResponseDTO} from "../../@core/model/response-dto.model";
 import {Product} from "../../@core/model/product.model";
 import {ProductDetailsService} from "../../@core/services/product-details.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {CartService} from "../../@core/services/cart.service";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'product-detail',
@@ -19,18 +22,19 @@ export class ProductDetailComponent implements OnInit {
   product: Product = new Product();
   id: number = 96123;
   queryParams: any;
-  constructor(private productService: ProductDetailsService, private router: Router, private activeRoute: ActivatedRoute) {
+
+  constructor(private productService: ProductDetailsService, private router: Router, private activeRoute: ActivatedRoute,
+              private cartService: CartService, private modalService: NgbModal) {
     this.queryParams = this.activeRoute.snapshot.queryParams;
   }
 
   ngOnInit() {
     this.currency = Currency.USD;
-    this.product.amount = 1;
     // this.id = this.queryParams.id;
-    this.productService.getProductDetail(this.id).subscribe((res: ResponseDTO)=>{
-      if(!res.responseMessage.messageCode) {
+    this.productService.getProductDetail(this.id).subscribe((res: ResponseDTO) => {
+      if (!res.responseMessage.messageCode) {
         this.product = res.responseMessage.data;
-        this.newPrice = this.product.unitPrice * (100 - this.product.discountPercent)/100;
+        this.newPrice = this.product.unitPrice * (100 - this.product.discountPercent) / 100;
       } else {
         this.router.navigate(['pages/not-found']);
       }
@@ -38,6 +42,27 @@ export class ProductDetailComponent implements OnInit {
   }
 
 
+  addtoCart() {
+    const product = {
+      amount: this.amount,
+      productId: this.product.id
+    };
+    this.cartService.addProductIntoCart(product).subscribe((res: ResponseDTO) => {
+      if (!res.responseMessage.messageCode) {
+        Swal.fire({
+          type: 'success',
+          title: 'Added this product into cart!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      } else {
+        Swal.fire({
+          type: 'error',
+          title: 'Something went wrong!',
+        })
+      }
+    });
+  }
 
 
   checkPressKey() {
@@ -45,12 +70,18 @@ export class ProductDetailComponent implements OnInit {
   }
 
   doEncreaseQuantity() {
-    return this.amount += 1;
+    if (this.amount >= this.product.availableItem) {
+      return this.amount = this.product.availableItem;
+    } else {
+      return this.amount += 1;
+
+    }
   }
 
   doDecreaseQuantity() {
     return this.amount -= 1;
   }
+
   viewImages() {
     this.imagePreview = this.imageItem;
   }

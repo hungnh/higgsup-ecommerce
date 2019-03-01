@@ -2,9 +2,11 @@
   padding: 0;
   margin: 0;
 }
+
 .container {
   margin: auto;
 }
+
 .images-block {
   img {
     max-height: 95%;
@@ -33,6 +35,7 @@
     }
   }
 }
+
 div[name$='product-name'] {
   overflow: hidden;
   max-width: 41.5625rem;
@@ -47,8 +50,9 @@ div[name$='product-name'] {
 
 .rating-data:first-child {
   padding-right: 15px;
-  border-right: 1px solid rgba(0,0,0,.14);
+  border-right: 1px solid rgba(0, 0, 0, .14);
 }
+
 .rating-data:last-child {
   margin-left: 15px;
 }
@@ -110,6 +114,7 @@ span[name$='discount'] {
   line-height: 1;
   margin-left: 10px;
 }
+
 button[name$='add-to-cart'] {
   cursor: pointer;
   background-color: #f2f2f2;
@@ -120,4 +125,8 @@ button[name$='add-to-cart'] {
 button[name$='add-to-cart']:hover {
   color: #f57224;
   background-color: #feeade;
+}
+
+a[name$='brand-name'] {
+  color: #1a9cb7;
 }
