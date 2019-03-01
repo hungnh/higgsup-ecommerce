@@ -126,6 +126,9 @@
     "rating_feedback": "평가 및 피드백",
     "related_product": "관련 제품",
     "add_to_cart": "장바구니에 담기",
-    "buy_now": "지금 구입"
+    "buy_now": "지금 구입",
+    "add_success": "이 제품을 장바구니에 추가했습니다!",
+    "go_to_cart": "장바구니로 이동",
+    "continue_shopping": "쇼핑을 계속"
   }
 }

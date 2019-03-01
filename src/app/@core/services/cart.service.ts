@@ -28,4 +28,8 @@ export class CartService {
   removeFromCart(id): Observable<ResponseDTO> {
     return this.http.delete<ResponseDTO>(this.cartUrl + '/' + `${id}`, this.httpOptions);
   }
+
+  addProductIntoCart(product): Observable<ResponseDTO> {
+    return this.http.post<ResponseDTO>(this.cartUrl, product, this.httpOptions);
+  }
 }
