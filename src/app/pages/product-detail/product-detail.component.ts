@@ -1,13 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {Currency} from "../../@theme/glossary/currency.constant";
 import {ResponseDTO} from "../../@core/model/response-dto.model";
-import {Feedback, Product, RelatedProduct} from "../../@core/model/product.model";
 import {ProductDetailsService} from "../../@core/services/product-details.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {RatingCount} from "../../@core/model/rating-count.model";
 import {CartService} from "../../@core/services/cart.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import Swal from 'sweetalert2'
+import {Feedback} from "../../@core/model/feedback.model";
+import {ProductModel} from "../../@core/model/product.model";
 
 @Component({
   selector: 'product-detail',
@@ -15,30 +16,26 @@ import Swal from 'sweetalert2'
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-  imagePreview: string;
-  imageItem: string;
   newPrice: number = null;
   amount: number = 1;
-  starRate: number = 4.5;
-  ratingCount: number = 9999;
   starArray = [5, 4, 3, 2, 1];
   currency: string = '';
-  product: Product = new Product();
-  feedbackList: Feedback = new Feedback();
-  relatedItemList: RelatedProduct = new RelatedProduct();
-  id: number = 96123;
+  product: ProductModel = new ProductModel();
+  feedbackList: Array<Feedback> = [];
+  relatedItemList: Array<ProductModel> = [];
+  id: number = null;
   queryParams: any;
   listRating: Array<RatingCount>;
   sumRating: number = 0;
   imageList = [];
   constructor(private productService: ProductDetailsService, private router: Router, private activeRoute: ActivatedRoute,
-              private cartService: CartService, private modalService: NgbModal) {
+              private cartService: CartService) {
     this.queryParams = this.activeRoute.snapshot.queryParams;
   }
 
   ngOnInit() {
     this.currency = Currency.USD;
-    // this.id = this.queryParams.id;
+    this.id = this.queryParams.productId;
     this.productService.getProductDetail(this.id).subscribe((res: ResponseDTO) => {
       if (!res.responseMessage.messageCode) {
         this.product = res.responseMessage.data;

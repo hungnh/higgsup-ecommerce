@@ -12,17 +12,16 @@ export class ProductDetailsService {
   constructor(private http: HttpClient) {
   }
 
-  baseUrl = PathConfig.URL;
   prodDetailUrl = PathConfig.URL + PathConfig.PRODUCTS;
 
   getProductDetail(id): Observable<ResponseDTO> {
     return this.http.get<ResponseDTO>(this.prodDetailUrl + '/' + id);
   }
   getFeedback(id): Observable<ResponseDTO> {
-    return this.http.get<ResponseDTO>(this.baseUrl + 'feedback/' + id)
+    return this.http.get<ResponseDTO>(PathConfig.URL + PathConfig.FEEDBACK + '/' + + id)
   }
   getRelatedProduct(id): Observable<any> {
-    return this.http.get<any>(this.prodDetailUrl + '/' + id + '/relation')
+    return this.http.get<any>(this.prodDetailUrl + '/' + id + '/' + PathConfig.RELATION)
   }
 
 }

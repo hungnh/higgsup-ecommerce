@@ -10,7 +10,6 @@
     <div class="row product-infomation">
       <div class="images-block col-4">
         <div class="image-preview">
-          <!--<img src="{{imagePreview}}">-->
           <div class="image-block" [ngStyle]="{ 'background-image': 'url(' + imageList[0] + ')'}"></div>
         </div>
         <div class="image-list">
@@ -253,7 +252,6 @@
             <div class="col-9"></div>
             <div class="feedback-content col-12">
               <p>{{user.comment}}</p>
-              <!--<span>{{user.createdDate | date:'dd/MM/yyyy'}}</span>-->
               <span>{{user.updatedDate | date:'dd/MM/yyyy HH:MM'}}</span>
             </div>
           </div>

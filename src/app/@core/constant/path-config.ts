@@ -9,6 +9,9 @@ export class PathConfig {
   static LOG_IN: string = 'auth/login';
   static CART: string = 'carts';
   static PRODUCTS: string = 'products';
+  static FEEDBACK: string = 'feedback';
+  static RELATION: string = 'relation';
+  static TOP_SALE: string = 'top-sale';
 
   constructor() {
   }
