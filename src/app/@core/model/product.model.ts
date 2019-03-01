@@ -21,3 +21,17 @@ export class Product {
   weight: number;
   amount: number;
 }
+export  class Feedback {
+  id: number;
+  reviewer: string;
+  rating: number;
+  comment: string;
+  createdDate: number;
+  updatedDate: number;
+}
+export  class RelatedProduct {
+  id: number;
+  name: string;
+  mainImgUrl: number;
+  unitPrice: string;
+}

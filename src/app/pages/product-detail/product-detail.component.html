@@ -1,60 +1,21 @@
 <div class="container">
-  <nb-card class="pl-3 pr-3">
+  <nb-card>
     <div class="row p-2">
       <div class="col-12">
-        <div class="pt-2 pb-2">
+        <div>
           <b>Breadcrumb here</b>
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row product-infomation">
       <div class="images-block col-4">
         <div class="image-preview">
-          <img src="{{imagePreview}}">
+          <!--<img src="{{imagePreview}}">-->
+          <div class="image-block" [ngStyle]="{ 'background-image': 'url(' + imageList[0] + ')'}"></div>
         </div>
         <div class="image-list">
-          <div class="image-item" (click)="viewImages()">
-            <img src="{{imageItem}}" alt="">
-          </div>
-          <div class="image-item">
-            <img
-              src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg"
-              alt="">
-          </div>
-          <div class="image-item">
-            <img
-              src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg"
-              alt="">
-          </div>
-          <div class="image-item">
-            <img
-              src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg"
-              alt="">
-          </div>
-          <div class="image-item">
-            <img
-              src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg"
-              alt="">
-          </div>
-          <div class="image-item">
-            <img
-              src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg"
-              alt="">
-          </div>
-          <div class="image-item">
-            <img
-              src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg"
-              alt="">
-          </div>
-          <div class="image-item">
-            <img
-              src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg"
-              alt="">
-          </div>
-          <div class="image-item">
-            <img
-              src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg"
-              alt="">
+          <div class="image-item" *ngFor="let image of imageList">
+            <img src="{{image}}" alt="">
           </div>
         </div>
       </div>
@@ -206,159 +167,119 @@
         </div>
       </div>
     </div>
-    <div class="row p-2">
-      <div class="col-12">
-        <b>
+    <div class="row detail-description">
+      <div class="col-12 caption">
           <span translate>product-detail.detail_description</span>
-        </b>
       </div>
-      <div class="col-12">
+      <div class="col-12 content-zone">
         {{product.fullDesc}}
       </div>
     </div>
-    <div class="row p-2">
-      <div class="col-12">
-        <div translate>product_detail.rating_feedback</div>
+    <div class="row rating-feedback">
+      <div class="col-12 caption">
+        <span translate>product-detail.rating_feedback</span>
       </div>
-      <div class="col-4">
-        <b>Rating here</b>
-      </div>
-      <div class="col-8">
-        <div class="row mt-2">
-          <div class="col-4">
-            Rating stars
-          </div>
-          <div class="col-8">
-            Rating bar and number
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-4">
-            Rating stars
-          </div>
-          <div class="col-8">
-            Rating bar and number
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-4">
-            Rating stars
-          </div>
-          <div class="col-8">
-            Rating bar and number
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-4">
-            Rating stars
-          </div>
-          <div class="col-8">
-            Rating bar and number
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-4">
-            Rating stars
-          </div>
-          <div class="col-8">
-            Rating bar and number
-          </div>
-        </div>
-      </div>
-      <div class="col-12 mt-3">
-        <div class="row mt-2">
-          <div class="col-3">
-            Avatar customer comment
-          </div>
-          <div class="col-3">
-            <div class="row mt-2">
-              Customer's name
+      <div class="content-zone col-12">
+        <div class="rating-zone col-6">
+          <div class="summary">
+            <div class="score">
+              <span class="score-average">{{product.avgRating}}</span>
+              <span class="score-max">/5</span>
             </div>
-            <div class="row">
-              Customer's rating
+            <div class="average">
+              <ngb-rating [(rate)]="product.avgRating" max=5 [readonly]="true"
+                          class="rating-link">
+                <ng-template let-fill="fill">
+                  <a href="javascript:" class="rating-link">
+              <span class="star fill" [class.filled]="fill === 100">
+                <i class="ion-android-star" *ngIf="fill === 100"></i>
+                <i class="ion-android-star-outline" *ngIf="fill !== 100"></i>
+              </span>
+                  </a>
+                </ng-template>
+              </ngb-rating>
+            </div>
+            <div class="count">
+              {{product.totalRating}} <span translate>product-detail.ratings</span>
+            </div>
+          </div>
+          <div class="detail">
+            <div class="rating-star">
+              <div class="rating-row" *ngFor="let star of starArray">
+                  <ngb-rating [(rate)]="star" max=5 [readonly]="true"
+                              class="rating-link">
+                    <ng-template let-fill="fill">
+                      <a href="javascript:" class="rating-link">
+                  <span class="star fill" [class.filled]="fill === 100">
+                    <i class="ion-android-star" *ngIf="fill === 100"></i>
+                    <i class="ion-android-star-outline" *ngIf="fill !== 100"></i>
+                  </span>
+                      </a>
+                    </ng-template>
+                  </ngb-rating>
+              </div>
+            </div>
+            <div class="detail-rating">
+              <div class="detail-rating-row" *ngFor="let feedback of listRating">
+                <nb-progress-bar class="progress-line"  [value]="feedback.counting / sumRating*100" size="xs"></nb-progress-bar>
+                <span class="reviewers-number">{{feedback.counting}}</span>
+              </div>
             </div>
           </div>
         </div>
-        <div class="row mt-2">
-          <div class="col-6">
-            Customer's comment (Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit. Consequuntur cumque deserunt dignissimos excepturi
-            ipsum iusto neque optio qui quia quod. Consectetur cupiditate
-            debitis doloribus dolorum ea id illum laboriosam libero, non
-            obcaecati omnis porro quae quia quibusdam reiciendis sequi tempora
-            ullam veritatis, vitae voluptates. Assumenda eaque officiis sunt
-            veniam voluptate?)
+        <div class="col-6"></div>
+        <div class="feedback-zone col-12 mt-3">
+          <div class="product-reviews" translate>product-detail.product-reviews</div>
+          <div class="product-feedback row mt-2" *ngFor="let user of feedbackList">
+            <div class="user col-3">
+              <div class="avatar"><i class="far fa-user"></i></div>
+              <div class="user-info">
+                <div class="name">{{user.reviewer}}</div>
+                <div class="rated-star">
+                  <ngb-rating [(rate)]="user.rating" max=5 [readonly]="true"
+                              class="rating-link">
+                    <ng-template let-fill="fill">
+                      <a href="javascript:" class="rating-link">
+                          <span class="star fill" [class.filled]="fill === 100">
+                            <i class="ion-android-star" *ngIf="fill === 100"></i>
+                            <i class="ion-android-star-outline" *ngIf="fill !== 100"></i>
+                          </span>
+                      </a>
+                    </ng-template>
+                  </ngb-rating>
+                </div>
+              </div>
+            </div>
+            <div class="col-9"></div>
+            <div class="feedback-content col-12">
+              <p>{{user.comment}}</p>
+              <!--<span>{{user.createdDate | date:'dd/MM/yyyy'}}</span>-->
+              <span>{{user.updatedDate | date:'dd/MM/yyyy HH:MM'}}</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row p-2">
-      <div class="col-12">
-        <b><span translate>product-detail.related_product</span></b>
+    <div class="row related-product">
+      <div class="col-12 caption">
+        <span translate>product-detail.related_product</span>
       </div>
-      <div class="col-12 mt-2">
-        <div class="row">
-          <div class="col-2">
-            <div class="row p-3">
-              Image here
+      <div class="col-12 mt-2 content-zone">
+
+        <div class="item-zone row">
+          <div *ngFor="let item of relatedItemList" class="card hover-item">
+            <div class="card-img">
+              <img class="card-img-top" src="{{item.mainImgUrl}}">
             </div>
-            <div class="row p-3">
-              Product name here
-            </div>
-            <div class="row p-3">
-              Price here
+            <div class="card-body">
+              <p class="card-title">{{item.name}}</p>
+              <div class="price-zone">
+                <span class="origin-price">${{item.unitPrice}}</span>
+              </div>
             </div>
           </div>
-
-          <div class="col-2">
-            <div class="row p-3">
-              Image here
-            </div>
-            <div class="row p-3">
-              Product name here
-            </div>
-            <div class="row p-3">
-              Price here
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div class="row p-3">
-              Image here
-            </div>
-            <div class="row p-3">
-              Product name here
-            </div>
-            <div class="row p-3">
-              Price here
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div class="row p-3">
-              Image here
-            </div>
-            <div class="row p-3">
-              Product name here
-            </div>
-            <div class="row p-3">
-              Price here
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div class="row p-3">
-              Image here
-            </div>
-            <div class="row p-3">
-              Product name here
-            </div>
-            <div class="row p-3">
-              Price here
-            </div>
-          </div>
-
         </div>
+
       </div>
     </div>
   </nb-card>
