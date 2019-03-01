@@ -126,7 +126,8 @@
     "rating_feedback": "RATING & FEEDBACK",
     "related_product": "RELATED PRODUCT",
     "add_to_cart": "Add to cart",
-    "buy_now": "Buy now"
-
+    "buy_now": "Buy now",
+    "product-reviews": "Product reviews",
+    "ratings": "Ratings"
   }
 }

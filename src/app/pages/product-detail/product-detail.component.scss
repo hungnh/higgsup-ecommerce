@@ -65,6 +65,9 @@
         }
         .average {
           font-size: 42px;
+          .rating-link {
+            color: #f5a623;
+          }
         }
         .count {
           font-size: 12px;
@@ -73,12 +76,113 @@
       }
       .detail {
         width: 55%;
-        background: yellow;
+        display: flex;
+        .rating-star {
+          width: 35%;
+          font-size: 20px;
+        }
+        .detail-rating {
+          width: 65%;
+          .detail-rating-row {
+            padding: 4px;
+            display: flex;
+            .progress-line {
+              width: 80%;
+            }
+            .reviewers-number {
+              text-align: center;
+              font-size: 12px;
+              width: 20%;
+            }
+          }
+        }
+      }
+    }
+    .feedback-zone {
+      .product-reviews {
+        height: 44px;
+        padding-left: 24px;
+        border-top: 1px solid #eff0f5;
+        border-bottom: 1px solid #eff0f5;
+        font-size: 14px;
+        color: #212121;
+        line-height: 44px;
+      }
+      .product-feedback {
+        margin-bottom: 20px;
+        .user {
+          display: flex;
+          .avatar {
+            background: gray;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+          }
+          .user-info {
+            width: 65%;
+            .name {
+              color: rgba(0,0,0,.87);
+              font-size: 13px;
+            }
+            .rated-star {
+              font-size: 20px;
+            }
+          }
+        }
+        .feedback-content {
+          margin-left: 60px;
+          span {
+            font-size: 10px;
+          }
+        }
       }
     }
   }
   .related-product {
     margin-bottom: 10px;
+    .item-zone {
+      padding-top: 5px;
+      padding-left: 20px;
+      .card {
+        box-sizing: border-box;
+        border: 0;
+        width: 16%;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        height: 290px;
+        .card-img {
+          display: block;
+          width: 188px;
+          margin: auto;
+          height: 188px;
+          .card-img-top {
+            height: 100%;
+          }
+        }
+        .card-body {
+          position: relative;
+          padding: 15px 8px;
+          .card-title {
+            color: #000;
+            line-height: 18px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            font-size: 14px;
+          }
+          .price-zone {
+            position: absolute;
+            bottom: 15px;
+            .origin-price {
+              font-size: 15px;
+              color: red;
+            }
+          }
+        }
+      }
+    }
   }
   .caption {
     font-weight: 500;
