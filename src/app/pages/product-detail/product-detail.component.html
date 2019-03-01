@@ -1,44 +1,33 @@
 <div class="container">
-  <nb-card>
-    <div class="row p-2">
-      <div class="col-12">
-        <div>
-          <b>Breadcrumb here</b>
-        </div>
+  <div class="row p-2">
+    <div class="col-12">
+      <div>
+        <b>Breadcrumb here</b>
       </div>
     </div>
-    <div class="row">
+  </div>
+  <nb-card>
+    <div class="row product-infomation">
       <div class="images-block col-4">
         <div class="image-preview">
-          <img src="{{imagePreview}}">
+          <!--<img src="{{imagePreview}}">-->
+          <div class="image-block"></div>
         </div>
         <div class="image-list">
-          <div class="image-item" (click)="viewImages()">
-            <img src="{{imageItem}}" alt="">
+          <div class="image-item">
+            <img src="https://cf.shopee.vn/file/c7bdd6714e6f511873786845e454b635" alt="">
+          </div>
+          <div class="image-item">
+            <img src="https://cf.shopee.vn/file/1385bb323c88d42ff69e7d59a4ddf84a_tn" alt="">
           </div>
           <div class="image-item">
             <img src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg" alt="">
           </div>
           <div class="image-item">
-            <img src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg" alt="">
+            <img src="https://cf.shopee.vn/file/1385bb323c88d42ff69e7d59a4ddf84a_tn" alt="">
           </div>
           <div class="image-item">
-            <img src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg" alt="">
-          </div>
-          <div class="image-item">
-            <img src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg" alt="">
-          </div>
-          <div class="image-item">
-            <img src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg" alt="">
-          </div>
-          <div class="image-item">
-            <img src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg" alt="">
-          </div>
-          <div class="image-item">
-            <img src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg" alt="">
-          </div>
-          <div class="image-item">
-            <img src="https://png.pngtree.com/element_origin_min_pic/17/09/15/ff9b22c2cc9d02950137e064d0f72217.jpg" alt="">
+            <img src="https://cf.shopee.vn/file/c7bdd6714e6f511873786845e454b635" alt="">
           </div>
         </div>
       </div>
@@ -190,13 +179,11 @@
         </div>
       </div>
     </div>
-    <div class="row p-2">
-      <div class="col-12">
-        <b>
+    <div class="row detail-description">
+      <div class="col-12 caption">
           <span translate>product-detail.detail_description</span>
-        </b>
       </div>
-      <div class="col-12">
+      <div class="col-12 content-zone">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
         architecto asperiores at autem, blanditiis consequatur, distinctio
         doloremque dolorum eligendi enim ex id illum impedit laboriosam, minus
@@ -205,87 +192,87 @@
         consectetur deserunt error esse quas. Dicta!
       </div>
     </div>
-    <div class="row p-2">
-      <div class="col-12">
-        Rating & Feedback
+    <div class="row rating-feedback">
+      <div class="col-12 caption">
+        <span translate>product-detail.rating_feedback</span>
       </div>
-      <div class="col-4">
-        <b>Rating here</b>
-      </div>
-      <div class="col-8">
-        <div class="row mt-2">
-          <div class="col-4">
-            Rating stars
-          </div>
-          <div class="col-8">
-            Rating bar and number
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-4">
-            Rating stars
-          </div>
-          <div class="col-8">
-            Rating bar and number
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-4">
-            Rating stars
-          </div>
-          <div class="col-8">
-            Rating bar and number
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-4">
-            Rating stars
-          </div>
-          <div class="col-8">
-            Rating bar and number
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-4">
-            Rating stars
-          </div>
-          <div class="col-8">
-            Rating bar and number
-          </div>
-        </div>
-      </div>
-      <div class="col-12 mt-3">
-        <div class="row mt-2">
-          <div class="col-3">
-            Avatar customer comment
-          </div>
-          <div class="col-3">
-            <div class="row mt-2">
-              Customer's name
+      <div class="content-zone">
+        <div class="col-6 rating-zone">
+          <div class="summary">
+            <div class="score">
+              <span class="score-average">4.5</span>
+              <span class="score-max">/5</span>
             </div>
-            <div class="row">
-              Customer's rating
+            <div class="average">
+              <ngb-rating [(rate)]="starRate" max=5 [readonly]="true"
+                          class="rating-link">
+                <ng-template let-fill="fill">
+                  <a href="javascript:" class="rating-link">
+              <span class="star fill" [class.filled]="fill === 100">
+                <i class="ion-android-star" *ngIf="fill === 100"></i>
+                <i class="ion-android-star-outline" *ngIf="fill !== 100"></i>
+              </span>
+                  </a>
+                </ng-template>
+              </ngb-rating>
+            </div>
+            <div class="count">
+              {{ratingCount}} Ratings
+            </div>
+          </div>
+          <div class="detail">
+            <div class="detail-row" *ngFor="let star of starArray">
+              <!--<span>-->
+                <ngb-rating [(rate)]="star" max=5 [readonly]="true"
+                            class="rating-link">
+                  <ng-template let-fill="fill">
+                    <a href="javascript:" class="rating-link">
+                <span class="star fill" [class.filled]="fill === 100">
+                  <i class="ion-android-star" *ngIf="fill === 100"></i>
+                  <i class="ion-android-star-outline" *ngIf="fill !== 100"></i>
+                </span>
+                    </a>
+                  </ng-template>
+                </ngb-rating>
+                <!--</span>-->
+              <span>asdfasdfas</span>
             </div>
           </div>
         </div>
-        <div class="row mt-2">
-          <div class="col-6">
-            Customer's comment (Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit. Consequuntur cumque deserunt dignissimos excepturi
-            ipsum iusto neque optio qui quia quod. Consectetur cupiditate
-            debitis doloribus dolorum ea id illum laboriosam libero, non
-            obcaecati omnis porro quae quia quibusdam reiciendis sequi tempora
-            ullam veritatis, vitae voluptates. Assumenda eaque officiis sunt
-            veniam voluptate?)
+        <div class="col-6"></div>
+        <div class="col-12 mt-3">
+          <div class="row mt-2">
+            <div class="col-3">
+              Avatar customer comment
+            </div>
+            <div class="col-3">
+              <div class="row mt-2">
+                Customer's name
+              </div>
+              <div class="row">
+                Customer's rating
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-6">
+              Customer's comment (Lorem ipsum dolor sit amet, consectetur
+              adipisicing elit. Consequuntur cumque deserunt dignissimos excepturi
+              ipsum iusto neque optio qui quia quod. Consectetur cupiditate
+              debitis doloribus dolorum ea id illum laboriosam libero, non
+              obcaecati omnis porro quae quia quibusdam reiciendis sequi tempora
+              ullam veritatis, vitae voluptates. Assumenda eaque officiis sunt
+              veniam voluptate?)
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row p-2">
-      <div class="col-12">
-        <b>Related Product</b>
+    <div class="row related-product">
+      <div class="col-12 caption">
+        <span translate>product-detail.related_product</span>
       </div>
-      <div class="col-12 mt-2">
+      <div class="col-12 mt-2 content-zone">
         <div class="row">
           <div class="col-2">
             <div class="row p-3">
