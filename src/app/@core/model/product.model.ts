@@ -1,10 +1,15 @@
-export class Product {
-  amount: number;
-  discountPercent: number;
+export class ProductModel {
   id: number;
+  name: string;
+  unitPrice: number;
+  priceDiscount : number;
+  discountPercent: number;
+  mainImgUrl: string;
+  avgRating: number;
+  totalRating: number;
+  amount: number;
   productId: number;
   productName: string;
   supplierName: string;
-  unitPrice: number;
   imgUrl: string;
 }

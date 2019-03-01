@@ -11,7 +11,7 @@ import { ThemeModule } from '../@theme/theme.module';
     PagesRoutingModule,
     ThemeModule,
     DashboardModule,
-  ],
+],
   declarations: [
     PagesComponent,
     NotFoundComponent,

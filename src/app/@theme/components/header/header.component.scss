@@ -2,6 +2,7 @@
 @import '~bootstrap/scss/mixins/breakpoints';
 @import '~@nebular/theme/styles/global/breakpoints';
 
+
 @include nb-install-component() {
   display: flex;
   justify-content: space-between;
@@ -51,16 +52,16 @@
       height: 60px;
     }
   }
-  .header-top {
+  .header-top-menu {
+    display:inline-block;
+    padding-right: 250px;
     width: 100%;
-    color: #cdd0d4;
-    text-align: center;
+    color: white;
   }
   .search-header {
     position: relative;
   }
   .button-search {
-    cursor: pointer;
     position: absolute;
     float: left;
     right: 0;
@@ -74,7 +75,9 @@
     z-index: 1;
   }
   .header-button-search {
-    background-color: #E67E22;
+    float: right;
+    cursor: pointer;
+    background-color: #5dcfe3;
     height: 45px;
   }
   .header-search-text {
@@ -82,6 +85,7 @@
     width: 650px;
   }
   .header-cart {
+    cursor: pointer;
     margin-left: 25px;
   }
   .badge-number {
@@ -89,7 +93,11 @@
     top: -10px;
     right: -10px;
     z-index: 2;
+    .nb-badge.nb-badge-warning {
+      background-color: #5dcfe3;
+    }
   }
+
   .icon-cart {
     height: 32px;
     width: 32px;
@@ -102,10 +110,13 @@
     width: 24px;
     padding-bottom: 10px;
   }
-  .header-top-menu {
+  .header-top-item {
+    float:right;
+    text-align: left;
+    padding-left: 35px;
     cursor: pointer;
     &:hover {
-      color: white;
+      color: #5dcfe3;
     }
 
   }
@@ -247,3 +258,4 @@
     }
   }
 }
+
