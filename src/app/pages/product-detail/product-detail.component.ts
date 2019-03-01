@@ -103,7 +103,6 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getFeedback(id).subscribe((res: ResponseDTO) => {
       if (!res.responseMessage.messageCode) {
         this.feedbackList = res.responseMessage.data;
-        console.log(this.feedbackList);
       } else {
         this.router.navigate(['pages/not-found']);
       }
@@ -113,7 +112,6 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getRelatedProduct(id).subscribe(res => {
       if (!res.messageCode) {
         this.relatedItemList = res.data;
-        console.log(this.relatedItemList);
       } else {
         this.router.navigate(['pages/not-found']);
       }
