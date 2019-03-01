@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HomePageService} from '../../@core/data/home-page.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'ngx-home-page',
@@ -14,44 +15,63 @@ export class HomePageComponent implements OnInit {
   subMenuSecondList = [];
   seeMore = true;
   showMenu = false;
-  slide: string;
-  constructor(private homeService: HomePageService) { }
+  slide: number;
+
+  constructor(private homeService: HomePageService, private router: Router) {
+  }
 
   ngOnInit() {
     this.getTopSale();
     this.getShopByCategory();
     this.getMenu();
   }
+
   getTopSale() {
     this.homeService.getTopSale().subscribe(data => {
       this.topSaleItems = data['responseMessage'].data;
     });
   }
+
   getShopByCategory() {
     this.homeService.getShopByCategory().subscribe(data => {
       this.shopByCategoryItems = data['data'];
     });
   }
+
   getMenu() {
     this.homeService.getMenu().subscribe(data => {
       this.menuList = data['menu'];
     });
   }
+
   getSubMenu(menu) {
     this.subMenuList = this.menuList[menu].sub;
   }
+
   getSubMenuSecond(subMenu) {
     this.subMenuSecondList = this.subMenuList[subMenu].sub;
     if (this.subMenuSecondList) {
       this.showMenu = true;
-    }else {
+    } else {
       this.showMenu = false;
     }
   }
+
   onSeeMore() {
     this.seeMore = !this.seeMore;
   }
+
   changeBg(event) {
     this.slide = event.current;
+  }
+
+  routeToResultList(id: number, searchFrom: string) {
+    this.router.navigate(['./pages/result-list'], {
+      skipLocationChange: true,
+      queryParams: {
+        'id': id,
+        'from': searchFrom
+      }
+    });
   }
 }

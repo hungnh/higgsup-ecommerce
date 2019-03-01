@@ -127,6 +127,9 @@
     "related_product": "RELATED PRODUCT",
     "add_to_cart": "Add to cart",
     "buy_now": "Buy now",
+    "add_success": "Added this product into cart!",
+    "go_to_cart": "Go to cart",
+    "continue_shopping": "Continue Shopping"
     "product-reviews": "Product reviews",
     "ratings": "Ratings"
   }
