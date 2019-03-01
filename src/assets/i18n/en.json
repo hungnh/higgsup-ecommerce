@@ -114,9 +114,9 @@
   "product-detail": {
     "votes": "Votes",
     "shipping": "Shipping",
-    "discount": "{{number}}% DISCOUNT",
+    "discount": "{{discount}}% DISCOUNT",
     "amount": "Amount",
-    "available_product": "{{amount}} available product",
+    "available_product": "{{amount}} available products",
     "brand": "Brand",
     "status": "Status",
     "weight": "Weight (kg)",

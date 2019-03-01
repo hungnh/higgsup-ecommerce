@@ -114,7 +114,7 @@
   "product-detail": {
     "votes": "투표하다",
     "shipping": "배송",
-    "discount": "할인",
+    "discount": "{{discount}}% 할인",
     "amount": "수량",
     "available_product": "{{amount}} 사용 가능한 제품",
     "brand": "상표",

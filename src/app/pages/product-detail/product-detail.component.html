@@ -1,13 +1,13 @@
 <div class="container">
-  <div class="row p-2">
-    <div class="col-12">
-      <div>
-        <b>Breadcrumb here</b>
+  <nb-card>
+    <div class="row p-2">
+      <div class="col-12">
+        <div>
+          <b>Breadcrumb here</b>
+        </div>
       </div>
     </div>
-  </div>
-  <nb-card>
-    <div class="row product-infomation">
+    <div class="row">
       <div class="images-block col-4">
         <div class="image-preview">
           <!--<img src="{{imagePreview}}">-->
@@ -31,11 +31,11 @@
           </div>
         </div>
       </div>
-      <div class="col-8">
+      <div class="col-8 pl-5">
         <div class="row mt-2">
           <div class="col-12">
             <div name="product-name">
-              Product-name
+              {{product.name}}
             </div>
           </div>
         </div>
@@ -44,9 +44,9 @@
             <div class="row" name="rating-block">
               <div class="rating-data">
                 <a href="javascript:" class="rating-link" name="rating-point">
-                  <span>{{starRate}}&nbsp;</span>
+                  <span>{{product.avgRating}}&nbsp;</span>
                 </a>
-                <ngb-rating [(rate)]="starRate" max=5 [readonly]="true"
+                <ngb-rating [(rate)]="product.avgRating" max=5 [readonly]="true"
                             class="rating-link">
                   <ng-template let-fill="fill">
                     <a href="javascript:" class="rating-link">
@@ -60,7 +60,7 @@
               </div>
               <div class="rating-data">
                 <a href="javascript:" name="vote-link">
-                  <span name="rating-count">{{ratingCount}} </span>
+                  <span name="rating-count">{{product.totalRating}} </span>
                   <span translate>product-detail.votes</span>
                 </a>
               </div>
@@ -71,14 +71,14 @@
           <div class="col-12">
             <div name="price-block">
               <div name="old-price">
-                xxx {{currency}}
+                {{product.unitPrice | number}} {{currency}}
               </div>
               <div name="new-price">
-                YYY {{currency}}
+                {{newPrice | number}} {{currency}}
               </div>
-              <div><span name="discount">
-                AA%
-              </span>
+              <div>
+                <span name="discount" translate
+                      [translateParams]="{discount: product.discountPercent}">product-detail.discount</span>
               </div>
             </div>
           </div>
@@ -93,14 +93,14 @@
                     [disabled]="false"> -
             </button>
             <input type="text" class="input-quantity"
-                   [(ngModel)]="product.amount"
-                   min="1" (keypress)="checkPressKey(return)"
+                   [(ngModel)]="amount"
+                   min="1" max="{{product.availableItem}}" (keypress)="checkPressKey(return)"
                    onpaste="return false;">
             <button class="btn button-quantity"
                     (click)="doEncreaseQuantity()">+
             </button>
-
-            <span class="ml-3" translate>product-detail.available_product</span>
+            <span class="ml-3" translate
+                  [translateParams]="{amount: product.availableItem}">product-detail.available_product</span>
           </div>
         </div>
         <div class="row mt-2">
@@ -123,7 +123,7 @@
               </div>
               <div class="col-6">
                 <a href="javascript:">
-                  Name of brand
+                  {{product.brandName}}
                 </a>
               </div>
             </div>
@@ -135,7 +135,7 @@
               </div>
               <div class="col-6">
                 <span>
-                  Old/New
+                  {{product.status}}
                 </span>
               </div>
             </div>
@@ -147,7 +147,7 @@
               </div>
               <div class="col-6">
                 <span>
-                  xxx
+                  {{product.weight}}
                 </span>
               </div>
             </div>
@@ -159,7 +159,7 @@
               </div>
               <div class="col-6">
                 <span>
-                  Provider's name
+                  {{product.supplierName}}
                 </span>
               </div>
             </div>
@@ -171,7 +171,7 @@
               </div>
               <div class="col-9">
                 <span>
-                  Address sending product
+                  {{product.supplierAddress}}
                 </span>
               </div>
             </div>
@@ -184,12 +184,7 @@
           <span translate>product-detail.detail_description</span>
       </div>
       <div class="col-12 content-zone">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-        architecto asperiores at autem, blanditiis consequatur, distinctio
-        doloremque dolorum eligendi enim ex id illum impedit laboriosam, minus
-        mollitia nemo nihil omnis saepe soluta totam ullam voluptates?
-        Doloremque harum, ipsam pariatur quidem reprehenderit sed voluptas. Ab
-        consectetur deserunt error esse quas. Dicta!
+        {{product.fullDesc}}
       </div>
     </div>
     <div class="row rating-feedback">
