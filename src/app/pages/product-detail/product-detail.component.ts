@@ -28,6 +28,7 @@ export class ProductDetailComponent implements OnInit {
   listRating: Array<RatingCount>;
   sumRating: number = 0;
   imageList = [];
+  imageView = this.imageList[0];
   constructor(private productService: ProductDetailsService, private router: Router, private activeRoute: ActivatedRoute,
               private cartService: CartService) {
     this.queryParams = this.activeRoute.snapshot.queryParams;
@@ -113,5 +114,8 @@ export class ProductDetailComponent implements OnInit {
         this.router.navigate(['pages/not-found']);
       }
     })
+  }
+  viewImages(imgUrl) {
+    this.imageView = imgUrl;
   }
 }

@@ -223,4 +223,24 @@
   .rating-star .star{
     color: #f5a623;
   }
+  .ui-carousel-next-button, .ui-carousel-prev-button {
+    font-size: 59px;
+    position: absolute;
+    right: -33px;
+    z-index: 999;
+    top: 45px;
+  }
+  .ui-carousel-prev-button {
+    left: -33px;
+  }
+  .ui-carousel-header {
+    background: transparent!important;
+    border: none!important;
+  }
+  .ui-carousel-page-links {
+    display: none!important;
+  }
+  .ui-carousel-item, .ui-carousel-viewport {
+    border: none!important;
+  }
 }
