@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
           this.httpService.setHeaderToken();
           this.loginService.login(this.registerForm.controls.email.value, this.registerForm.controls.password.value).subscribe((res: LoginResult) => {
             if (res) {
-              localStorage.setItem('Authorization', 'Bearer ' +  res.token);
+              this.httpService.setToken(res.token, res.refreshToken);
               this.httpService.setHeaderToken();
               this.router.navigate(['/pages/home']);
             }

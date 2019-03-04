@@ -2,7 +2,7 @@ import {APP_BASE_HREF} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
-import {HttpClientModule , HttpClient} from '@angular/common/http';
+import {HttpClientModule, HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {CoreModule} from './@core/core.module';
 
 import {AppComponent} from './app.component';
@@ -14,6 +14,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {HttpService} from "./@core/services/http.service";
 import {AuthenticationModule} from './authentication/authentication.module';
+import {TokenInterceptor} from "./@core/interceptor/token-interceptor.interceptor";
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,7 +38,8 @@ import {AuthenticationModule} from './authentication/authentication.module';
   ],
   bootstrap: [AppComponent],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/' }, HttpService
+    { provide: APP_BASE_HREF, useValue: '/' }, HttpService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
   ],
 })
 export class AppModule {

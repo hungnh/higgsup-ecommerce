@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       (res: LoginResult) => {
         if (res) {
           localStorage.setItem('Authorization', 'Bearer ' +  res.token);
-          this.httpService.setHeaderToken();
+          // this.httpService.setHeaderToken();
           this.router.navigate(['/pages/home']);
         }
       }, (error: HttpErrorResponse) => {

@@ -13,10 +13,10 @@ export class UserService {
   constructor(private http: HttpClient,
               private httpService: HttpService) { }
 
-  httpOptions = this.httpService.setHeaderToken();
+  // httpOptions = this.httpService.setHeaderToken();
 
   public getUserInfo(): Observable<ResponseMessageProfile> {
 
-    return this.http.get<ResponseMessageProfile>(PathConfig.URL + PathConfig.PROFILE, this.httpOptions);
+    return this.http.get<ResponseMessageProfile>(PathConfig.URL + PathConfig.PROFILE);
   }
 }
