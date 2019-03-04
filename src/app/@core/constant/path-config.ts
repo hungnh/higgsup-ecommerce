@@ -8,6 +8,8 @@ export class PathConfig {
   static CATEGORY: string = 'categories';
   static LOG_IN: string = 'auth/login';
   static CART: string = 'carts';
+  static REGISTER = 'register';
+  static PROFILE = 'profile';
   static PRODUCTS: string = 'products';
   static FEEDBACK: string = 'feedback';
   static RELATION: string = 'relation';

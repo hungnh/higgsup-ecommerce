@@ -16,4 +16,8 @@ export class HttpService {
     };
     return httpOptions;
   }
+
+  getToken() {
+    return localStorage.getItem('Authorization');
+  }
 }

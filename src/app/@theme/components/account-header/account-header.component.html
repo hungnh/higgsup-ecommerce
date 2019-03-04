@@ -1,0 +1,6 @@
+<div class="account-header"
+     [nbPopover]="accountHeaderListComponent"
+     nbPopoverPlacement="bottom"
+     [nbPopoverContext]="{popover: popover}">
+  <span *ngIf="showTitle">{{userName}}</span>
+</div>

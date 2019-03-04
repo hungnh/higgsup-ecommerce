@@ -1,7 +1,7 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {ModuleWithProviders, NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {
   NbActionsModule,
@@ -36,7 +36,7 @@ import {
   NbBadgeModule,
 } from '@nebular/theme';
 
-import { NbSecurityModule } from '@nebular/security';
+import {NbSecurityModule} from '@nebular/security';
 
 import {
   FooterComponent,
@@ -55,11 +55,13 @@ import {
   NumberWithCommasPipe,
 } from './pipes';
 
-import { DEFAULT_THEME } from './styles/theme.default';
-import { COSMIC_THEME } from './styles/theme.cosmic';
-import { CORPORATE_THEME } from './styles/theme.corporate';
+import {DEFAULT_THEME} from './styles/theme.default';
+import {COSMIC_THEME} from './styles/theme.cosmic';
+import {CORPORATE_THEME} from './styles/theme.corporate';
 import {TranslateModule} from "@ngx-translate/core";
 import {WarningComponent} from "./components/warning/warning.component";
+import {AccountHeaderComponent} from './components/account-header/account-header.component';
+import {AccountHeaderListComponent} from './components/account-header/account-header-list/account-header-list.component';
 
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule];
 
@@ -105,13 +107,17 @@ const COMPONENTS = [
   LayoutComponent,
   ChangeLanguageComponent,
   ChangeLanguageListComponent,
-  WarningComponent
+  WarningComponent,
+  AccountHeaderComponent,
+  AccountHeaderListComponent
 ];
 
 const ENTRY_COMPONENTS = [
   ThemeSwitcherListComponent,
   ChangeLanguageListComponent,
-  WarningComponent
+  WarningComponent,
+  AccountHeaderComponent,
+  AccountHeaderListComponent
 ];
 
 const PIPES = [
@@ -126,7 +132,7 @@ const NB_THEME_PROVIDERS = [
     {
       name: 'default',
     },
-    [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME ],
+    [DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME],
   ).providers,
   ...NbSidebarModule.forRoot().providers,
   ...NbMenuModule.forRoot().providers,
