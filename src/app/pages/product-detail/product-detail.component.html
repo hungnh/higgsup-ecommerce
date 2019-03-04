@@ -10,12 +10,20 @@
     <div class="row product-infomation">
       <div class="images-block col-4">
         <div class="image-preview">
-          <div class="image-block" [ngStyle]="{ 'background-image': 'url(' + imageList[0] + ')'}"></div>
+          <div class="image-block" [ngStyle]="{ 'background-image': 'url(' + imageView + ')'}"></div>
         </div>
         <div class="image-list">
-          <div class="image-item" *ngFor="let image of imageList">
-            <img src="{{image}}" alt="">
-          </div>
+          <p-carousel [value]="imageList" [numVisible]="5">
+            <ng-template let-img pTemplate="img">
+              <div class="ui-grid ui-grid-responsive">
+                <div class="ui-grid-row">
+                  <div class="ui-grid-col-12 image-item" (click)="viewImages(img)">
+                    <img class="card-img-top" src="{{img}}" width="60">
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </p-carousel>
         </div>
       </div>
       <div class="col-8 pl-5">
