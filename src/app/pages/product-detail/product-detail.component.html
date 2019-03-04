@@ -84,12 +84,11 @@
           </div>
           <div class="col-8">
             <button class="btn button-quantity"
-                    (click)="doDecreaseQuantity()"
-                    [disabled]="false"> -
+                    (click)="doDecreaseQuantity()"> -
             </button>
             <input type="text" class="input-quantity"
                    [(ngModel)]="amount"
-                   min="1" (keypress)="checkPressKey(return)"
+                   min="1" (keypress)="checkPressKey()"
                    onpaste="return false;">
             <button class="btn button-quantity"
                     (click)="doEncreaseQuantity()">+

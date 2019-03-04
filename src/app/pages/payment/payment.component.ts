@@ -28,8 +28,12 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit() {
     this.addImg();
-    this.deliveryInfo = JSON.parse(this.activeRoute.snapshot.queryParams.deliveryInfo);
-    this.productList= JSON.parse(this.activeRoute.snapshot.queryParams.productList);
+    if (this.activeRoute.snapshot.queryParams.deliveryInfo) {
+      this.deliveryInfo = JSON.parse(this.activeRoute.snapshot.queryParams.deliveryInfo);
+    }
+    if (this.activeRoute.snapshot.queryParams.productList){
+      this.productList = JSON.parse(this.activeRoute.snapshot.queryParams.productList);
+    }
     this.productList.forEach(product => {
       return this.subTotal += product.unitPrice * product.amount;
     });
