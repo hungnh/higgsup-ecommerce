@@ -1,0 +1,299 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  margin: auto;
+  .product-infomation {
+    border-bottom: 1px solid #eff0f5;
+    .images-block {
+      padding: 15px;
+      img {
+        max-height: 100%;
+        max-width: 100%;
+        display: block;
+        margin: auto;
+      }
+      .image-preview {
+        .image-block {
+          padding: 5px;
+          width: 450px;
+          height: 450px;
+          background-image: url("https://cf.shopee.vn/file/c7bdd6714e6f511873786845e454b635");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: 50%;
+        }
+      }
+      .image-list {
+        width: 460px;
+        margin: 5px -5px;
+        .image-item {
+          display: inline-block;
+          width: 82px;
+          height: 82px;
+          margin: 5px;
+          box-sizing: border-box;
+        }
+        .image-item:hover {
+          border: 2px solid #ee4d2d;
+        }
+      }
+    }
+  }
+  .detail-description {
+    margin-bottom: 10px;
+  }
+  .rating-feedback {
+    margin-bottom: 10px;
+    .rating-zone {
+      display: flex;
+      .summary {
+        width: 45%;
+        .score {
+          .score-average {
+            font-size: 48px;
+            color: #212121;
+          }
+          .score-max {
+            font-size: 32px;
+            color: #9e9e9e;
+            text-align: center;
+            line-height: 40px;
+          }
+        }
+        .average {
+          font-size: 42px;
+          .rating-link {
+            color: #f5a623;
+          }
+        }
+        .count {
+          font-size: 12px;
+          color: #757575;
+        }
+      }
+      .detail {
+        width: 55%;
+        display: flex;
+        .rating-star {
+          width: 35%;
+          font-size: 20px;
+        }
+        .detail-rating {
+          width: 65%;
+          .detail-rating-row {
+            padding: 4px;
+            display: flex;
+            .progress-line {
+              width: 80%;
+            }
+            .reviewers-number {
+              text-align: center;
+              font-size: 12px;
+              width: 20%;
+            }
+          }
+        }
+      }
+    }
+    .feedback-zone {
+      .product-reviews {
+        height: 44px;
+        padding-left: 24px;
+        border-top: 1px solid #eff0f5;
+        border-bottom: 1px solid #eff0f5;
+        font-size: 14px;
+        color: #212121;
+        line-height: 44px;
+      }
+      .product-feedback {
+        margin-bottom: 20px;
+        .user {
+          display: flex;
+          .avatar {
+            background: gray;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+          }
+          .user-info {
+            width: 65%;
+            .name {
+              color: rgba(0,0,0,.87);
+              font-size: 13px;
+            }
+            .rated-star {
+              font-size: 20px;
+            }
+          }
+        }
+        .feedback-content {
+          margin-left: 60px;
+          span {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+  .related-product {
+    margin-bottom: 10px;
+    .item-zone {
+      padding-top: 5px;
+      padding-left: 20px;
+      .card {
+        box-sizing: border-box;
+        border: 0;
+        width: 16%;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        height: 290px;
+        .card-img {
+          display: block;
+          width: 188px;
+          margin: auto;
+          height: 188px;
+          .card-img-top {
+            height: 100%;
+          }
+        }
+        .card-body {
+          position: relative;
+          padding: 15px 8px;
+          .card-title {
+            color: #000;
+            line-height: 18px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            font-size: 14px;
+          }
+          .price-zone {
+            position: absolute;
+            bottom: 15px;
+            .origin-price {
+              font-size: 15px;
+              color: red;
+            }
+          }
+        }
+      }
+    }
+  }
+  .caption {
+    font-weight: 500;
+    font-family: Roboto-Medium;
+    font-size: 16px;
+    color: #212121;
+    letter-spacing: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 24px;
+    padding-right: 24px;
+    height: 52px;
+    line-height: 52px;
+    background: #fafafa;
+  }
+  .content-zone {
+    padding: 15px;
+  }
+}
+div[name$='product-name'] {
+  overflow: hidden;
+  max-width: 41.5625rem;
+  font-size: 1.25rem;
+  word-wrap: break-word;
+  font-weight: 500;
+}
+
+.rating-data {
+  font-size: 1.25rem;
+}
+
+.rating-data:first-child {
+  padding-right: 15px;
+  border-right: 1px solid rgba(0, 0, 0, .14);
+}
+
+.rating-data:last-child {
+  margin-left: 15px;
+}
+
+.rating-link {
+  color: #f57224;
+}
+
+.rating-link:hover {
+  color: #f57224;
+  cursor: pointer;
+}
+
+a[name$='rating-point'] {
+  border-bottom: 1px solid #f57224;
+}
+
+span[name$='rating-count'] {
+  border-bottom: 1px solid #000;
+}
+
+a[name$='vote-link'] {
+  color: #000;
+}
+
+div[name$='rating-block'] {
+  padding: 0 15px;
+}
+
+div[name$='price-block'] {
+  display: flex;
+  flex-direction: row;
+  padding: 15px 20px;
+  align-items: center;
+  background: #fafafa;
+}
+
+div[name$='old-price'] {
+  text-decoration: line-through;
+  color: #929292;
+  margin-right: 10px;
+}
+
+div[name$='new-price'] {
+  font-size: 1.875rem;
+  font-weight: 500;
+  color: #ee4d2d;
+  margin-left: 10px;
+}
+
+span[name$='discount'] {
+  font-size: .75rem;
+  color: #fff;
+  text-transform: uppercase;
+  background: #ee4d2d;
+  border-radius: 2px;
+  padding: 2px 4px;
+  font-weight: 600;
+  line-height: 1;
+  margin-left: 10px;
+}
+
+button[name$='add-to-cart'] {
+  cursor: pointer;
+  background-color: #f2f2f2;
+  color: #f57224;
+  border-color: #f57224;
+}
+
+button[name$='add-to-cart']:hover {
+  color: #f57224;
+  background-color: #feeade;
+}
+
+a[name$='brand-name'] {
+  color: #1a9cb7;
+}

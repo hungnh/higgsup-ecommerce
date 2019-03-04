@@ -31,6 +31,10 @@
     text-decoration: none;
   }
 
+  button {
+    cursor: pointer !important;
+  }
+
   // custom button encrease and decrease quantity
   .button-quantity {
     background-color: #d6d6d6;
@@ -97,16 +101,16 @@
   }
   input[type='text'].input-quantity:focus {
     outline: none;
-    border: 1px solid #5AB0DB;
+    border: 1px solid #5ab0db;
   }
 
-  input[type="text"].input-quantity:hover {
+  input[type='text'].input-quantity:hover {
     border: 1px solid #999;
   }
 
-  input[type="text"].input-quantity:focus:hover {
+  input[type='text'].input-quantity:focus:hover {
     outline: none;
-    border: 1px solid #5AB0DB;
+    border: 1px solid #5ab0db;
 
   }
 
@@ -137,8 +141,6 @@
   span .custom-control-description:hover {
     border-color: #d0611e !important;
   }
-
-
 
   nb-checkbox .customised-control-input:checked + .customised-control-indicator::before {
     border-color: #d0611e;
@@ -215,5 +217,32 @@
   .hover-item:hover {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   }
-}
 
+  /// RATING AND FEEDBACK FIX
+  .detail-rating-row .progress-value {
+    background: #f5a623;
+  }
+  .rating-star .star {
+    color: #f5a623;
+  }
+  .ui-carousel-next-button, .ui-carousel-prev-button {
+    font-size: 59px;
+    position: absolute;
+    right: -33px;
+    z-index: 999;
+    top: 45px;
+  }
+  .ui-carousel-prev-button {
+    left: -33px;
+  }
+  .ui-carousel-header {
+    background: transparent !important;
+    border: none !important;
+  }
+  .ui-carousel-page-links {
+    display: none !important;
+  }
+  .ui-carousel-item, .ui-carousel-viewport {
+    border: none !important;
+  }
+}
