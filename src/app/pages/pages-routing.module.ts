@@ -37,7 +37,6 @@ const routes: Routes = [{
     {
       path: 'product-detail',
       loadChildren: 'app/pages/product-detail/product-detail.module#ProductDetailModule',
-      //canActivate: [RoutingGuard],
     },
     {
       path: 'home',

@@ -47,7 +47,6 @@ export class RegisterComponent implements OnInit {
       this.registerForm.controls.email.value,
       this.registerForm.controls.password.value).subscribe(
     (res: RegisterDTO) => {
-      console.log(res);
       if (res.responseMessage.messageCode === null) {
           this.httpService.setHeaderToken();
           this.loginService.login(this.registerForm.controls.email.value, this.registerForm.controls.password.value).subscribe((res: LoginResult) => {

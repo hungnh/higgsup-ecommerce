@@ -44,14 +44,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.loginFlg = false;
-    // this.authService.isAuthenticated()
-    //   .pipe(
-    //     tap(authenticated => {
-    //       if (authenticated) {
-    //         this.loginFlg = true;
-    //       }
-    //     }),
-    //   );
     if (localStorage.getItem('Authorization')) {
       this.loginFlg = true;
     }

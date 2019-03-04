@@ -7,7 +7,6 @@
     <div class="header-top-item" *ngIf="loginFlg">
       <account-header></account-header>
     </div>
-    <!--<div class="header-top-item" *ngIf="loginFlg"><p translate>header.account</p></div>-->
     <div class=" header-top-item" *ngIf="!loginFlg"><p (click)="goToLogin()" translate>header.login</p></div>
 
     <div class=" header-top-item"><p translate>header.check</p></div>
