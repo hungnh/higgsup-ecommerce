@@ -1,7 +1,7 @@
 <nb-card class="mt-4 m-lg-5 p-lg-5">
   <div class="container">
     <div class="row justify-content-center pt-3">
-      <h5>Create your account</h5>
+      <h3>Create your account</h3>
     </div>
   </div>
   <form [formGroup]="registerForm">
@@ -26,59 +26,67 @@
       </div>
 
       <div class="row mt-2">
-
+        <div class="col-3 offset-1"></div>
+        <div class="col-4" *ngIf="submitted && registerFormControls.lastName.errors">
+          <div *ngIf="registerFormControls.lastName.errors.required" class="text-danger font-weight-bold">Last name is required.</div>
+        </div>
+      </div>
+      <div class="row mt-2">
         <div class="col-3 offset-1">
           <p class="title-address-info mandatory-field float-right">Last name</p>
         </div>
         <div class="col-4">
-          <div *ngIf="submitted && registerFormControls.lastName.errors">
-            <div *ngIf="registerFormControls.lastName.errors.required" class="text-danger font-weight-bold">Last name is required.</div>
-          </div>
           <input type="text" class="form-control" formControlName="lastName" [ngClass]="{'border border-danger': submitted && registerFormControls.lastName.errors}">
         </div>
       </div>
 
       <div class="row mt-2">
-
+        <div class="col-3 offset-1"></div>
+        <div class="col-4" *ngIf="submitted && registerFormControls.email.errors">
+          <div *ngIf="registerFormControls.email.errors.required" class="text-danger font-weight-bold">Email Address is required.</div>
+          <div *ngIf="registerFormControls.email.errors.email" class="text-danger font-weight-bold">Please enter a valid email address.</div>
+          <div *ngIf="registerFormControls.email.errors.emailExisted" class="text-danger font-weight-bold">An account with this email already exists.</div>
+        </div>
+      </div>
+      <div class="row mt-2">
         <div class="col-3 offset-1">
           <p class="title-address-info mandatory-field float-right">Email address</p>
         </div>
         <div class="col-4">
-          <div *ngIf="submitted && registerFormControls.email.errors">
-            <div *ngIf="registerFormControls.email.errors.required" class="text-danger font-weight-bold">Email Address is required.</div>
-            <div *ngIf="registerFormControls.email.errors.email" class="text-danger font-weight-bold">Please enter a valid email address.</div>
-            <div *ngIf="registerFormControls.email.errors.emailExisted" class="text-danger font-weight-bold">An account with this email already exists.</div>
-          </div>
           <input type="text" class="form-control" formControlName="email" [ngClass]="{'border border-danger': submitted && registerFormControls.email.errors}">
         </div>
       </div>
 
       <div class="row mt-2">
-
+        <div class="col-3 offset-1"></div>
+        <div class="col-4" *ngIf="submitted && registerFormControls.password.errors">
+          <div *ngIf="registerFormControls.password.errors.required" class="text-danger font-weight-bold">Password is required.</div>
+          <div *ngIf="registerFormControls.password.errors.minlength" class="text-danger font-weight-bold">Must contain between 6 and 12 characters.</div>
+          <div *ngIf="registerFormControls.password.errors.maxlength" class="text-danger font-weight-bold">Must contain between 6 and 12 characters.</div>
+        </div>
+      </div>
+      <div class="row mt-2">
         <div class="col-3 offset-1">
           <p class="title-address-info mandatory-field float-right">Create a Password</p>
         </div>
         <div class="col-4">
-          <div *ngIf="submitted && registerFormControls.password.errors">
-            <div *ngIf="registerFormControls.password.errors.required" class="text-danger font-weight-bold">Password is required.</div>
-            <div *ngIf="registerFormControls.password.errors.minlength" class="text-danger font-weight-bold">Must contain between 6 and 12 characters.</div>
-            <div *ngIf="registerFormControls.password.errors.maxlength" class="text-danger font-weight-bold">Must contain between 6 and 12 characters.</div>
-          </div>
-          <input type="text" class="form-control" formControlName="password" [ngClass]="{'border border-danger': submitted && registerFormControls.password.errors}">
+          <input type="password" class="form-control" formControlName="password" [ngClass]="{'border border-danger': submitted && registerFormControls.password.errors}">
         </div>
       </div>
 
       <div class="row mt-2">
-
+        <div class="col-3 offset-1"></div>
+        <div class="col-4" *ngIf="submitted && registerFormControls.confirmPassword.errors">
+          <div *ngIf="registerFormControls.confirmPassword.errors.required" class="text-danger font-weight-bold">Confirm password is required.</div>
+          <div *ngIf="registerFormControls.confirmPassword.errors.minlength" class="text-danger font-weight-bold">Must contain between 6 and 12 characters.</div>
+          <div *ngIf="registerFormControls.confirmPassword.errors.maxlength" class="text-danger font-weight-bold">Must contain between 6 and 12 characters.</div>
+        </div>
+      </div>
+      <div class="row mt-2">
         <div class="col-3 offset-1">
           <p class="title-address-info mandatory-field float-right">Confirm password</p>
         </div>
         <div class="col-4">
-          <div *ngIf="submitted && registerFormControls.confirmPassword.errors">
-            <div *ngIf="registerFormControls.confirmPassword.errors.required" class="text-danger font-weight-bold">Confirm password is required.</div>
-            <div *ngIf="registerFormControls.confirmPassword.errors.minlength" class="text-danger font-weight-bold">Must contain between 6 and 12 characters.</div>
-            <div *ngIf="registerFormControls.confirmPassword.errors.maxlength" class="text-danger font-weight-bold">Must contain between 6 and 12 characters.</div>
-          </div>
           <input type="text" class="form-control" formControlName="confirmPassword" [ngClass]="{'border border-danger': submitted && registerFormControls.confirmPassword.errors}">
         </div>
       </div>

@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.httpService.getToken()) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/pages/home']);
     }
     this.loginInfo = this.formBuilder.group({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         if (res) {
           localStorage.setItem('Authorization', 'Bearer ' +  res.token);
           this.httpService.setHeaderToken();
-          this.router.navigate(['/home']);
+          this.router.navigate(['/pages/home']);
         }
       }, (error: HttpErrorResponse) => {
         if (error.status === 401) {

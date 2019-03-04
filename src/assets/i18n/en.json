@@ -119,5 +119,34 @@
     "temporary_calculation": "Temporary calculations",
     "sub_total": "Sub-total",
     "total": "Total"
+  },
+  "login": {
+    "header_subject": "Sign in to your account",
+    "wrong_account_password": "Your password and email do not match. Please try again.",
+    "email_addres": "Email adress",
+    "invalid_email_required": "Email address is required.",
+    "invalid_email_format": "Please enter a valid email address.",
+    "password": "Password",
+    "invalid_password_required": "Password is required.",
+    "invalid_password_min_length": "Password must have at least 6 characters.",
+    "signin": "Sign in",
+    "dont_have_account": "Don't have an account?",
+    "create_account": "Create a new account"
+  },
+  "register": {
+    "header_subject": "Create your account",
+    "invalid_input": "Invalid input.",
+    "password_both_not_match": "Password and confirm password do not match.",
+    "invalid_first_name_required": "First name is required.",
+    "first_name": "First name",
+    "invalid_last_name_required": "Last name is required.",
+    "last_name": "Last name",
+    "invalid_email_required": "Email Address is required.",
+    "invalid_email_format": "Please enter a valid email address.",
+    "invalid_email_existed": "An account with this email already exists.",
+    "email_address": "Email address",
+    "invalid_password_required": "Password is required.",
+    "invalid_password_length": "Must contain between 6 and 12 characters.",
+    "password": "Create a Password"
   }
 }

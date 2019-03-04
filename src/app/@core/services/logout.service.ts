@@ -10,6 +10,6 @@ export class LogoutService {
 
   public logout () {
     localStorage.removeItem('Authorization');
-    this.router.navigate(['/home']);
+    window.location.reload();
   }
 }

@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
             if (res) {
               localStorage.setItem('Authorization', 'Bearer ' +  res.token);
               this.httpService.setHeaderToken();
-              this.router.navigate(['/home']);
+              this.router.navigate(['/pages/home']);
             }
           });
         } else if (res.responseMessage.messageCode == 14) {

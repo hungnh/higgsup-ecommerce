@@ -119,5 +119,18 @@
     "temporary_calculation": "一時的な計算",
     "sub_total": "小計",
     "total": "合計"
+  },
+  "login": {
+    "header_subject": "アカウントにサインインする",
+    "wrong_account_password": "パスワードとメールアドレスが一致しません。もう一度お試しください。",
+    "email_addres": "メールアドレス",
+    "invalid_email_required": "メールアドレスが必要です。",
+    "invalid_email_format": "有効なメールアドレスを入力してください。",
+    "password": "パスワード",
+    "invalid_password_required": "パスワードが必要です。",
+    "invalid_password_min_length": "パスワードは6文字以上にする必要があります。",
+    "signin": "サインイン",
+    "dont_have_account": "アカウントを持っていませんか？",
+    "create_account": "新しいアカウントを作成する"
   }
 }

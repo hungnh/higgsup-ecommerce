@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 import {PagesComponent} from './pages.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {NotFoundComponent} from './not-found/not-found.component';
+import {RoutingGuard} from "../@core/auth/routing-guard.service";
 
 const routes: Routes = [{
   path: '',
@@ -21,17 +22,17 @@ const routes: Routes = [{
     {
       path: 'cart',
       loadChildren: 'app/pages/cart/cart.module#CartModule',
-      // canActivate: [SecurityGuard],
+      canActivate: [RoutingGuard],
     },
     {
       path: 'confirm-buying',
       loadChildren: 'app/pages/confirm-buying/confirm-buying.module#ConfirmBuyingModule',
-      // canActivate: [SecurityGuard],
+      canActivate: [RoutingGuard],
     },
     {
       path: 'payment',
       loadChildren: 'app/pages/payment/payment.module#PaymentModule',
-      // canActivate: [SecurityGuard],
+      canActivate: [RoutingGuard],
     },
     {
       path: 'home',

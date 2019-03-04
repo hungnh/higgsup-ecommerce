@@ -1,25 +1,27 @@
 <nb-card class="mt-4 m-lg-5 p-lg-5">
   <div class="container">
     <div class="row justify-content-center pt-3">
-      <h3>Sign in to your account</h3>
+      <h3 translate >login.header_subject</h3>
     </div>
   </div>
   <form [formGroup]="loginInfo">
 
     <div class="container">
       <div *ngIf="submitted && loginInfo.errors">
-        <div *ngIf="loginInfo.errors.authenFailed" class="text-danger font-weight-bold row justify-content-center">Your password and email do not match. Please try again.</div>
+        <div *ngIf="loginInfo.errors.authenFailed" class="text-danger font-weight-bold row justify-content-center" translate>
+          login.wrong_account_password
+        </div>
       </div>
       <div class="row mt-2">
         <div class="col-3 offset-1"></div>
         <div class="col-4" *ngIf="submitted && formControls.email.errors">
-          <div *ngIf="formControls.email.errors.required" class="text-danger font-weight-bold">Email address is required.</div>
-          <div *ngIf="formControls.email.errors.email" class="text-danger font-weight-bold">Please enter a valid email address.</div>
+          <div *ngIf="formControls.email.errors.required" class="text-danger font-weight-bold" translate >login.invalid_email_required</div>
+          <div *ngIf="formControls.email.errors.email" class="text-danger font-weight-bold" translate >login.invalid_email_format</div>
         </div>
       </div>
       <div class="row mt-2">
         <div class="col-3 offset-1">
-          <p class="title-address-info mandatory-field float-right">Email adress</p>
+          <p class="title-address-info mandatory-field float-right" translate >login.email_addres</p>
         </div>
         <div class="col-4">
           <input type="text" id="email" name="email" class="form-control" formControlName="email" [ngClass]="{'border border-danger': submitted && formControls.email.errors}">
@@ -29,28 +31,28 @@
       <div class="row mt-2">
         <div class="col-3 offset-1"></div>
         <div class="col-4" *ngIf="submitted && formControls.password.errors">
-          <div *ngIf="formControls.password.errors.required" class="text-danger font-weight-bold">Password is required.</div>
-          <div *ngIf="formControls.password.errors.minlength" class="text-danger font-weight-bold">Password must have at least 6 characters.</div>
+          <div *ngIf="formControls.password.errors.required" class="text-danger font-weight-bold" translate >login.invalid_password_required</div>
+          <div *ngIf="formControls.password.errors.minlength" class="text-danger font-weight-bold" translate >login.invalid_password_min_length</div>
         </div>
       </div>
       <div class="row mt-2">
         <div class="col-3 offset-1">
-          <p class="title-address-info mandatory-field float-right">Password</p>
+          <p class="title-address-info mandatory-field float-right" translate>login.password</p>
         </div>
         <div class="col-4">
-          <input type="text" id="password" name="password" class="form-control" formControlName="password" [ngClass]="{'border border-danger': submitted && formControls.password.errors}">
+          <input type="password" id="password" name="password" class="form-control" formControlName="password" [ngClass]="{'border border-danger': submitted && formControls.password.errors}">
         </div>
       </div>
 
       <div class="p-3">
         <div class="row justify-content-center">
-          <button type="button" class="btn button-accept btn-login" (click)="submitLogin()">Sign in</button>
+          <button type="button" class="btn button-accept btn-login" (click)="submitLogin()" translate>login.signin</button>
         </div>
         <div class="row p-2 justify-content-center">
-          <span>Don't have an account?</span>
+          <span translate >login.dont_have_account</span>
         </div>
         <div class="row justify-content-center">
-          <button type="button" class="btn button-edit btn-login">Create a new account</button>
+          <button type="button" class="btn button-edit btn-login" translate >login.create_account</button>
         </div>
       </div>
     </div>
