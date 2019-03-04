@@ -28,7 +28,7 @@ export class ProductDetailComponent implements OnInit {
   listRating: Array<RatingCount>;
   sumRating: number = 0;
   imageList = [];
-  imageView = this.imageList[0];
+  imageView;
   constructor(private productService: ProductDetailsService, private router: Router, private activeRoute: ActivatedRoute,
               private cartService: CartService) {
     this.queryParams = this.activeRoute.snapshot.queryParams;
@@ -46,6 +46,9 @@ export class ProductDetailComponent implements OnInit {
         });
         this.imageList = this.product.imgUrl.split(";", 10);
         this.imageList.pop();
+        this.imageView = this.imageList[0];
+        console.log(this.imageView);
+        console.log(this.imageList[0]);
         this.newPrice = this.product.unitPrice * (100 - this.product.discountPercent)/100;
         this.newPrice = this.product.unitPrice * (100 - this.product.discountPercent) / 100;
       } else {
