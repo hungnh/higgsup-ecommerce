@@ -1,0 +1,116 @@
+<div class='container'>
+  <nb-card>
+    <div class='row'>
+      <p class='breadcrumb-result-list'>
+        <a href="#">Home</a> > Result List
+      </p>
+    </div>
+    <hr>
+    <div class='row'>
+      <div class='col-3'>
+        <div>
+          <h5 translate>result-list.supplier</h5>
+        </div>
+        <div>
+          <div *ngIf="hasResult">
+            <a href='javascript:void(0);' class='supplier-item' *ngFor="let supplier of supplierList"
+               (click)="searchSupplier(supplier.id)">
+              <span>{{supplier.name}}</span></a>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <h5 translate>result-list.price</h5>
+        </div>
+        <div class='price'>
+          <div>
+            <div class='col-12'>
+              <input type='number' class='form-control input-price'
+                     placeholder='Min' oninput="validity.valid||(value='');"
+                     min = 0 [(ngModel)]="minPrice">
+              <span>  -  </span>
+              <input type='number' class='form-control input-price'
+                     placeholder='Max' oninput="validity.valid||(value='');"
+                     min = 0 [(ngModel)]="maxPrice">
+              <button class='btn input-price' (click)="searchProductByPrice()"><i class='nb-play'></i></button>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <h5 translate>result-list.rating</h5>
+        </div>
+        <div class='rating'>
+          <div class='item-rate' *ngFor="let i of [] | range:5">
+            <div class='item-rate-icon' (click)="searchProductByRate(i)">
+              <i class="icon-rating" *ngFor="let j of [] | range:5"
+                 [ngClass]="{'ion-android-star-outline': j > i,
+                 'ion-android-star': j <= i}"></i>
+            </div>
+            <div class='item-text-rate' *ngIf="i < 5">
+              <p>And Up</p>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <h5 translate>result-list.status</h5>
+        </div>
+        <div class='status'>
+          <p class='text-status' (click)="searchProductByStatus('NEW')" translate>result-list.new</p>
+          <p class='text-status' (click)="searchProductByStatus('USED')" translate>result-list.used</p>
+        </div>
+      </div>
+      <div class='col-9'>
+        <div>
+          <p>{{numberProduct}} <span translate>result-list.item_found</span> "{{textSearch}}" </p>
+        </div>
+        <hr>
+        <div class="result-list">
+          <div class="row" *ngIf="hasResult">
+            <div class="product-item product-card" *ngFor="let product of productList" (click)="goToProductDetail(product.id)">
+              <div class='product-image'>
+                <img src="{{product.mainImgUrl}}">
+              </div>
+              <div class="prodcut-content">
+                <p class="product-title">{{product.name}}</p>
+                <p class="prodcut-content-price"> {{product.priceDiscount | number }} $</p>
+                <p class="small-price"> {{product.unitPrice | number}} $ </p>
+                <small> - {{product.discountPercent}}%</small>
+                <div class="prodcut-content-rate">
+                  <div class='item-rate-icon'>
+                    <i *ngFor="let i of [] | range:5"
+                       [ngClass]="{'ion-android-star-outline': i > product.avgRating,
+                 'ion-android-star': i <= product.avgRating}"></i>
+                  </div>
+                  <small>({{product.totalRating}})</small>
+                </div>
+              </div>
+            </div>
+          </div>
+       <!--   <div class="result-list-paging">
+            <nav [hidden]="pageTotal == 1">
+              <ul class="pagination">
+                <li class="page-item" [ngClass]="{'disabled': pageCurrent<=1}">
+                  <a class="page-link" href="javascript:" aria-label="Previous" (click)="page.emit(pageCurrent-1)">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item" *ngFor="let i of paginate"
+                    [ngClass]="{'active': i==pageCurrent, 'disabled': i=='...' || i==pageCurrent}">
+                  <a class="page-link" href="javascript:" (click)="page.emit(i)">{{i}}</a>
+                </li>
+                <li class="page-item" [ngClass]="{'disabled': pageCurrent>=pageTotal}">
+                  <a class="page-link" href="javascript:" aria-label="Next" (click)="page.emit(pageCurrent+1)">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>-->
+          <p-paginator [rows]="pageSize" [totalRecords]="numberProduct" (onPageChange)="pagingChange($event)" ></p-paginator>
+        </div>
+      </div>
+    </div>
+  </nb-card>
+</div>

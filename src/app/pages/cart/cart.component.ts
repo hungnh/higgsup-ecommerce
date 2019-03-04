@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
 import {CartService} from "../../@core/services/cart.service";
 import {ResponseDTO} from "../../@core/model/response-dto.model";
 import {_} from "@biesbjerg/ngx-translate-extract/dist/utils/utils";
-import {Product} from "../../@core/model/product.model";
+import {ProductModel} from "../../@core/model/product.model";
 import {DataTransferService} from "../../@core/services/data-transfer.service";
 
 @Component({
@@ -17,7 +17,7 @@ import {DataTransferService} from "../../@core/services/data-transfer.service";
 })
 export class CartComponent implements OnInit {
 
-  productList: Array<Product> = [];
+  productList: Array<ProductModel> = [];
   subTotal: number = null;
   currency: string = '';
   allowDelete: boolean = false;

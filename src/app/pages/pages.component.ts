@@ -19,9 +19,9 @@ export class PagesComponent {
   constructor(public accessChecker: NbAccessChecker) {
     this.menu = [
       {
-        title: 'Dashboard',
+        title: 'home',
         icon: 'nb-home',
-        link: '/pages/dashboard',
+        link: '/pages/home',
         home: true,
       },
       {

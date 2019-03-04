@@ -2,7 +2,7 @@ import {APP_BASE_HREF} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule , HttpClient} from '@angular/common/http';
 import {CoreModule} from './@core/core.module';
 
 import {AppComponent} from './app.component';
@@ -10,10 +10,10 @@ import {AppRoutingModule} from './app-routing.module';
 import {ThemeModule} from './@theme/theme.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {HttpService} from "./@core/services/http.service";
 import {AuthenticationModule} from './authentication/authentication.module';
-
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,13 +37,13 @@ import {AuthenticationModule} from './authentication/authentication.module';
   ],
   bootstrap: [AppComponent],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },
+    { provide: APP_BASE_HREF, useValue: '/' }, HttpService
   ],
 })
 export class AppModule {
 }
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, './assets/i18n/');
 }
 

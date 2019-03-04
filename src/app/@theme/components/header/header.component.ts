@@ -1,10 +1,13 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, HostListener, Input, OnInit} from '@angular/core';
 
 import {NbMenuService, NbSidebarService} from '@nebular/theme';
-import {AnalyticsService} from '../../../@core/utils';
 import {NbAuthJWTToken, NbAuthService} from '@nebular/auth';
 import {filter, map, tap} from 'rxjs/operators';
-import {Router} from '@angular/router';
+import {NavigationExtras, Router} from '@angular/router';
+import {DataTransferService} from "../../../@core/services/data-transfer.service";
+import {SearchDataModel} from "../../../@core/model/search-data.model";
+import {Constant} from "../../../@core/constant/constant";
+import {UtilsService} from "../../../@core/utils/utilsService";
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
@@ -15,17 +18,19 @@ import {TranslateService} from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
 
   @Input() position = 'normal';
+  private searchData : SearchDataModel;
 
   user: any;
   loginFlg: boolean;
-  inputSearch: any;
-  userMenu = [{title: 'Profile'}, {title: 'Log out'}];
+  textSearch : string;
+  userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private authService: NbAuthService,
               private router: Router,
-              private analyticsService: AnalyticsService,
+              private dataTransfer: DataTransferService,
+              private util: UtilsService,
               private translate: TranslateService) {
 
     this.authService.onTokenChange()
@@ -59,11 +64,7 @@ export class HeaderComponent implements OnInit {
   }
 
   goToHome() {
-    this.menuService.navigateHome();
-  }
-
-  startSearch() {
-    this.analyticsService.trackEvent('startSearch');
+    this.router.navigate(['']);
   }
 
   goToCart() {
@@ -78,7 +79,36 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['./auth/register']);
   }
 
+  checkKeyDown(event) {
+    if (event.key === "Enter") {
+      this.goToSearch();
+    }
+  }
   goToSearch() {
-    this.router.navigate(['./pages/search', this.inputSearch]);
+    if (this.util.isNotEmpty(this.textSearch)) {
+      console.log(this.router.url);
+      let navigationExtras: NavigationExtras = {
+        queryParams: {
+          "textSearch":this.textSearch,
+          "categoryId": null,
+          "from": Constant.HEADER.toString()
+
+        }
+      };
+      if (this.router.url.includes('/pages/result-list')) {
+        // noinspection JSAnnotator
+        var searchData = {
+          textSearch : this.textSearch,
+          categoryId : null,
+          from : Constant.HEADER.toString()
+        };
+        console.log('OK');
+        this.dataTransfer.goToSearchRessultList(searchData);
+      } else {
+        this.router.navigate(['./pages/result-list'],navigationExtras);
+      }
+    }else {
+      this.router.navigate(['']);
+    }
   }
 }
