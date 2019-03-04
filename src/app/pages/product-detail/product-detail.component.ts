@@ -79,6 +79,23 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
+  buyNow() {
+    const product = {
+      amount: this.amount,
+      productId: this.product.id
+    };
+    this.cartService.addProductIntoCart(product).subscribe((res: ResponseDTO) => {
+      if (!res.responseMessage.messageCode) {
+        this.router.navigate(['./pages/cart']);
+      } else {
+        Swal.fire({
+          type: 'error',
+          title: 'Something went wrong!',
+        })
+      }
+    });
+  }
+
 
   checkPressKey() {
     return false;
