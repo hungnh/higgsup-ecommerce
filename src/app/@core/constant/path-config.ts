@@ -10,6 +10,11 @@ export class PathConfig {
   static CART: string = 'carts';
   static REGISTER = 'register';
   static PROFILE = 'profile';
+  static PRODUCTS: string = 'products';
+  static FEEDBACK: string = 'feedback';
+  static RELATION: string = 'relation';
+  static TOP_SALE: string = 'top-sale';
+
   constructor() {
   }
 }

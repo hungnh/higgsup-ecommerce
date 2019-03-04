@@ -119,5 +119,28 @@
     "temporary_calculation": "임시 계산",
     "sub_total": "소계",
     "total": "합계"
+  },
+  "product-detail": {
+    "votes": "투표하다",
+    "shipping": "배송",
+    "discount": "{{discount}}% 할인",
+    "amount": "수량",
+    "available_product": "{{amount}} 사용 가능한 제품",
+    "brand": "상표",
+    "status": "지위",
+    "weight": "무게 (kg)",
+    "provider": "공급자",
+    "delivered_from": "에서 배달 된",
+    "detail_description": "세부 설명",
+    "rating_feedback": "평가 및 피드백",
+    "related_product": "관련 제품",
+    "add_to_cart": "장바구니에 담기",
+    "buy_now": "지금 구입",
+    "add_success": "이 제품을 장바구니에 추가했습니다!",
+    "go_to_cart": "장바구니로 이동",
+    "continue_shopping": "쇼핑을 계속",
+    "product-reviews": "제품 리뷰",
+    "ratings": "평점"
+
   }
 }

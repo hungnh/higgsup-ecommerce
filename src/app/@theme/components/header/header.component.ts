@@ -86,7 +86,6 @@ export class HeaderComponent implements OnInit {
   }
   goToSearch() {
     if (this.util.isNotEmpty(this.textSearch)) {
-      console.log(this.router.url);
       let navigationExtras: NavigationExtras = {
         queryParams: {
           "textSearch":this.textSearch,
@@ -102,7 +101,6 @@ export class HeaderComponent implements OnInit {
           categoryId : null,
           from : Constant.HEADER.toString()
         };
-        console.log('OK');
         this.dataTransfer.goToSearchRessultList(searchData);
       } else {
         this.router.navigate(['./pages/result-list'],navigationExtras);

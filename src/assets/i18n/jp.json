@@ -120,6 +120,28 @@
     "sub_total": "小計",
     "total": "合計"
   },
+  "product-detail": {
+    "votes": "投票",
+    "shipping": "運送",
+    "discount": "{{discount}}% ディスカウント",
+    "amount": "量",
+    "available_product": "{{amount}} 利用可能な製品",
+    "brand": "ブランド",
+    "status": "状態",
+    "weight": "重量 (kg)",
+    "provider": "プロバイダ",
+    "delivered_from": "から配信",
+    "detail_description": "詳細な説明",
+    "rating_feedback": "評価とフィードバック",
+    "related_product": "関連商品",
+    "add_to_cart": "カートに追加",
+    "buy_now": "今買う",
+    "add_success": "この商品をカートに追加しました！",
+    "go_to_cart": "カートに行く",
+    "continue_shopping": "ショッピングを続ける",
+    "product-reviews": "製品レビュー",
+    "ratings": "評価"
+  },
   "login": {
     "header_subject": "アカウントにサインインする",
     "wrong_account_password": "パスワードとメールアドレスが一致しません。もう一度お試しください。",

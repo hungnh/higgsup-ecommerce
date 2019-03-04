@@ -35,6 +35,11 @@ const routes: Routes = [{
       canActivate: [RoutingGuard],
     },
     {
+      path: 'product-detail',
+      loadChildren: 'app/pages/product-detail/product-detail.module#ProductDetailModule',
+      // canActivate: [SecurityGuard],
+    },
+    {
       path: 'home',
       loadChildren: 'app/pages/home-page/home-page.module#HomePageModule',
     },
