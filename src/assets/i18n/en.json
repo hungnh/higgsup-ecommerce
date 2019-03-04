@@ -119,5 +119,27 @@
     "temporary_calculation": "Temporary calculations",
     "sub_total": "Sub-total",
     "total": "Total"
+  },
+  "product-detail": {
+    "votes": "Votes",
+    "shipping": "Shipping",
+    "discount": "{{discount}}% DISCOUNT",
+    "amount": "Amount",
+    "available_product": "{{amount}} available products",
+    "brand": "Brand",
+    "status": "Status",
+    "weight": "Weight (kg)",
+    "provider": "Provider",
+    "delivered_from": "Delivered from",
+    "detail_description": "DETAIL DESCRIPTION",
+    "rating_feedback": "RATING & FEEDBACK",
+    "related_product": "RELATED PRODUCT",
+    "add_to_cart": "Add to cart",
+    "buy_now": "Buy now",
+    "add_success": "Added this product into cart!",
+    "go_to_cart": "Go to cart",
+    "continue_shopping": "Continue Shopping",
+    "product-reviews": "Product reviews",
+    "ratings": "Ratings"
   }
 }

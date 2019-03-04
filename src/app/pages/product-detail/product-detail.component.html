@@ -7,243 +7,285 @@
         </div>
       </div>
     </div>
-    <div class="row p-2">
-      <div class="col-6">
-        <b>Thumbnail here</b>
+    <div class="row product-infomation">
+      <div class="images-block col-4">
+        <div class="image-preview">
+          <div class="image-block" [ngStyle]="{ 'background-image': 'url(' + imageView + ')'}"></div>
+        </div>
+        <div class="image-list">
+          <p-carousel [value]="imageList" [numVisible]="5">
+            <ng-template let-img pTemplate="img">
+              <div class="ui-grid ui-grid-responsive">
+                <div class="ui-grid-row">
+                  <div class="ui-grid-col-12 image-item" (click)="viewImages(img)">
+                    <img class="card-img-top" src="{{img}}" width="60">
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </p-carousel>
+        </div>
       </div>
-      <div class="col-6">
+      <div class="col-8 pl-5">
         <div class="row mt-2">
           <div class="col-12">
-            <h5>Product-name</h5>
+            <div name="product-name">
+              {{product.name}}
+            </div>
           </div>
         </div>
-        <div class="row mt-2">
+        <div class="row mt-3">
           <div class="col-12">
-            <b>Rating here</b>
+            <div class="row" name="rating-block">
+              <div class="rating-data">
+                <a href="javascript:" class="rating-link" name="rating-point">
+                  <span>{{product.avgRating}}&nbsp;</span>
+                </a>
+                <ngb-rating [(rate)]="product.avgRating" max=5 [readonly]="true"
+                            class="rating-link">
+                  <ng-template let-fill="fill">
+                    <a href="javascript:" class="rating-link">
+              <span class="star fill" [class.filled]="fill === 100">
+                <i class="ion-android-star" *ngIf="fill === 100"></i>
+                <i class="ion-android-star-outline" *ngIf="fill !== 100"></i>
+              </span>
+                    </a>
+                  </ng-template>
+                </ngb-rating>
+              </div>
+              <div class="rating-data">
+                <a href="javascript:" name="vote-link">
+                  <span name="rating-count">{{product.totalRating}} </span>
+                  <span translate>product-detail.votes</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row mt-2">
+        <div class="row mt-4">
           <div class="col-12">
-            <h5>Price here</h5>
+            <div name="price-block">
+              <div name="old-price">
+                {{product.unitPrice | number}} {{currency}}
+              </div>
+              <div name="new-price">
+                {{newPrice | number}} {{currency}}
+              </div>
+              <div>
+                <span name="discount" translate
+                      [translateParams]="{discount: product.discountPercent}">product-detail.discount</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row mt-2">
+        <div class="row mt-4">
           <div class="col-4">
-            Quantity
+            <span translate>product-detail.amount</span>
           </div>
           <div class="col-8">
-            Buttons quantity here
+            <button class="btn button-quantity"
+                    (click)="doDecreaseQuantity()"
+                    [disabled]="false"> -
+            </button>
+            <input type="text" class="input-quantity"
+                   [(ngModel)]="amount"
+                   min="1" (keypress)="checkPressKey(return)"
+                   onpaste="return false;">
+            <button class="btn button-quantity"
+                    (click)="doEncreaseQuantity()">+
+            </button>
+            <span class="ml-3" translate
+                  [translateParams]="{amount: product.availableItem}">product-detail.available_product</span>
           </div>
         </div>
-        <div class="row mt-2">
-          <div class="col-6">
-            Button Add to Cart here
+        <div class="row mt-4">
+          <div class="col-3">
+            <button class="btn" name="add-to-cart" (click)="addtoCart()">
+              <span translate>product-detail.add_to_cart</span>
+            </button>
           </div>
-          <div class="col-6">
-            Button Buy Now here
+          <div class="col-3">
+            <button class="btn button-payment" (click)="buyNow()">
+              <span translate>product-detail.buy_now</span>
+            </button>
           </div>
         </div>
-        <div class="row mt-2">
+        <div class="row mt-4">
           <div class="col-6">
             <div class="row">
-              <div class="col-6">
-                Brand name
+              <div class="col-4">
+                <span translate>product-detail.brand</span>
               </div>
-              <div class="col-6">
-                <a href="javascript:">
-                  Name of brand
+              <div class="col-8">
+                <a href="javascript:" name="brand-name">
+                  {{product.brandName}}
                 </a>
               </div>
             </div>
           </div>
           <div class="col-6">
             <div class="row">
-              <div class="col-6">
-                Status
+              <div class="col-4">
+                <span translate>product-detail.status</span>
               </div>
-              <div class="col-6">
-                Old or New
-              </div>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="row">
-              <div class="col-6">
-                Weight (kg)
-              </div>
-              <div class="col-6">
-                xxx
+              <div class="col-8">
+                <span>
+                  {{product.status}}
+                </span>
               </div>
             </div>
           </div>
           <div class="col-6">
-            <div class="row">
-              <div class="col-6">
-                Provider
+            <div class="row mt-4">
+              <div class="col-4">
+                <span translate>product-detail.weight</span>
               </div>
-              <div class="col-6">
-                Provider's name
+              <div class="col-8">
+                <span>
+                  {{product.weight}}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row mt-4">
+              <div class="col-4">
+                <span translate>product-detail.provider</span>
+              </div>
+              <div class="col-8">
+                <span>
+                  {{product.supplierName}}
+                </span>
               </div>
             </div>
           </div>
           <div class="col-12">
-            <div class="row">
-              <div class="col-3">
-                Sent form
+            <div class="row mt-4">
+              <div class="col-2">
+                <span translate>product-detail.delivered_from</span>
               </div>
-              <div class="col-9">
-                Address sending product
+              <div class="col-10">
+                <span>
+                  {{product.supplierAddress}}
+                </span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row p-2">
-      <div class="col-12">
-        <b>Detail Description</b>
+    <div class="row detail-description">
+      <div class="col-12 caption">
+          <span translate>product-detail.detail_description</span>
       </div>
-      <div class="col-12">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto asperiores at autem, blanditiis consequatur, distinctio doloremque dolorum eligendi enim ex id illum impedit laboriosam, minus mollitia nemo nihil omnis saepe soluta totam ullam voluptates? Doloremque harum, ipsam pariatur quidem reprehenderit sed voluptas. Ab consectetur deserunt error esse quas. Dicta!
-      </div>
-    </div>
-    <div class="row p-2">
-      <div class="col-12">
-        Rating & Feedback
-      </div>
-      <div class="col-4">
-          <b>Rating here</b>
-      </div>
-      <div class="col-8">
-        <div class="row mt-2">
-          <div class="col-4">
-            Rating stars
-          </div>
-          <div class="col-8">
-            Rating bar and number
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-4">
-            Rating stars
-          </div>
-          <div class="col-8">
-            Rating bar and number
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-4">
-            Rating stars
-          </div>
-          <div class="col-8">
-            Rating bar and number
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-4">
-            Rating stars
-          </div>
-          <div class="col-8">
-            Rating bar and number
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-4">
-            Rating stars
-          </div>
-          <div class="col-8">
-            Rating bar and number
-          </div>
-        </div>
-      </div>
-      <div class="col-12 mt-3">
-        <div class="row mt-2">
-          <div class="col-3">
-            Avatar customer comment
-          </div>
-          <div class="col-3">
-            <div class="row mt-2">
-              Customer's name
-            </div>
-            <div class="row">
-              Customer's rating
-            </div>
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-6">
-            Customer's comment (Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cumque deserunt dignissimos excepturi ipsum iusto neque optio qui quia quod. Consectetur cupiditate debitis doloribus dolorum ea id illum laboriosam libero, non obcaecati omnis porro quae quia quibusdam reiciendis sequi tempora ullam veritatis, vitae voluptates. Assumenda eaque officiis sunt veniam voluptate?)
-          </div>
-        </div>
+      <div class="col-12 content-zone">
+        {{product.fullDesc}}
       </div>
     </div>
-    <div class="row p-2">
-      <div class="col-12">
-        <b>Related Product</b>
+    <div class="row rating-feedback">
+      <div class="col-12 caption">
+        <span translate>product-detail.rating_feedback</span>
       </div>
-      <div class="col-12 mt-2">
-        <div class="row">
-          <div class="col-2">
-            <div class="row p-3">
-              Image here
+      <div class="content-zone col-12">
+        <div class="rating-zone col-6">
+          <div class="summary">
+            <div class="score">
+              <span class="score-average">{{product.avgRating}}</span>
+              <span class="score-max">/5</span>
             </div>
-            <div class="row p-3">
-              Product name here
+            <div class="average">
+              <ngb-rating [(rate)]="product.avgRating" max=5 [readonly]="true"
+                          class="rating-link">
+                <ng-template let-fill="fill">
+                  <a href="javascript:" class="rating-link">
+              <span class="star fill" [class.filled]="fill === 100">
+                <i class="ion-android-star" *ngIf="fill === 100"></i>
+                <i class="ion-android-star-outline" *ngIf="fill !== 100"></i>
+              </span>
+                  </a>
+                </ng-template>
+              </ngb-rating>
             </div>
-            <div class="row p-3">
-              Price here
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div class="row p-3">
-              Image here
-            </div>
-            <div class="row p-3">
-              Product name here
-            </div>
-            <div class="row p-3">
-              Price here
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div class="row p-3">
-              Image here
-            </div>
-            <div class="row p-3">
-              Product name here
-            </div>
-            <div class="row p-3">
-              Price here
+            <div class="count">
+              {{product.totalRating}} <span translate>product-detail.ratings</span>
             </div>
           </div>
-
-          <div class="col-2">
-            <div class="row p-3">
-              Image here
+          <div class="detail">
+            <div class="rating-star">
+              <div class="rating-row" *ngFor="let star of starArray">
+                  <ngb-rating [(rate)]="star" max=5 [readonly]="true"
+                              class="rating-link">
+                    <ng-template let-fill="fill">
+                      <a href="javascript:" class="rating-link">
+                  <span class="star fill" [class.filled]="fill === 100">
+                    <i class="ion-android-star" *ngIf="fill === 100"></i>
+                    <i class="ion-android-star-outline" *ngIf="fill !== 100"></i>
+                  </span>
+                      </a>
+                    </ng-template>
+                  </ngb-rating>
+              </div>
             </div>
-            <div class="row p-3">
-              Product name here
-            </div>
-            <div class="row p-3">
-              Price here
+            <div class="detail-rating">
+              <div class="detail-rating-row" *ngFor="let feedback of listRating">
+                <nb-progress-bar class="progress-line"  [value]="feedback.counting / sumRating*100" size="xs"></nb-progress-bar>
+                <span class="reviewers-number">{{feedback.counting}}</span>
+              </div>
             </div>
           </div>
-
-          <div class="col-2">
-            <div class="row p-3">
-              Image here
-            </div>
-            <div class="row p-3">
-              Product name here
-            </div>
-            <div class="row p-3">
-              Price here
-            </div>
-          </div>
-
         </div>
+        <div class="col-6"></div>
+        <div class="feedback-zone col-12 mt-3">
+          <div class="product-reviews" translate>product-detail.product-reviews</div>
+          <div class="product-feedback row mt-2" *ngFor="let user of feedbackList">
+            <div class="user col-3">
+              <div class="avatar"><i class="far fa-user"></i></div>
+              <div class="user-info">
+                <div class="name">{{user.reviewer}}</div>
+                <div class="rated-star">
+                  <ngb-rating [(rate)]="user.rating" max=5 [readonly]="true"
+                              class="rating-link">
+                    <ng-template let-fill="fill">
+                      <a href="javascript:" class="rating-link">
+                          <span class="star fill" [class.filled]="fill === 100">
+                            <i class="ion-android-star" *ngIf="fill === 100"></i>
+                            <i class="ion-android-star-outline" *ngIf="fill !== 100"></i>
+                          </span>
+                      </a>
+                    </ng-template>
+                  </ngb-rating>
+                </div>
+              </div>
+            </div>
+            <div class="col-9"></div>
+            <div class="feedback-content col-12">
+              <p>{{user.comment}}</p>
+              <span>{{user.updatedDate | date:'dd/MM/yyyy HH:MM'}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row related-product">
+      <div class="col-12 caption">
+        <span translate>product-detail.related_product</span>
+      </div>
+      <div class="col-12 mt-2 content-zone">
+
+        <div class="item-zone row">
+          <div *ngFor="let item of relatedItemList" class="card hover-item">
+            <div class="card-img">
+              <img class="card-img-top" src="{{item.mainImgUrl}}">
+            </div>
+            <div class="card-body">
+              <p class="card-title">{{item.name}}</p>
+              <div class="price-zone">
+                <span class="origin-price">${{item.unitPrice}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </nb-card>

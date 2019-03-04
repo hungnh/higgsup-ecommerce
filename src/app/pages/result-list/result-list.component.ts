@@ -105,7 +105,6 @@ export class ResultListComponent implements OnInit {
         response.responseMessage.data.forEach(supplier => {
           this.supplierList.push(supplier);
         });
-        console.log(this.supplierList);
       });
     }
   }
@@ -132,7 +131,6 @@ export class ResultListComponent implements OnInit {
       } else {
         this.hasResult = false;
       }
-      console.log(this.productList);
     });
   }
 
@@ -145,7 +143,6 @@ export class ResultListComponent implements OnInit {
 
         this.supplierList.push(this.addProductList(product));
       });
-      console.log(this.supplierList);
     });
   }
 
@@ -170,7 +167,6 @@ export class ResultListComponent implements OnInit {
       } else {
         this.hasResult = false;
       }
-      console.log(this.productList);
     });
   }
 
@@ -195,7 +191,6 @@ export class ResultListComponent implements OnInit {
       } else {
         this.hasResult = false;
       }
-      console.log(this.productList);
     });
   }
 
@@ -220,7 +215,6 @@ export class ResultListComponent implements OnInit {
       } else {
         this.hasResult = false;
       }
-      console.log(this.productList);
     });
   }
 
@@ -245,7 +239,6 @@ export class ResultListComponent implements OnInit {
       } else {
         this.hasResult = false;
       }
-      console.log(this.productList);
     });
   }
 
@@ -277,7 +270,6 @@ export class ResultListComponent implements OnInit {
       } else {
         this.hasResult = false;
       }
-      console.log(this.productList);
     });
   }
 
@@ -302,8 +294,7 @@ export class ResultListComponent implements OnInit {
       } else {
         this.hasResult = false;
       }
-      console.log(this.productList);
-      /*window.scrollTo(0, 0);*/
+      window.scrollTo(0, 0);
     });
   }
 
