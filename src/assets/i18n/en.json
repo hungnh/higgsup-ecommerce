@@ -168,7 +168,17 @@
     "invalid_email_existed": "An account with this email already exists.",
     "email_address": "Email address",
     "invalid_password_required": "Password is required.",
-    "invalid_password_length": "Must contain between 6 and 12 characters.",
-    "password": "Create a Password"
+    "invalid_length": "Must contain between 6 and 12 characters.",
+    "password": "Create a Password",
+    "invalid_confirm_password_required": "Confirm password is required.",
+    "confirm_password": "Confirm password",
+    "create_account": "Create Account",
+    "already_have_account": "Already have an account?",
+    "signin": "Sign In"
+  },
+  "account_header_list": {
+    "my_account": "Manage my account",
+    "my_order": "My order",
+    "logout": "Logout"
   }
 }

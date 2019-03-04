@@ -37,7 +37,7 @@ const routes: Routes = [{
     {
       path: 'product-detail',
       loadChildren: 'app/pages/product-detail/product-detail.module#ProductDetailModule',
-      // canActivate: [SecurityGuard],
+      //canActivate: [RoutingGuard],
     },
     {
       path: 'home',
@@ -45,8 +45,12 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'dashboard',
+      redirectTo: 'home',
       pathMatch: 'full',
+    },
+    {
+      path:'result-list',
+      loadChildren: 'app/pages/result-list/result-list.module#ResultListModule'
     },
     {
       path: '**',

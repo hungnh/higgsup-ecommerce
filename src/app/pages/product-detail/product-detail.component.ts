@@ -62,6 +62,7 @@ export class ProductDetailComponent implements OnInit {
       amount: this.amount,
       productId: this.product.id
     };
+
     this.cartService.addProductIntoCart(product).subscribe((res: ResponseDTO) => {
       if (!res.responseMessage.messageCode) {
         Swal.fire({
@@ -111,7 +112,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   doDecreaseQuantity() {
-    return this.amount -= 1;
+    return (this.amount > 1) ? this.amount-- : 1
   }
 
   getFeedBack(id) {

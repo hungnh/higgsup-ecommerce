@@ -1,24 +1,24 @@
 <nb-card class="mt-4 m-lg-5 p-lg-5">
   <div class="container">
     <div class="row justify-content-center pt-3">
-      <h3>Create your account</h3>
+      <h3 translate >register.header_subject</h3>
     </div>
   </div>
   <form [formGroup]="registerForm">
     <div class="container">
       <div *ngIf="submitted && registerForm.errors">
-        <div *ngIf="registerForm.errors.invalidInput" class="text-danger font-weight-bold row justify-content-center">Invalid input.</div>
-        <div *ngIf="registerForm.errors.mustMatch" class="text-danger font-weight-bold row justify-content-center">Password and confirm password do not match.</div>
+        <div *ngIf="registerForm.errors.invalidInput" class="text-danger font-weight-bold row justify-content-center" translate >register.invalid_input</div>
+        <div *ngIf="registerForm.errors.mustMatch" class="text-danger font-weight-bold row justify-content-center" translate >register.password_both_not_match</div>
       </div>
       <div class="row mt-2">
         <div class="col-3 offset-1"></div>
         <div class="col-4" *ngIf="submitted && registerFormControls.firstName.errors">
-          <div *ngIf="registerFormControls.firstName.errors.required" class="text-danger font-weight-bold">First name is required.</div>
+          <div *ngIf="registerFormControls.firstName.errors.required" class="text-danger font-weight-bold" translate >register.invalid_first_name_required</div>
         </div>
       </div>
       <div class="row mt-2">
         <div class="col-3 offset-1">
-          <p class="title-address-info mandatory-field float-right">First name</p>
+          <p class="title-address-info mandatory-field float-right" translate >register.first_name</p>
         </div>
         <div class="col-4">
           <input type="text" class="form-control" formControlName="firstName" [ngClass]="{'border border-danger': submitted && registerFormControls.firstName.errors}">
@@ -28,12 +28,12 @@
       <div class="row mt-2">
         <div class="col-3 offset-1"></div>
         <div class="col-4" *ngIf="submitted && registerFormControls.lastName.errors">
-          <div *ngIf="registerFormControls.lastName.errors.required" class="text-danger font-weight-bold">Last name is required.</div>
+          <div *ngIf="registerFormControls.lastName.errors.required" class="text-danger font-weight-bold" translate >register.invalid_last_name_required</div>
         </div>
       </div>
       <div class="row mt-2">
         <div class="col-3 offset-1">
-          <p class="title-address-info mandatory-field float-right">Last name</p>
+          <p class="title-address-info mandatory-field float-right" translate >register.last_name</p>
         </div>
         <div class="col-4">
           <input type="text" class="form-control" formControlName="lastName" [ngClass]="{'border border-danger': submitted && registerFormControls.lastName.errors}">
@@ -43,14 +43,14 @@
       <div class="row mt-2">
         <div class="col-3 offset-1"></div>
         <div class="col-4" *ngIf="submitted && registerFormControls.email.errors">
-          <div *ngIf="registerFormControls.email.errors.required" class="text-danger font-weight-bold">Email Address is required.</div>
-          <div *ngIf="registerFormControls.email.errors.email" class="text-danger font-weight-bold">Please enter a valid email address.</div>
-          <div *ngIf="registerFormControls.email.errors.emailExisted" class="text-danger font-weight-bold">An account with this email already exists.</div>
+          <div *ngIf="registerFormControls.email.errors.required" class="text-danger font-weight-bold" translate >register.invalid_email_required</div>
+          <div *ngIf="registerFormControls.email.errors.email" class="text-danger font-weight-bold" translate >register.invalid_email_format</div>
+          <div *ngIf="registerFormControls.email.errors.emailExisted" class="text-danger font-weight-bold" translate >register.invalid_email_existed</div>
         </div>
       </div>
       <div class="row mt-2">
         <div class="col-3 offset-1">
-          <p class="title-address-info mandatory-field float-right">Email address</p>
+          <p class="title-address-info mandatory-field float-right" translate >register.email_address</p>
         </div>
         <div class="col-4">
           <input type="text" class="form-control" formControlName="email" [ngClass]="{'border border-danger': submitted && registerFormControls.email.errors}">
@@ -60,14 +60,14 @@
       <div class="row mt-2">
         <div class="col-3 offset-1"></div>
         <div class="col-4" *ngIf="submitted && registerFormControls.password.errors">
-          <div *ngIf="registerFormControls.password.errors.required" class="text-danger font-weight-bold">Password is required.</div>
-          <div *ngIf="registerFormControls.password.errors.minlength" class="text-danger font-weight-bold">Must contain between 6 and 12 characters.</div>
-          <div *ngIf="registerFormControls.password.errors.maxlength" class="text-danger font-weight-bold">Must contain between 6 and 12 characters.</div>
+          <div *ngIf="registerFormControls.password.errors.required" class="text-danger font-weight-bold" translate >register.invalid_password_required</div>
+          <div *ngIf="registerFormControls.password.errors.minlength" class="text-danger font-weight-bold" translate >register.invalid_length</div>
+          <div *ngIf="registerFormControls.password.errors.maxlength" class="text-danger font-weight-bold" translate >register.invalid_length</div>
         </div>
       </div>
       <div class="row mt-2">
         <div class="col-3 offset-1">
-          <p class="title-address-info mandatory-field float-right">Create a Password</p>
+          <p class="title-address-info mandatory-field float-right" translate >register.password</p>
         </div>
         <div class="col-4">
           <input type="password" class="form-control" formControlName="password" [ngClass]="{'border border-danger': submitted && registerFormControls.password.errors}">
@@ -77,29 +77,29 @@
       <div class="row mt-2">
         <div class="col-3 offset-1"></div>
         <div class="col-4" *ngIf="submitted && registerFormControls.confirmPassword.errors">
-          <div *ngIf="registerFormControls.confirmPassword.errors.required" class="text-danger font-weight-bold">Confirm password is required.</div>
-          <div *ngIf="registerFormControls.confirmPassword.errors.minlength" class="text-danger font-weight-bold">Must contain between 6 and 12 characters.</div>
-          <div *ngIf="registerFormControls.confirmPassword.errors.maxlength" class="text-danger font-weight-bold">Must contain between 6 and 12 characters.</div>
+          <div *ngIf="registerFormControls.confirmPassword.errors.required" class="text-danger font-weight-bold" translate >register.invalid_confirm_password_required</div>
+          <div *ngIf="registerFormControls.confirmPassword.errors.minlength" class="text-danger font-weight-bold" translate >register.invalid_length</div>
+          <div *ngIf="registerFormControls.confirmPassword.errors.maxlength" class="text-danger font-weight-bold" translate >register.invalid_length</div>
         </div>
       </div>
       <div class="row mt-2">
         <div class="col-3 offset-1">
-          <p class="title-address-info mandatory-field float-right">Confirm password</p>
+          <p class="title-address-info mandatory-field float-right" translate >register.confirm_password</p>
         </div>
         <div class="col-4">
-          <input type="text" class="form-control" formControlName="confirmPassword" [ngClass]="{'border border-danger': submitted && registerFormControls.confirmPassword.errors}">
+          <input type="password" class="form-control" formControlName="confirmPassword" [ngClass]="{'border border-danger': submitted && registerFormControls.confirmPassword.errors}">
         </div>
       </div>
 
       <div class="p-3">
         <div class="row justify-content-center">
-          <button type="button" class="btn button-accept btn-login" (click)="submitRegister()">Create Account</button>
+          <button type="button" class="btn button-accept btn-login" (click)="submitRegister()" translate >register.create_account</button>
         </div>
         <div class="row p-2 justify-content-center">
-          <span>Already have an account?</span>
+          <span translate >register.already_have_account</span>
         </div>
         <div class="row justify-content-center">
-          <button type="button" class="btn button-edit btn-login">Sign In</button>
+          <button type="button" class="btn button-edit btn-login" translate >register.signin</button>
         </div>
       </div>
 
