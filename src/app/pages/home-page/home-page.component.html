@@ -35,7 +35,7 @@
             </div>
           </ng-template>
           <ng-template id="3" ngbSlide>
-            <img src="assets/images/carousel3.jpg" alt="Random first slide">
+            <img src="assets/images/carousel4.webp" alt="Random first slide">
             <div class="carousel-caption">
             </div>
           </ng-template>
@@ -56,7 +56,7 @@
             <span class="see-more" *ngIf="!seeMore" (click)="onSeeMore()">COLLAPSE</span>
           </div>
             <div class="item-zone row" [class.over-flow]="seeMore">
-              <div *ngFor="let topSaleItem of topSaleItems" class="card hover-item">
+              <div *ngFor="let topSaleItem of topSaleItems" class="card hover-item" (click)="goToProductDetail(topSaleItem.id)">
                 <div class="card-img">
                   <img class="card-img-top" src="{{topSaleItem.mainImgUrl}}">
                 </div>
