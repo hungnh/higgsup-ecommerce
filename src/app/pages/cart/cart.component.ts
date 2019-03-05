@@ -18,6 +18,7 @@ import {DataTransferService} from "../../@core/services/data-transfer.service";
 export class CartComponent implements OnInit {
 
   productList: Array<ProductModel> = [];
+  count: number = null;
   subTotal: number = null;
   currency: string = '';
   allowDelete: boolean = false;
@@ -32,6 +33,11 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     this.currency = Currency.USD;
     this.getCart();
+    if(!this.productList) {
+      this.count = this.productList.length;
+    } else {
+      this.count = 0;
+    }
     this.dataService.currentEvent.subscribe(data => {
       if (data) {
         this.cartService.removeFromCart(data.dataTransfer).subscribe((res: ResponseDTO) => {
