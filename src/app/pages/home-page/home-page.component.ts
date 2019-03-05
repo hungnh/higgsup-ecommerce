@@ -65,10 +65,11 @@ export class HomePageComponent implements OnInit {
     this.slide = event.current;
   }
 
-  routeToResultList(id: number, searchFrom: string) {
+  routeToResultList(id: number, name: string ,searchFrom: string) {
     this.router.navigate(['./pages/result-list'], {
       queryParams: {
         'categoryId': id,
+        'categoryName': name,
         'from': searchFrom
       }
     });
