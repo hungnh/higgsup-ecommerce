@@ -16,8 +16,8 @@
           <p-carousel [value]="imageList" [numVisible]="4">
             <ng-template let-img pTemplate="img">
               <div class="ui-grid ui-grid-responsive">
-                <div class="ui-grid-row">
-                  <div class="ui-grid-col-12 image-item" (click)="viewImages(img)">
+                <div class="ui-grid-row" (mouseover)="viewImages(img)">
+                  <div class="ui-grid-col-12 image-item">
                     <img class="card-img-top" src="{{img}}" width="60">
                   </div>
                 </div>
@@ -175,7 +175,7 @@
     </div>
     <div class="row detail-description">
       <div class="col-12 caption">
-          <span translate>product-detail.detail_description</span>
+        <span translate>product-detail.detail_description</span>
       </div>
       <div class="col-12 content-zone">
         {{product.fullDesc}}
@@ -212,17 +212,17 @@
           <div class="detail">
             <div class="rating-star">
               <div class="rating-row" *ngFor="let star of starArray">
-                  <ngb-rating [(rate)]="star" max=5 [readonly]="true"
-                              class="rating-link">
-                    <ng-template let-fill="fill">
-                      <a href="javascript:" class="rating-link">
+                <ngb-rating [(rate)]="star" max=5 [readonly]="true"
+                            class="rating-link">
+                  <ng-template let-fill="fill">
+                    <a href="javascript:" class="rating-link">
                   <span class="star fill" [class.filled]="fill === 100">
                     <i class="ion-android-star" *ngIf="fill === 100"></i>
                     <i class="ion-android-star-outline" *ngIf="fill !== 100"></i>
                   </span>
-                      </a>
-                    </ng-template>
-                  </ngb-rating>
+                    </a>
+                  </ng-template>
+                </ngb-rating>
               </div>
             </div>
             <div class="detail-rating">
