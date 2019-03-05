@@ -67,7 +67,8 @@
     "remove_item": "항목 삭제",
     "question_removing": "장바구니에서이 항목을 제거 하시겠습니까?",
     "cancel": "취소",
-    "accept": "받아 들인다"
+    "accept": "받아 들인다",
+    "no_item": "이 카트에는 아이템이 없습니다!"
   },
   "confirm-buying": {
     "delivery_address": "배달 주소",
