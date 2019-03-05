@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row ml-2" *ngIf="count >= 1">
+  <div class="row ml-2 mt-2" *ngIf="count >= 1">
     <h5 *ngIf="count == 1">
       <span translate>cart.total</span>:
       <span translate [translateParams]="{number: count}">cart.products_count</span>
@@ -9,7 +9,7 @@
       <span translate [translateParams]="{number: count}">cart.products_count</span>
     </h5>
   </div>
-  <div class="row mt-3" *ngIf="count >= 1">
+  <div class="row mt-2" *ngIf="count >= 1">
     <div class="col-md-8">
       <nb-card>
         <div class="row" name="cart-info" *ngFor="let product of productList">

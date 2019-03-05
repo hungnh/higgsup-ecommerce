@@ -48,7 +48,10 @@ img[name$='bank-logo'] :hover {
 }
 
 p {
-  word-break: break-all
+  margin: 0;
+  padding:0;
+  width:100%;
+  position: relative;
 }
 
 p[name$='provider'] {
