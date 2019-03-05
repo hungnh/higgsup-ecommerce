@@ -52,7 +52,7 @@
             <span class="see-more button-payment" *ngIf="!seeMore" (click)="onSeeMore()">COLLAPSE</span>
           </div>
             <div class="item-zone row" [class.over-flow]="seeMore">
-              <div *ngFor="let topSaleItem of topSaleItems" class="card hover-item">
+              <div *ngFor="let topSaleItem of topSaleItems" class="card hover-item" (click)="goToProductDetail(topSaleItem.id)">
                 <div class="card-img">
                   <img class="card-img-top" src="{{topSaleItem.mainImgUrl}}">
                 </div>

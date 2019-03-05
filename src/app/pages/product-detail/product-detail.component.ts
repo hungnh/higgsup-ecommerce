@@ -2,13 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {Currency} from "../../@theme/glossary/currency.constant";
 import {ResponseDTO} from "../../@core/model/response-dto.model";
 import {ProductDetailsService} from "../../@core/services/product-details.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, NavigationExtras, Params, Router} from "@angular/router";
 import {RatingCount} from "../../@core/model/rating-count.model";
 import {CartService} from "../../@core/services/cart.service";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import Swal from 'sweetalert2'
 import {Feedback} from "../../@core/model/feedback.model";
 import {ProductModel} from "../../@core/model/product.model";
+import {Location} from '@angular/common';
+
 
 @Component({
   selector: 'product-detail',
@@ -30,33 +31,28 @@ export class ProductDetailComponent implements OnInit {
   imageList = [];
   imageView;
   constructor(private productService: ProductDetailsService, private router: Router, private activeRoute: ActivatedRoute,
-              private cartService: CartService) {
+              private cartService: CartService, private location: Location) {
     this.queryParams = this.activeRoute.snapshot.queryParams;
   }
 
   ngOnInit() {
     this.currency = Currency.USD;
     this.id = this.queryParams.productId;
-    this.productService.getProductDetail(this.id).subscribe((res: ResponseDTO) => {
-      if (!res.responseMessage.messageCode) {
-        this.product = res.responseMessage.data;
-        this.listRating = this.product.ratingCount;
-        this.listRating.forEach(feedback => {
-          this.sumRating += feedback.counting;
-        });
-        this.imageList = this.product.imgUrl.split(";", 10);
-        this.imageList.pop();
-        this.imageView = this.imageList[0];
-        this.newPrice = this.product.unitPrice * (100 - this.product.discountPercent)/100;
-        this.newPrice = this.product.unitPrice * (100 - this.product.discountPercent) / 100;
-      } else {
-        this.router.navigate(['pages/not-found']);
-      }
-    });
     this.getFeedBack(this.id);
+    this.getProductDetail();
     this.getRelatedProduct(this.id);
   }
-
+  goToProductDetail(productId: number) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        "productId": productId
+      }
+    };
+    this.router.navigate(['./pages/product-detail'], navigationExtras);
+    this.id = productId;
+    this.getProductDetail();
+    window.scroll(0, 0);
+  }
 
   addtoCart() {
     const product = {
@@ -136,5 +132,23 @@ export class ProductDetailComponent implements OnInit {
   }
   viewImages(imgUrl) {
     this.imageView = imgUrl;
+  }
+  getProductDetail() {
+    this.productService.getProductDetail(this.id).subscribe((res: ResponseDTO) => {
+      if (!res.responseMessage.messageCode) {
+        this.product = res.responseMessage.data;
+        this.listRating = this.product.ratingCount;
+        this.listRating.forEach(feedback => {
+          this.sumRating += feedback.counting;
+        });
+        this.imageList = this.product.imgUrl.split(";", 10);
+        this.imageList.pop();
+        this.imageView = this.imageList[0];
+        this.newPrice = this.product.unitPrice * (100 - this.product.discountPercent)/100;
+        this.newPrice = this.product.unitPrice * (100 - this.product.discountPercent) / 100;
+      } else {
+        this.router.navigate(['pages/not-found']);
+      }
+    });
   }
 }
