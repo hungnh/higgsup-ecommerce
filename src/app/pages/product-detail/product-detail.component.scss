@@ -297,3 +297,18 @@ button[name$='add-to-cart']:hover {
 a[name$='brand-name'] {
   color: #1a9cb7;
 }
+
+.breadcrumb-links {
+  display: flex;
+}
+
+.breadcrumb-link {
+  flex-direction: row;
+  a {
+    color: #1a9cb7;
+  }
+}
+
+[name$='bc-product-name'] {
+  color: black;
+}

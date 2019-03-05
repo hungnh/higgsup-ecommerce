@@ -14,6 +14,7 @@ export class PathConfig {
   static FEEDBACK: string = 'feedback';
   static RELATION: string = 'relation';
   static TOP_SALE: string = 'top-sale';
+  static BREADCRUMB: string = 'breadcrumbs';
 
   constructor() {
   }

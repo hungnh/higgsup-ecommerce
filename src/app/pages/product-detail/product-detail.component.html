@@ -1,12 +1,17 @@
 <div class="container">
-  <nb-card>
-    <div class="row p-2">
+    <div class="row p-2 mb-3">
       <div class="col-12">
-        <div>
-          <b>Breadcrumb here</b>
+        <div class="breadcrumb-links">
+          <div  *ngFor="let linkBreadCrumb of breadcrumb" class="breadcrumb-link">
+            <a href="javascript:" (click)="searchWithCategory(linkBreadCrumb.id)">{{linkBreadCrumb.name}}</a><span>&nbsp;>&nbsp;</span>
+          </div>
+          <div class="breadcrumb-link">
+            <span name="bc-product-name">{{product.name | slice:80}}</span>
+          </div>
         </div>
       </div>
     </div>
+  <nb-card>
     <div class="row product-infomation">
       <div class="images-block col-4">
         <div class="image-preview">
