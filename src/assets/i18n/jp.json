@@ -141,44 +141,5 @@
     "continue_shopping": "ショッピングを続ける",
     "product-reviews": "製品レビュー",
     "ratings": "評価"
-  },
-  "login": {
-    "header_subject": "アカウントにサインインする",
-    "wrong_account_password": "パスワードとメールアドレスが一致しません。もう一度お試しください。",
-    "email_addres": "メールアドレス",
-    "invalid_email_required": "メールアドレスが必要です。",
-    "invalid_email_format": "有効なメールアドレスを入力してください。",
-    "password": "パスワード",
-    "invalid_password_required": "パスワードが必要です。",
-    "invalid_password_min_length": "パスワードは6文字以上にする必要があります。",
-    "signin": "サインイン",
-    "dont_have_account": "アカウントを持っていませんか？",
-    "create_account": "新しいアカウントを作成する"
-  },
-  "register": {
-    "header_subject": "アカウントを作成する",
-    "invalid_input": "無効な入力です。",
-    "password_both_not_match": "パスワードと確認パスワードが一致しません。",
-    "invalid_first_name_required": "名は必須です。",
-    "first_name": "お名前",
-    "invalid_last_name_required": "姓は必須です。",
-    "last_name": "姓",
-    "invalid_email_required": "メールアドレスが必要です。",
-    "invalid_email_format": "有効なメールアドレスを入力してください。",
-    "invalid_email_existed": "このメールのアカウントは既に存在します。",
-    "email_address": "メールアドレス",
-    "invalid_password_required": "パスワードが必要です。",
-    "invalid_length": "6〜12文字でなければなりません。",
-    "password": "パスワードを作成する",
-    "invalid_confirm_password_required": "パスワードが必要であることを確認してください。",
-    "confirm_password": "パスワード確認",
-    "create_account": "アカウントを作成",
-    "already_have_account": "アカウントをお持ちですか？",
-    "signin": "サインイン"
-  },
-  "account_header_list": {
-    "my_account": "私のアカウントを管理する",
-    "my_order": "私の注文",
-    "logout": "ログアウト"
   }
 }

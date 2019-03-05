@@ -44,9 +44,14 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.loginFlg = false;
-    if (localStorage.getItem('Authorization')) {
-      this.loginFlg = true;
-    }
+    this.authService.isAuthenticated()
+      .pipe(
+        tap(authenticated => {
+          if (authenticated) {
+            this.loginFlg = true;
+          }
+        }),
+      );
   }
 
   toggleSidebar(): boolean {

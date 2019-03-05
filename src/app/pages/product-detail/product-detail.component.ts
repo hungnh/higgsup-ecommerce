@@ -47,6 +47,8 @@ export class ProductDetailComponent implements OnInit {
         this.imageList = this.product.imgUrl.split(";", 10);
         this.imageList.pop();
         this.imageView = this.imageList[0];
+        console.log(this.imageView);
+        console.log(this.imageList[0]);
         this.newPrice = this.product.unitPrice * (100 - this.product.discountPercent)/100;
         this.newPrice = this.product.unitPrice * (100 - this.product.discountPercent) / 100;
       } else {
@@ -63,7 +65,6 @@ export class ProductDetailComponent implements OnInit {
       amount: this.amount,
       productId: this.product.id
     };
-
     this.cartService.addProductIntoCart(product).subscribe((res: ResponseDTO) => {
       if (!res.responseMessage.messageCode) {
         Swal.fire({
@@ -72,23 +73,6 @@ export class ProductDetailComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
-      } else {
-        Swal.fire({
-          type: 'error',
-          title: 'Something went wrong!',
-        })
-      }
-    });
-  }
-
-  buyNow() {
-    const product = {
-      amount: this.amount,
-      productId: this.product.id
-    };
-    this.cartService.addProductIntoCart(product).subscribe((res: ResponseDTO) => {
-      if (!res.responseMessage.messageCode) {
-        this.router.navigate(['./pages/cart']);
       } else {
         Swal.fire({
           type: 'error',
@@ -113,7 +97,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   doDecreaseQuantity() {
-    return (this.amount > 1) ? this.amount-- : 1
+    return this.amount -= 1;
   }
 
   getFeedBack(id) {

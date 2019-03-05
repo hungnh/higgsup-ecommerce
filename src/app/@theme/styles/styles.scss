@@ -31,10 +31,6 @@
     text-decoration: none;
   }
 
-  button {
-    cursor: pointer !important;
-  }
-
   // custom button encrease and decrease quantity
   .button-quantity {
     background-color: #d6d6d6;
@@ -141,6 +137,8 @@
   span .custom-control-description:hover {
     border-color: #d0611e !important;
   }
+
+
 
   nb-checkbox .customised-control-input:checked + .customised-control-indicator::before {
     border-color: #d0611e;
