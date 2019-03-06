@@ -20,7 +20,6 @@
           padding: 5px;
           width: 450px;
           height: 450px;
-          background-image: url("https://cf.shopee.vn/file/c7bdd6714e6f511873786845e454b635");
           background-size: contain;
           background-repeat: no-repeat;
           background-position: 50%;
@@ -31,12 +30,12 @@
         margin: 5px -5px;
         .image-item {
           display: inline-block;
-          width: 82px;
-          height: 82px;
+          width: 112px;
+          height: 112px;
           margin: 5px;
           box-sizing: border-box;
         }
-        .image-item:hover {
+        .image-item:hover img{
           border: 2px solid #ee4d2d;
         }
       }

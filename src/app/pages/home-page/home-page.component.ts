@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HomePageService} from '../../@core/data/home-page.service';
-import {Router} from "@angular/router";
+import {NavigationExtras, Router} from "@angular/router";
 
 @Component({
   selector: 'ngx-home-page',
@@ -24,6 +24,14 @@ export class HomePageComponent implements OnInit {
     this.getTopSale();
     this.getShopByCategory();
     this.getMenu();
+  }
+  goToProductDetail(productId: number) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        "productId": productId
+      }
+    };
+    this.router.navigate(['./pages/product-detail'], navigationExtras);
   }
 
   getTopSale() {
@@ -65,10 +73,11 @@ export class HomePageComponent implements OnInit {
     this.slide = event.current;
   }
 
-  routeToResultList(id: number, searchFrom: string) {
+  routeToResultList(id: number, name: string ,searchFrom: string) {
     this.router.navigate(['./pages/result-list'], {
       queryParams: {
         'categoryId': id,
+        'categoryName': name,
         'from': searchFrom
       }
     });
