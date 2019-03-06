@@ -11,10 +11,7 @@ export class HomePageComponent implements OnInit {
   topSaleItems = [];
   shopByCategoryItems = [];
   menuList = [];
-  subMenuList = [];
-  subMenuSecondList = [];
   seeMore = true;
-  showMenu = false;
   slide: number;
 
   constructor(private homeService: HomePageService, private router: Router) {
@@ -50,19 +47,6 @@ export class HomePageComponent implements OnInit {
     this.homeService.getMenu().subscribe(data => {
       this.menuList = data['menu'];
     });
-  }
-
-  getSubMenu(menu) {
-    this.subMenuList = this.menuList[menu].sub;
-  }
-
-  getSubMenuSecond(subMenu) {
-    this.subMenuSecondList = this.subMenuList[subMenu].sub;
-    if (this.subMenuSecondList) {
-      this.showMenu = true;
-    } else {
-      this.showMenu = false;
-    }
   }
 
   onSeeMore() {
