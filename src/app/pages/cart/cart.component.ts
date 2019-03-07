@@ -17,7 +17,8 @@ import {DataTransferService} from "../../@core/services/data-transfer.service";
 })
 export class CartComponent implements OnInit {
 
-  productList: Array<ProductModel> = [];
+  productList: Array<ProductModel>;
+  count: number;
   subTotal: number = null;
   currency: string = '';
   allowDelete: boolean = false;
@@ -55,6 +56,11 @@ export class CartComponent implements OnInit {
         this.productList.forEach(product => {
           this.subTotal += product.amount * (100 - product.discountPercent) / 100 * product.unitPrice;
         });
+        if (!this.productList) {
+          this.count = 0;
+        } else {
+          this.count = this.productList.length;
+        }
       }
     })
   }

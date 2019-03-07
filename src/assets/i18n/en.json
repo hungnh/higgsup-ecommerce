@@ -67,7 +67,8 @@
     "remove_item": "Remove item",
     "question_removing": "Do you want to remove this item from cart ?",
     "cancel": "cancel",
-    "accept": "accept"
+    "accept": "accept",
+    "no_item": "There's no item in this cart!"
   },
   "confirm-buying": {
     "delivery_address": "Delivery Address",

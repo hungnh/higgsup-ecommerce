@@ -1,15 +1,15 @@
 <div class="container">
-  <div class="row ml-2" *ngIf="productList.length >= 1">
-    <h5 *ngIf="productList.length == 1">
+  <div class="row ml-2 mt-2" *ngIf="count >= 1">
+    <h5 *ngIf="count == 1">
       <span translate>cart.total</span>:
-      <span translate [translateParams]="{number: productList.length}">cart.products_count</span>
+      <span translate [translateParams]="{number: count}">cart.products_count</span>
     </h5>
-    <h5 *ngIf="productList.length > 1" translate>
+    <h5 *ngIf="count > 1" translate>
       <span translate>cart.total</span>:
-      <span translate [translateParams]="{number: productList.length}">cart.products_count</span>
+      <span translate [translateParams]="{number: count}">cart.products_count</span>
     </h5>
   </div>
-  <div class="row mt-3" *ngIf="productList.length >= 1">
+  <div class="row mt-2" *ngIf="count >= 1">
     <div class="col-md-8">
       <nb-card>
         <div class="row" name="cart-info" *ngFor="let product of productList">
@@ -108,11 +108,9 @@
       </button>
     </div>
   </div>
-  <div class="row mt-3" *ngIf="productList.length < 1">
+  <div class="row mt-3" *ngIf="count < 1">
     <div class="col-12" name="cart-empty-scope">
-      <div align="center" name="cart-empty-text">There's no items in this
-        cart!
-      </div>
+      <div align="center" name="cart-empty-text"><span translate>cart.no_item</span></div>
     </div>
     <div class="col-12 mt-4">
       <div align="center">

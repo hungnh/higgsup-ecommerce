@@ -8,8 +8,9 @@ import {CartService} from "../../@core/services/cart.service";
 import Swal from 'sweetalert2'
 import {Feedback} from "../../@core/model/feedback.model";
 import {ProductModel} from "../../@core/model/product.model";
-import {Location} from '@angular/common';
-
+import {BreadcrumbService} from "../../@core/services/breadcrumb.service";
+import {Breadcrumb} from "../../@core/model/breadcrumb.model";
+import {PathConfig} from "../../@core/constant/path-config";
 
 @Component({
   selector: 'product-detail',
@@ -30,14 +31,41 @@ export class ProductDetailComponent implements OnInit {
   sumRating: number = 0;
   imageList = [];
   imageView;
+  breadcrumb: Array<Breadcrumb> = new Array<Breadcrumb>();
+
   constructor(private productService: ProductDetailsService, private router: Router, private activeRoute: ActivatedRoute,
-              private cartService: CartService, private location: Location) {
+              private cartService: CartService, private breadcrumbService: BreadcrumbService) {
     this.queryParams = this.activeRoute.snapshot.queryParams;
   }
 
   ngOnInit() {
     this.currency = Currency.USD;
     this.id = this.queryParams.productId;
+    this.productService.getProductDetail(this.id).subscribe((res: ResponseDTO) => {
+      if (!res.responseMessage.messageCode) {
+        this.product = res.responseMessage.data;
+        this.listRating = this.product.ratingCount;
+        this.listRating.forEach(feedback => {
+          this.sumRating += feedback.counting;
+        });
+        this.imageList = this.product.imgUrl.split(";", 10);
+        this.imageList.pop();
+        this.imageView = this.imageList[0];
+        this.newPrice = this.product.unitPrice * (100 - this.product.discountPercent) / 100;
+        this.newPrice = this.product.unitPrice * (100 - this.product.discountPercent) / 100;
+        let breadcrumbParams = {
+          categoryId: this.product.categoryId,
+          productId: this.product.id
+        };
+        this.breadcrumbService.getBreadcrumb(breadcrumbParams).subscribe((res: ResponseDTO) => {
+          if (!res.responseMessage.messageCode) {
+            this.breadcrumb = res.responseMessage.data;
+          }
+        });
+      } else {
+        this.router.navigate(['pages/not-found']);
+      }
+    });
     this.getFeedBack(this.id);
     this.getProductDetail();
     this.getRelatedProduct(this.id);
@@ -148,6 +176,15 @@ export class ProductDetailComponent implements OnInit {
         this.newPrice = this.product.unitPrice * (100 - this.product.discountPercent) / 100;
       } else {
         this.router.navigate(['pages/not-found']);
+      }
+    });
+  }
+
+  searchWithCategory(id: number) {
+    this.router.navigate(['./pages/result-list'], {
+      queryParams: {
+        'categoryId': id,
+        'from': PathConfig.CATEGORY
       }
     });
   }

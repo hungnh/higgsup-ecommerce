@@ -67,7 +67,8 @@
     "remove_item": "アイテムを削除",
     "question_removing": "このアイテムをカートから削除しますか？",
     "cancel": "キャンセル",
-    "accept": "受け入れる"
+    "accept": "受け入れる",
+    "no_item": "このカートには何もありません！"
   },
   "confirm-buying": {
     "delivery_address": "配達先",
