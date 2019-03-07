@@ -39,11 +39,6 @@ const routes: Routes = [{
       loadChildren: 'app/pages/product-detail/product-detail.module#ProductDetailModule',
     },
     {
-      path: 'product-detail',
-      loadChildren: 'app/pages/product-detail/product-detail.module#ProductDetailModule',
-      // canActivate: [SecurityGuard],
-    },
-    {
       path: 'home',
       loadChildren: 'app/pages/home-page/home-page.module#HomePageModule',
     },
