@@ -214,15 +214,16 @@
     height: 100%;
   }
   /// HOVER ITEM
-  .hover-item:hover {
+  .hover-item:hover, .top-popular-item:hover {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    cursor: pointer;
   }
 
   /// RATING AND FEEDBACK FIX
   .detail-rating-row .progress-value {
     background: #f5a623;
   }
-  .rating-star .star{
+  .rating-star .star {
     color: #f5a623;
   }
   .ui-carousel-next-button, .ui-carousel-prev-button {
@@ -246,9 +247,8 @@
   .ui-carousel-item, .ui-carousel-viewport {
     border: none!important;
   }
-  .ui-carousel-viewport {
-    padding-left: 30px!important;
-    padding-right: 30px!important;
+  .ui-carousel-item {
+    width: 112px!important;
   }
   nb-layout-column.main-content {
     padding: 0!important;

@@ -1,42 +1,42 @@
 <!--START CAROUSEL ZONE-->
 <div class="carousel-zone" [class.first-slide]="slide == 1" [class.second-slide]="slide == 2" [class.third-slide]="slide == 3">
   <div class="container">
-      <div class="menu">
-        <ul class="block-menu-1">
-          <li class="item-menu-1" *ngFor="let menuItem of menuList;" >
-              <span class="item-text-1">{{menuItem.name}}</span>
-            <ul class="block-menu-2" *ngIf="menuItem.sub">
-              <li class="item-menu-2" *ngFor="let subItem of menuItem.sub" (click)="routeToResultList(subItem.id,subItem.name,'category')">
-                <span class="item-text-2">{{subItem.name}}</span>
-                <ul class="block-menu-3" *ngIf="subItem.sub">
-                  <li class="item-menu-3" *ngFor="let subChild1 of subItem.sub" (click)="routeToResultList(subChild1.id,subChild1.name,'category')">
-                    <span class="item-text-3">{{subChild1.name}}</span>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
+    <div class="menu">
+      <ul class="block-menu-1">
+        <li class="item-menu-1" *ngFor="let menuItem of menuList;" >
+          <span class="item-text-1">{{menuItem.name}}</span>
+          <ul class="block-menu-2" *ngIf="menuItem.sub">
+            <li class="item-menu-2" *ngFor="let subItem of menuItem.sub" (click)="routeToResultList(subItem.id,subItem.name,'category')">
+              <span class="item-text-2">{{subItem.name}}</span>
+              <ul class="block-menu-3" *ngIf="subItem.sub">
+                <li class="item-menu-3" *ngFor="let subChild1 of subItem.sub" (click)="routeToResultList(subChild1.id,subChild1.name,'category')">
+                  <span class="item-text-3">{{subChild1.name}}</span>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
-      <div class="carousel">
-        <ngb-carousel (slide)="changeBg($event)">
-          <ng-template id="1" ngbSlide>
-            <img src="assets/images/carousel1.jpg" alt="Random first slide">
-            <div class="carousel-caption">
-            </div>
-          </ng-template>
-          <ng-template id="2" ngbSlide>
-            <img src="assets/images/carousel2.jpg" alt="Random first slide">
-            <div class="carousel-caption">
-            </div>
-          </ng-template>
-          <ng-template id="3" ngbSlide>
-            <img src="assets/images/carousel3.jpg" alt="Random first slide">
-            <div class="carousel-caption">
-            </div>
-          </ng-template>
-        </ngb-carousel>
-      </div>
+    <div class="carousel">
+      <ngb-carousel (slide)="changeBg($event)">
+        <ng-template id="1" ngbSlide>
+          <img src="assets/images/carousel1.jpg" alt="Random first slide">
+          <div class="carousel-caption">
+          </div>
+        </ng-template>
+        <ng-template id="2" ngbSlide>
+          <img src="assets/images/carousel2.jpg" alt="Random first slide">
+          <div class="carousel-caption">
+          </div>
+        </ng-template>
+        <ng-template id="3" ngbSlide>
+          <img src="assets/images/carousel4.webp" alt="Random first slide">
+          <div class="carousel-caption">
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
   </div>
 </div>
 <!--END CAROUSEL ZONE-->
@@ -46,121 +46,121 @@
     <!--START TOP SALE-->
     <h3 class="caption">Top sale</h3>
     <nb-card>
-    <div class="top-sale-block">
-          <div class="header-zone">
-            <span class="see-more button-payment" *ngIf="seeMore" (click)="onSeeMore()">SEE MORE</span>
-            <span class="see-more button-payment" *ngIf="!seeMore" (click)="onSeeMore()">COLLAPSE</span>
-          </div>
-            <div class="item-zone row" [class.over-flow]="seeMore">
-              <div *ngFor="let topSaleItem of topSaleItems" class="card hover-item">
-                <div class="card-img">
-                  <img class="card-img-top" src="{{topSaleItem.mainImgUrl}}">
-                </div>
-                <div class="card-body">
-                  <p class="card-title">{{topSaleItem.name}}</p>
-                  <div class="price-zone">
-                    <p class="card-text price">${{(topSaleItem.unitPrice * (100 -topSaleItem.discountPercent))/100 |number}}</p>
-                    <span class="origin-price">${{topSaleItem.unitPrice}}</span>
-                    <span class="discount">-{{topSaleItem.discountPercent}}%</span>
-                  </div>
-                </div>
+      <div class="top-sale-block">
+        <div class="header-zone">
+          <span class="see-more button-payment" *ngIf="seeMore" (click)="onSeeMore()">SEE MORE</span>
+          <span class="see-more button-payment" *ngIf="!seeMore" (click)="onSeeMore()">COLLAPSE</span>
+        </div>
+        <div class="item-zone row" [class.over-flow]="seeMore">
+          <div *ngFor="let topSaleItem of topSaleItems" class="card hover-item" (click)="goToProductDetail(topSaleItem.id)">
+            <div class="card-img">
+              <img class="card-img-top" src="{{topSaleItem.mainImgUrl}}">
+            </div>
+            <div class="card-body">
+              <p class="card-title">{{topSaleItem.name}}</p>
+              <div class="price-zone">
+                <p class="card-text price">${{(topSaleItem.unitPrice * (100 -topSaleItem.discountPercent))/100 |number}}</p>
+                <span class="origin-price">${{topSaleItem.unitPrice}}</span>
+                <span class="discount">-{{topSaleItem.discountPercent}}%</span>
               </div>
             </div>
+          </div>
         </div>
+      </div>
     </nb-card>
     <!--END TOP SALE-->
 
     <!--START SHOP BY CATEGORY-->
-        <h3 class="caption">Shop by category</h3>
-      <nb-card>
-        <div class="category-zone">
-          <div class="category-item">
-            <div *ngFor="let categoryItem of shopByCategoryItems" class="card category-card hover-item" (click)="routeToResultList(categoryItem.id,categoryItem.name,'category')">
-              <img class="card-img-top" src="{{categoryItem.imgUrl}}">
-              <div class="card-body">
-                <p class="card-title">{{categoryItem.name}}</p>
-              </div>
+    <h3 class="caption">Shop by category</h3>
+    <nb-card>
+      <div class="category-zone">
+        <div class="category-item">
+          <div *ngFor="let categoryItem of shopByCategoryItems" class="card category-card hover-item" (click)="routeToResultList(categoryItem.id,categoryItem.name,'category')">
+            <img class="card-img-top" src="{{categoryItem.imgUrl}}">
+            <div class="card-body">
+              <p class="card-title">{{categoryItem.name}}</p>
             </div>
           </div>
         </div>
-      </nb-card>
+      </div>
+    </nb-card>
     <!--END SHOP BY CATEGORY-->
 
     <!--START TOP SEARCHING-->
     <h3 class="caption">Top searching</h3>
-      <nb-card>
-        <div class="top-searching">
-          <div class="most-popular hover-item" (click)="routeToResultList(100000,'Keyboard','category')">
-            <img src="assets/images/top-searching1.jpg" alt="">
-            <div class="info-most-popular">
-              <p>Keyboard</p>
-              <p class="product-number">153,111 products</p>
+    <nb-card>
+      <div class="top-searching">
+        <div class="most-popular hover-item" (click)="routeToResultList(100000,'Keyboard','category')">
+          <img src="assets/images/top-searching1.jpg" alt="">
+          <div class="info-most-popular">
+            <p>Keyboard</p>
+            <p class="product-number">153,111 products</p>
+          </div>
+        </div>
+        <div class="top-popular">
+          <div class="top-popular-items">
+            <div class="top-popular-item" (click)="routeToResultList(100001,'Phone','category')">
+              <img src="assets/images/top-searching2.webp" alt="">
+              <div class="info-product">
+                <p>Phone</p>
+                <p class="product-number">802,000 products</p>
+              </div>
+            </div>
+            <div class="top-popular-item" (click)="routeToResultList(100002,'Sim 4G','category')">
+              <img src="assets/images/top-searching3.webp" alt="">
+              <div class="info-product">
+                <p>Sim 4G</p>
+                <p class="product-number">126,000 products</p>
+              </div>
+            </div>
+            <div class="top-popular-item" (click)="routeToResultList(100003,'Computer Mouse','category')">
+              <img src="assets/images/top-searching4.webp" alt="">
+              <div class="info-product">
+                <p>Computer Mouse</p>
+                <p class="product-number">148,234 products</p>
+              </div>
+            </div>
+            <div class="top-popular-item" (click)="routeToResultList(100004,'Led Light','category')">
+              <img src="assets/images/top-searching5.webp" alt="">
+              <div class="info-product">
+                <p>Led Light</p>
+                <p class="product-number">148,000 products</p>
+              </div>
             </div>
           </div>
-          <div class="top-popular">
-            <div class="top-popular-items">
-              <div class="top-popular-item" (click)="routeToResultList(100001,'Phone','category')">
-                <img src="assets/images/top-searching2.webp" alt="">
-                <div class="info-product">
-                  <p>Phone</p>
-                  <p class="product-number">802,000 products</p>
-                </div>
-              </div>
-              <div class="top-popular-item" (click)="routeToResultList(100002,'Sim 4G','category')">
-                <img src="assets/images/top-searching3.webp" alt="">
-                <div class="info-product">
-                  <p>Sim 4G</p>
-                  <p class="product-number">126,000 products</p>
-                </div>
-              </div>
-              <div class="top-popular-item" (click)="routeToResultList(100003,'Computer Mouse','category')">
-                <img src="assets/images/top-searching4.webp" alt="">
-                <div class="info-product">
-                  <p>Computer Mouse</p>
-                  <p class="product-number">148,234 products</p>
-                </div>
-              </div>
-              <div class="top-popular-item" (click)="routeToResultList(100004,'Led Light','category')">
-                <img src="assets/images/top-searching5.webp" alt="">
-                <div class="info-product">
-                  <p>Led Light</p>
-                  <p class="product-number">148,000 products</p>
-                </div>
+          <div class="top-popular-items" (click)="routeToResultList(100005,'HeadPhone','category')">
+            <div class="top-popular-item">
+              <img src="assets/images/top-searching6.webp" alt="">
+              <div class="info-product">
+                <p>HeadPhone</p>
+                <p class="product-number">720,039 products</p>
               </div>
             </div>
-            <div class="top-popular-items" (click)="routeToResultList(100005,'HeadPhone','category')">
-              <div class="top-popular-item">
-                <img src="assets/images/top-searching6.webp" alt="">
-                <div class="info-product">
-                  <p>HeadPhone</p>
-                  <p class="product-number">720,039 products</p>
-                </div>
+            <div class="top-popular-item" (click)="routeToResultList(100006,'Mini fan','category')">
+              <img src="assets/images/top-searching7.webp" alt="">
+              <div class="info-product">
+                <p>Mini fan</p>
+                <p class="product-number">46,020 products</p>
               </div>
-              <div class="top-popular-item" (click)="routeToResultList(100006,'Mini fan','category')">
-                <img src="assets/images/top-searching7.webp" alt="">
-                <div class="info-product">
-                  <p>Mini fan</p>
-                  <p class="product-number">46,020 products</p>
-                </div>
+            </div>
+            <div class="top-popular-item" (click)="routeToResultList(100007,'Crossover bag','category')">
+              <img src="assets/images/top-searching8.webp" alt="">
+              <div class="info-product">
+                <p>Crossover bag</p>
+                <p class="product-number">220,000 products</p>
               </div>
-              <div class="top-popular-item" (click)="routeToResultList(100007,'Crossover bag','category')">
-                <img src="assets/images/top-searching8.webp" alt="">
-                <div class="info-product">
-                  <p>Crossover bag</p>
-                  <p class="product-number">220,000 products</p>
-                </div>
-              </div>
-              <div class="top-popular-item" (click)="routeToResultList(100008,'Men','category')">
-                <img src="assets/images/top-searching9.webp" alt="">
-                <div class="info-product">
-                  <p>Men\'s perfume</p>
-                  <p class="product-number">123,445 products</p>
-                </div>
+            </div>
+            <div class="top-popular-item" (click)="routeToResultList(100008,'Men','category')">
+              <img src="assets/images/top-searching9.webp" alt="">
+              <div class="info-product">
+                <p>Men\'s perfume</p>
+                <p class="product-number">123,445 products</p>
               </div>
             </div>
           </div>
         </div>
-      </nb-card>
+      </div>
+    </nb-card>
     <!--END TOP SEARCHING-->
     <hr>
   </div>

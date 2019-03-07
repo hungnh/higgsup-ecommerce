@@ -18,7 +18,7 @@
           <div class="image-block" [ngStyle]="{ 'background-image': 'url(' + imageView + ')'}"></div>
         </div>
         <div class="image-list">
-          <p-carousel [value]="imageList" [numVisible]="5">
+          <p-carousel [value]="imageList" [numVisible]="4">
             <ng-template let-img pTemplate="img">
               <div class="ui-grid ui-grid-responsive">
                 <div class="ui-grid-row" (mouseover)="viewImages(img)">
@@ -180,7 +180,7 @@
     </div>
     <div class="row detail-description">
       <div class="col-12 caption">
-          <span translate>product-detail.detail_description</span>
+        <span translate>product-detail.detail_description</span>
       </div>
       <div class="col-12 content-zone">
         {{product.fullDesc}}
@@ -217,17 +217,17 @@
           <div class="detail">
             <div class="rating-star">
               <div class="rating-row" *ngFor="let star of starArray">
-                  <ngb-rating [(rate)]="star" max=5 [readonly]="true"
-                              class="rating-link">
-                    <ng-template let-fill="fill">
-                      <a href="javascript:" class="rating-link">
+                <ngb-rating [(rate)]="star" max=5 [readonly]="true"
+                            class="rating-link">
+                  <ng-template let-fill="fill">
+                    <a href="javascript:" class="rating-link">
                   <span class="star fill" [class.filled]="fill === 100">
                     <i class="ion-android-star" *ngIf="fill === 100"></i>
                     <i class="ion-android-star-outline" *ngIf="fill !== 100"></i>
                   </span>
-                      </a>
-                    </ng-template>
-                  </ngb-rating>
+                    </a>
+                  </ng-template>
+                </ngb-rating>
               </div>
             </div>
             <div class="detail-rating">
@@ -277,14 +277,14 @@
       <div class="col-12 mt-2 content-zone">
 
         <div class="item-zone row">
-          <div *ngFor="let item of relatedItemList" class="card hover-item">
+          <div *ngFor="let relatedItem of relatedItemList" class="card hover-item" (click)="goToProductDetail(relatedItem.id)">
             <div class="card-img">
-              <img class="card-img-top" src="{{item.mainImgUrl}}">
+              <img class="card-img-top" src="{{relatedItem.mainImgUrl}}">
             </div>
             <div class="card-body">
-              <p class="card-title">{{item.name}}</p>
+              <p class="card-title">{{relatedItem.name}}</p>
               <div class="price-zone">
-                <span class="origin-price">${{item.unitPrice}}</span>
+                <span class="origin-price">${{relatedItem.unitPrice}}</span>
               </div>
             </div>
           </div>
